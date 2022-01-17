@@ -1,0 +1,1231 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1EEA5345D1559CE790FDEDFD /* libPods-TuyaSmartOutdoorKit-Example-iOS-Objc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55C67AC32BD3EC882AA643CF /* libPods-TuyaSmartOutdoorKit-Example-iOS-Objc.a */; };
+		A054E6AA278BC36A00262886 /* TYODBluetoothStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A054E6A9278BC36A00262886 /* TYODBluetoothStateManager.m */; };
+		A06A5B7E278D4C8500CD0D67 /* DeviceDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A5B7D278D4C8400CD0D67 /* DeviceDetailTableViewController.m */; };
+		A06A5B80278D560A00CD0D67 /* UserInformation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A06A5B7F278D560A00CD0D67 /* UserInformation.storyboard */; };
+		A06A5B83278D565600CD0D67 /* UserInformationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A5B82278D565600CD0D67 /* UserInformationTableViewController.m */; };
+		A070D9B5278EA2A900555374 /* NSObject+Outdoor.m in Sources */ = {isa = PBXBuildFile; fileRef = A070D9B3278EA2A700555374 /* NSObject+Outdoor.m */; };
+		A070D9B9278EA9BA00555374 /* TYODDPObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = A070D9B8278EA9BA00555374 /* TYODDPObserver.m */; };
+		A081AA47277ABB7D00878378 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A081AA46277ABB7D00878378 /* AppDelegate.m */; };
+		A081AA52277ABB8000878378 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A081AA51277ABB8000878378 /* Assets.xcassets */; };
+		A081AA55277ABB8000878378 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A081AA53277ABB8000878378 /* LaunchScreen.storyboard */; };
+		A081AA58277ABB8000878378 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A081AA57277ABB8000878378 /* main.m */; };
+		A081AA84277AC0BB00878378 /* TYSmartOutdoorMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A081AA66277AC0BB00878378 /* TYSmartOutdoorMain.storyboard */; };
+		A081AA85277AC0BB00878378 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A081AA67277AC0BB00878378 /* Home.storyboard */; };
+		A081AA86277AC0BB00878378 /* UserInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A081AA68277AC0BB00878378 /* UserInfo.storyboard */; };
+		A081AA87277AC0BB00878378 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A081AA69277AC0BB00878378 /* Register.storyboard */; };
+		A081AA88277AC0BB00878378 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A081AA6A277AC0BB00878378 /* Main.storyboard */; };
+		A081AA89277AC0BB00878378 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A081AA6B277AC0BB00878378 /* Login.storyboard */; };
+		A081AA8A277AC0BB00878378 /* TYODHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A081AA6F277AC0BB00878378 /* TYODHomeTableViewController.m */; };
+		A081AA8B277AC0BB00878378 /* TYODDeviceListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A081AA71277AC0BB00878378 /* TYODDeviceListTableViewController.m */; };
+		A081AA8E277AC0BB00878378 /* TYODRegisterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A081AA77277AC0BB00878378 /* TYODRegisterTableViewController.m */; };
+		A081AA8F277AC0BB00878378 /* TYODUserInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A081AA7B277AC0BB00878378 /* TYODUserInfoTableViewController.m */; };
+		A081AA90277AC0BB00878378 /* TYODLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A081AA7F277AC0BB00878378 /* TYODLoginViewController.m */; };
+		A081AA91277AC0BB00878378 /* TYODResetPasswordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A081AA80277AC0BB00878378 /* TYODResetPasswordTableViewController.m */; };
+		A081AA92277AC0BB00878378 /* t_s.bmp in Resources */ = {isa = PBXBuildFile; fileRef = A081AA82277AC0BB00878378 /* t_s.bmp */; };
+		A081AA98277AE73F00878378 /* TYODProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A081AA95277AE73F00878378 /* TYODProgressHUD.m */; };
+		A081AA99277AE73F00878378 /* TYODConfigTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A081AA96277AE73F00878378 /* TYODConfigTool.m */; };
+		A089D523278579F000950C33 /* TYODDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D522278579F000950C33 /* TYODDataManager.m */; };
+		A089D53827858A6100950C33 /* TYODDPLanguageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D52E27858A6000950C33 /* TYODDPLanguageManager.m */; };
+		A089D53927858A6100950C33 /* TuyaSmartDeviceModel+ODDpSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D53027858A6000950C33 /* TuyaSmartDeviceModel+ODDpSchema.m */; };
+		A089D53A27858A6100950C33 /* TuyaSmartDeviceModel+Outdoors.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D53227858A6000950C33 /* TuyaSmartDeviceModel+Outdoors.m */; };
+		A089D53B27858A6100950C33 /* TuyaSmartSchemaModel+ValueProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D53527858A6000950C33 /* TuyaSmartSchemaModel+ValueProtocol.m */; };
+		A089D53C27858A6100950C33 /* TuyaSmartDevice+Outdoors.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D53727858A6000950C33 /* TuyaSmartDevice+Outdoors.m */; };
+		A089D54027858C6900950C33 /* TYSmartOutdoorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D53F27858C6900950C33 /* TYSmartOutdoorUtils.m */; };
+		A089D54927858D3E00950C33 /* TYSOHomePresenter+Network.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D54527858D3E00950C33 /* TYSOHomePresenter+Network.m */; };
+		A089D54A27858D3E00950C33 /* TYSOHomePresenter+HomeData.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D54727858D3E00950C33 /* TYSOHomePresenter+HomeData.m */; };
+		A089D54B27858D3E00950C33 /* TYSOHomePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D54827858D3E00950C33 /* TYSOHomePresenter.m */; };
+		A089D54E278598F800950C33 /* UIViewController+Outdoor.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D54D278598F800950C33 /* UIViewController+Outdoor.m */; };
+		A089D55127859C8000950C33 /* TYSmartOutdoorRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D55027859C8000950C33 /* TYSmartOutdoorRequestManager.m */; };
+		A089D5692785C7E600950C33 /* TYODDeviceListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D5682785C7E600950C33 /* TYODDeviceListTableViewCell.m */; };
+		A089D56D2786902500950C33 /* APMode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A089D56C2786902500950C33 /* APMode.storyboard */; };
+		A089D56F2786913300950C33 /* EZMode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A089D56E2786913300950C33 /* EZMode.storyboard */; };
+		A089D5712786928200950C33 /* API.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A089D5702786928200950C33 /* API.storyboard */; };
+		A089D5752786C41500950C33 /* TYODDeviceStatusBehaveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D5742786C41400950C33 /* TYODDeviceStatusBehaveCell.m */; };
+		A089D57B2786C4C000950C33 /* TYODSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D57A2786C4C000950C33 /* TYODSwitchTableViewCell.m */; };
+		A089D57E2786C4D000950C33 /* TYODSliderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D57D2786C4D000950C33 /* TYODSliderTableViewCell.m */; };
+		A089D5812786C4E000950C33 /* TYODEnumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D5802786C4E000950C33 /* TYODEnumTableViewCell.m */; };
+		A089D5842786C4EF00950C33 /* TYODStringTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D5832786C4EF00950C33 /* TYODStringTableViewCell.m */; };
+		A089D5872786C50100950C33 /* TYODLabelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D5862786C50100950C33 /* TYODLabelTableViewCell.m */; };
+		A089D58D2786E4E100950C33 /* APModeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D58B2786E4E000950C33 /* APModeTableViewController.m */; };
+		A089D58E2786E4E100950C33 /* EZModeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D58C2786E4E000950C33 /* EZModeTableViewController.m */; };
+		A089D59E2786F7DE00950C33 /* DualModelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D5992786F7DD00950C33 /* DualModelTableViewController.m */; };
+		A089D59F2786F7DF00950C33 /* BLEModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D59B2786F7DE00950C33 /* BLEModelViewController.m */; };
+		A089D5A02786F7DF00950C33 /* SIGMeshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D59D2786F7DE00950C33 /* SIGMeshTableViewController.m */; };
+		A089D5A42786F7F100950C33 /* DualModel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A089D5A12786F7F100950C33 /* DualModel.storyboard */; };
+		A089D5A52786F7F100950C33 /* SIGMesh.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A089D5A22786F7F100950C33 /* SIGMesh.storyboard */; };
+		A089D5A62786F7F100950C33 /* BLE.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A089D5A32786F7F100950C33 /* BLE.storyboard */; };
+		A089D5B62786FF0D00950C33 /* Home.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D5AA2786FF0D00950C33 /* Home.m */; };
+		A089D5B72786FF0D00950C33 /* SwitchHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D5AD2786FF0D00950C33 /* SwitchHomeTableViewController.m */; };
+		A089D5B82786FF0D00950C33 /* EditHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D5AF2786FF0D00950C33 /* EditHomeTableViewController.m */; };
+		A089D5B92786FF0D00950C33 /* NewHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D5B02786FF0D00950C33 /* NewHomeTableViewController.m */; };
+		A089D5BA2786FF0D00950C33 /* HomeDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D5B12786FF0D00950C33 /* HomeDetailTableViewController.m */; };
+		A089D5BB2786FF0D00950C33 /* HomeListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D5B32786FF0D00950C33 /* HomeListTableViewController.m */; };
+		A089D5C2278700C400950C33 /* Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D5BD278700C300950C33 /* Alert.m */; };
+		A089D5C3278700C400950C33 /* UIButton+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D5BF278700C300950C33 /* UIButton+Extensions.m */; };
+		A089D5C4278700C400950C33 /* NotificationName.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D5C0278700C300950C33 /* NotificationName.m */; };
+		A089D5C82787011400950C33 /* HomeList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A089D5C52787011400950C33 /* HomeList.storyboard */; };
+		A089D5C92787011400950C33 /* NewHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A089D5C62787011400950C33 /* NewHome.storyboard */; };
+		A089D5CA2787011400950C33 /* SwitchHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A089D5C72787011400950C33 /* SwitchHome.storyboard */; };
+		A089D5D327870C0400950C33 /* TYODAPIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D5D227870C0400950C33 /* TYODAPIViewController.m */; };
+		A0D8B64B27903A6E00537332 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D8B64A27903A6D00537332 /* MainViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		157DF7C266F52AE177BB8EF5 /* Pods-TuyaSmartOutdoorKit-Example-iOS-Objc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuyaSmartOutdoorKit-Example-iOS-Objc.debug.xcconfig"; path = "Target Support Files/Pods-TuyaSmartOutdoorKit-Example-iOS-Objc/Pods-TuyaSmartOutdoorKit-Example-iOS-Objc.debug.xcconfig"; sourceTree = "<group>"; };
+		55C67AC32BD3EC882AA643CF /* libPods-TuyaSmartOutdoorKit-Example-iOS-Objc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TuyaSmartOutdoorKit-Example-iOS-Objc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		55E8769B1CEA17E69B4BB0F4 /* Pods-TuyaSmartOutdoorKit-Example-iOS-Objc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuyaSmartOutdoorKit-Example-iOS-Objc.release.xcconfig"; path = "Target Support Files/Pods-TuyaSmartOutdoorKit-Example-iOS-Objc/Pods-TuyaSmartOutdoorKit-Example-iOS-Objc.release.xcconfig"; sourceTree = "<group>"; };
+		A054E6A8278BC36A00262886 /* TYODBluetoothStateManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYODBluetoothStateManager.h; sourceTree = "<group>"; };
+		A054E6A9278BC36A00262886 /* TYODBluetoothStateManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYODBluetoothStateManager.m; sourceTree = "<group>"; };
+		A06A5B7C278D4C8400CD0D67 /* DeviceDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceDetailTableViewController.h; sourceTree = "<group>"; };
+		A06A5B7D278D4C8400CD0D67 /* DeviceDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceDetailTableViewController.m; sourceTree = "<group>"; };
+		A06A5B7F278D560A00CD0D67 /* UserInformation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserInformation.storyboard; sourceTree = "<group>"; };
+		A06A5B81278D565600CD0D67 /* UserInformationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInformationTableViewController.h; sourceTree = "<group>"; };
+		A06A5B82278D565600CD0D67 /* UserInformationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInformationTableViewController.m; sourceTree = "<group>"; };
+		A070D9B3278EA2A700555374 /* NSObject+Outdoor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Outdoor.m"; sourceTree = "<group>"; };
+		A070D9B4278EA2A900555374 /* NSObject+Outdoor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Outdoor.h"; sourceTree = "<group>"; };
+		A070D9B7278EA9BA00555374 /* TYODDPObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYODDPObserver.h; sourceTree = "<group>"; };
+		A070D9B8278EA9BA00555374 /* TYODDPObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYODDPObserver.m; sourceTree = "<group>"; };
+		A081AA42277ABB7D00878378 /* TuyaSmartOutdoorKit-Example-iOS-Objc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TuyaSmartOutdoorKit-Example-iOS-Objc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A081AA45277ABB7D00878378 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A081AA46277ABB7D00878378 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A081AA51277ABB8000878378 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A081AA54277ABB8000878378 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A081AA56277ABB8000878378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A081AA57277ABB8000878378 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A081AA66277AC0BB00878378 /* TYSmartOutdoorMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TYSmartOutdoorMain.storyboard; sourceTree = "<group>"; };
+		A081AA67277AC0BB00878378 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		A081AA68277AC0BB00878378 /* UserInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserInfo.storyboard; sourceTree = "<group>"; };
+		A081AA69277AC0BB00878378 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		A081AA6A277AC0BB00878378 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		A081AA6B277AC0BB00878378 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		A081AA6F277AC0BB00878378 /* TYODHomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYODHomeTableViewController.m; sourceTree = "<group>"; };
+		A081AA71277AC0BB00878378 /* TYODDeviceListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYODDeviceListTableViewController.m; sourceTree = "<group>"; };
+		A081AA72277AC0BB00878378 /* TYODHomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYODHomeTableViewController.h; sourceTree = "<group>"; };
+		A081AA75277AC0BB00878378 /* TYODDeviceListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYODDeviceListTableViewController.h; sourceTree = "<group>"; };
+		A081AA77277AC0BB00878378 /* TYODRegisterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYODRegisterTableViewController.m; sourceTree = "<group>"; };
+		A081AA78277AC0BB00878378 /* TYODRegisterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYODRegisterTableViewController.h; sourceTree = "<group>"; };
+		A081AA7A277AC0BB00878378 /* TYODUserInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYODUserInfoTableViewController.h; sourceTree = "<group>"; };
+		A081AA7B277AC0BB00878378 /* TYODUserInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYODUserInfoTableViewController.m; sourceTree = "<group>"; };
+		A081AA7D277AC0BB00878378 /* TYODLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYODLoginViewController.h; sourceTree = "<group>"; };
+		A081AA7E277AC0BB00878378 /* TYODResetPasswordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYODResetPasswordTableViewController.h; sourceTree = "<group>"; };
+		A081AA7F277AC0BB00878378 /* TYODLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYODLoginViewController.m; sourceTree = "<group>"; };
+		A081AA80277AC0BB00878378 /* TYODResetPasswordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYODResetPasswordTableViewController.m; sourceTree = "<group>"; };
+		A081AA81277AC0BB00878378 /* AppKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppKey.h; sourceTree = "<group>"; };
+		A081AA82277AC0BB00878378 /* t_s.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = t_s.bmp; sourceTree = "<group>"; };
+		A081AA83277AC0BB00878378 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		A081AA94277AE73F00878378 /* TYODConfigTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYODConfigTool.h; sourceTree = "<group>"; };
+		A081AA95277AE73F00878378 /* TYODProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYODProgressHUD.m; sourceTree = "<group>"; };
+		A081AA96277AE73F00878378 /* TYODConfigTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYODConfigTool.m; sourceTree = "<group>"; };
+		A081AA97277AE73F00878378 /* TYODProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYODProgressHUD.h; sourceTree = "<group>"; };
+		A089D521278579F000950C33 /* TYODDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYODDataManager.h; sourceTree = "<group>"; };
+		A089D522278579F000950C33 /* TYODDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYODDataManager.m; sourceTree = "<group>"; };
+		A089D52E27858A6000950C33 /* TYODDPLanguageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYODDPLanguageManager.m; sourceTree = "<group>"; };
+		A089D52F27858A6000950C33 /* TuyaSmartDeviceModel+ODDpSchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TuyaSmartDeviceModel+ODDpSchema.h"; sourceTree = "<group>"; };
+		A089D53027858A6000950C33 /* TuyaSmartDeviceModel+ODDpSchema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TuyaSmartDeviceModel+ODDpSchema.m"; sourceTree = "<group>"; };
+		A089D53127858A6000950C33 /* TuyaSmartSchemaModel+ValueProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TuyaSmartSchemaModel+ValueProtocol.h"; sourceTree = "<group>"; };
+		A089D53227858A6000950C33 /* TuyaSmartDeviceModel+Outdoors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TuyaSmartDeviceModel+Outdoors.m"; sourceTree = "<group>"; };
+		A089D53327858A6000950C33 /* TuyaSmartDeviceModel+Outdoors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TuyaSmartDeviceModel+Outdoors.h"; sourceTree = "<group>"; };
+		A089D53427858A6000950C33 /* TuyaSmartDevice+Outdoors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TuyaSmartDevice+Outdoors.h"; sourceTree = "<group>"; };
+		A089D53527858A6000950C33 /* TuyaSmartSchemaModel+ValueProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TuyaSmartSchemaModel+ValueProtocol.m"; sourceTree = "<group>"; };
+		A089D53627858A6000950C33 /* TYODDPLanguageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYODDPLanguageManager.h; sourceTree = "<group>"; };
+		A089D53727858A6000950C33 /* TuyaSmartDevice+Outdoors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TuyaSmartDevice+Outdoors.m"; sourceTree = "<group>"; };
+		A089D53D27858B4600950C33 /* TYODValueProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYODValueProtocol.h; sourceTree = "<group>"; };
+		A089D53E27858C6900950C33 /* TYSmartOutdoorUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYSmartOutdoorUtils.h; sourceTree = "<group>"; };
+		A089D53F27858C6900950C33 /* TYSmartOutdoorUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYSmartOutdoorUtils.m; sourceTree = "<group>"; };
+		A089D54127858D3E00950C33 /* TYSOHomePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYSOHomePresenter.h; sourceTree = "<group>"; };
+		A089D54227858D3E00950C33 /* TYSOHomePresenter+HomeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TYSOHomePresenter+HomeData.h"; sourceTree = "<group>"; };
+		A089D54327858D3E00950C33 /* TYSOHomeViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYSOHomeViewProtocol.h; sourceTree = "<group>"; };
+		A089D54427858D3E00950C33 /* TYSOHomePresenter+Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TYSOHomePresenter+Network.h"; sourceTree = "<group>"; };
+		A089D54527858D3E00950C33 /* TYSOHomePresenter+Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TYSOHomePresenter+Network.m"; sourceTree = "<group>"; };
+		A089D54627858D3E00950C33 /* TYSOHomePresenterDataProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYSOHomePresenterDataProtocol.h; sourceTree = "<group>"; };
+		A089D54727858D3E00950C33 /* TYSOHomePresenter+HomeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TYSOHomePresenter+HomeData.m"; sourceTree = "<group>"; };
+		A089D54827858D3E00950C33 /* TYSOHomePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYSOHomePresenter.m; sourceTree = "<group>"; };
+		A089D54C278598F800950C33 /* UIViewController+Outdoor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Outdoor.h"; sourceTree = "<group>"; };
+		A089D54D278598F800950C33 /* UIViewController+Outdoor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Outdoor.m"; sourceTree = "<group>"; };
+		A089D54F27859C8000950C33 /* TYSmartOutdoorRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYSmartOutdoorRequestManager.h; sourceTree = "<group>"; };
+		A089D55027859C8000950C33 /* TYSmartOutdoorRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYSmartOutdoorRequestManager.m; sourceTree = "<group>"; };
+		A089D5672785C7E600950C33 /* TYODDeviceListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYODDeviceListTableViewCell.h; sourceTree = "<group>"; };
+		A089D5682785C7E600950C33 /* TYODDeviceListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYODDeviceListTableViewCell.m; sourceTree = "<group>"; };
+		A089D56C2786902500950C33 /* APMode.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = APMode.storyboard; sourceTree = "<group>"; };
+		A089D56E2786913300950C33 /* EZMode.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EZMode.storyboard; sourceTree = "<group>"; };
+		A089D5702786928200950C33 /* API.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = API.storyboard; sourceTree = "<group>"; };
+		A089D5732786C41400950C33 /* TYODDeviceStatusBehaveCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYODDeviceStatusBehaveCell.h; sourceTree = "<group>"; };
+		A089D5742786C41400950C33 /* TYODDeviceStatusBehaveCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYODDeviceStatusBehaveCell.m; sourceTree = "<group>"; };
+		A089D5792786C4C000950C33 /* TYODSwitchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYODSwitchTableViewCell.h; sourceTree = "<group>"; };
+		A089D57A2786C4C000950C33 /* TYODSwitchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYODSwitchTableViewCell.m; sourceTree = "<group>"; };
+		A089D57C2786C4D000950C33 /* TYODSliderTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYODSliderTableViewCell.h; sourceTree = "<group>"; };
+		A089D57D2786C4D000950C33 /* TYODSliderTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYODSliderTableViewCell.m; sourceTree = "<group>"; };
+		A089D57F2786C4E000950C33 /* TYODEnumTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYODEnumTableViewCell.h; sourceTree = "<group>"; };
+		A089D5802786C4E000950C33 /* TYODEnumTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYODEnumTableViewCell.m; sourceTree = "<group>"; };
+		A089D5822786C4EF00950C33 /* TYODStringTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYODStringTableViewCell.h; sourceTree = "<group>"; };
+		A089D5832786C4EF00950C33 /* TYODStringTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYODStringTableViewCell.m; sourceTree = "<group>"; };
+		A089D5852786C50100950C33 /* TYODLabelTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYODLabelTableViewCell.h; sourceTree = "<group>"; };
+		A089D5862786C50100950C33 /* TYODLabelTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYODLabelTableViewCell.m; sourceTree = "<group>"; };
+		A089D5892786E4E000950C33 /* APModeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APModeTableViewController.h; sourceTree = "<group>"; };
+		A089D58A2786E4E000950C33 /* EZModeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZModeTableViewController.h; sourceTree = "<group>"; };
+		A089D58B2786E4E000950C33 /* APModeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APModeTableViewController.m; sourceTree = "<group>"; };
+		A089D58C2786E4E000950C33 /* EZModeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EZModeTableViewController.m; sourceTree = "<group>"; };
+		A089D5982786F7DD00950C33 /* DualModelTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DualModelTableViewController.h; sourceTree = "<group>"; };
+		A089D5992786F7DD00950C33 /* DualModelTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DualModelTableViewController.m; sourceTree = "<group>"; };
+		A089D59A2786F7DE00950C33 /* SIGMeshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIGMeshTableViewController.h; sourceTree = "<group>"; };
+		A089D59B2786F7DE00950C33 /* BLEModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEModelViewController.m; sourceTree = "<group>"; };
+		A089D59C2786F7DE00950C33 /* BLEModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEModelViewController.h; sourceTree = "<group>"; };
+		A089D59D2786F7DE00950C33 /* SIGMeshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIGMeshTableViewController.m; sourceTree = "<group>"; };
+		A089D5A12786F7F100950C33 /* DualModel.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DualModel.storyboard; sourceTree = "<group>"; };
+		A089D5A22786F7F100950C33 /* SIGMesh.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SIGMesh.storyboard; sourceTree = "<group>"; };
+		A089D5A32786F7F100950C33 /* BLE.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BLE.storyboard; sourceTree = "<group>"; };
+		A089D5AA2786FF0D00950C33 /* Home.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Home.m; sourceTree = "<group>"; };
+		A089D5AB2786FF0D00950C33 /* NewHomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewHomeTableViewController.h; sourceTree = "<group>"; };
+		A089D5AC2786FF0D00950C33 /* HomeDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDetailTableViewController.h; sourceTree = "<group>"; };
+		A089D5AD2786FF0D00950C33 /* SwitchHomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchHomeTableViewController.m; sourceTree = "<group>"; };
+		A089D5AE2786FF0D00950C33 /* HomeListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeListTableViewController.h; sourceTree = "<group>"; };
+		A089D5AF2786FF0D00950C33 /* EditHomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditHomeTableViewController.m; sourceTree = "<group>"; };
+		A089D5B02786FF0D00950C33 /* NewHomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewHomeTableViewController.m; sourceTree = "<group>"; };
+		A089D5B12786FF0D00950C33 /* HomeDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDetailTableViewController.m; sourceTree = "<group>"; };
+		A089D5B22786FF0D00950C33 /* Home.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Home.h; sourceTree = "<group>"; };
+		A089D5B32786FF0D00950C33 /* HomeListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeListTableViewController.m; sourceTree = "<group>"; };
+		A089D5B42786FF0D00950C33 /* SwitchHomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchHomeTableViewController.h; sourceTree = "<group>"; };
+		A089D5B52786FF0D00950C33 /* EditHomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditHomeTableViewController.h; sourceTree = "<group>"; };
+		A089D5BC278700C300950C33 /* NotificationName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationName.h; sourceTree = "<group>"; };
+		A089D5BD278700C300950C33 /* Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alert.m; sourceTree = "<group>"; };
+		A089D5BE278700C300950C33 /* UIButton+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extensions.h"; sourceTree = "<group>"; };
+		A089D5BF278700C300950C33 /* UIButton+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extensions.m"; sourceTree = "<group>"; };
+		A089D5C0278700C300950C33 /* NotificationName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationName.m; sourceTree = "<group>"; };
+		A089D5C1278700C400950C33 /* Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alert.h; sourceTree = "<group>"; };
+		A089D5C52787011400950C33 /* HomeList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeList.storyboard; sourceTree = "<group>"; };
+		A089D5C62787011400950C33 /* NewHome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewHome.storyboard; sourceTree = "<group>"; };
+		A089D5C72787011400950C33 /* SwitchHome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SwitchHome.storyboard; sourceTree = "<group>"; };
+		A089D5D127870C0400950C33 /* TYODAPIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYODAPIViewController.h; sourceTree = "<group>"; };
+		A089D5D227870C0400950C33 /* TYODAPIViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYODAPIViewController.m; sourceTree = "<group>"; };
+		A0D8B64927903A6D00537332 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		A0D8B64A27903A6D00537332 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A081AA3F277ABB7D00878378 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EEA5345D1559CE790FDEDFD /* libPods-TuyaSmartOutdoorKit-Example-iOS-Objc.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A06A5B7B278D4C5A00CD0D67 /* Device Management */ = {
+			isa = PBXGroup;
+			children = (
+				A06A5B7C278D4C8400CD0D67 /* DeviceDetailTableViewController.h */,
+				A06A5B7D278D4C8400CD0D67 /* DeviceDetailTableViewController.m */,
+			);
+			path = "Device Management";
+			sourceTree = "<group>";
+		};
+		A070D9B2278EA29000555374 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				A070D9B4278EA2A900555374 /* NSObject+Outdoor.h */,
+				A070D9B3278EA2A700555374 /* NSObject+Outdoor.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		A070D9B6278EA99C00555374 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				A081AA94277AE73F00878378 /* TYODConfigTool.h */,
+				A081AA96277AE73F00878378 /* TYODConfigTool.m */,
+				A081AA97277AE73F00878378 /* TYODProgressHUD.h */,
+				A081AA95277AE73F00878378 /* TYODProgressHUD.m */,
+				A089D54C278598F800950C33 /* UIViewController+Outdoor.h */,
+				A089D54D278598F800950C33 /* UIViewController+Outdoor.m */,
+				A070D9B7278EA9BA00555374 /* TYODDPObserver.h */,
+				A070D9B8278EA9BA00555374 /* TYODDPObserver.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		A081AA39277ABB7D00878378 = {
+			isa = PBXGroup;
+			children = (
+				A081AA44277ABB7D00878378 /* TuyaSmartOutdoorKit-Example-iOS-Objc */,
+				A081AA43277ABB7D00878378 /* Products */,
+				AC065D40702D2FD4A622EA70 /* Pods */,
+				FDB29AB3457D41045367B988 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A081AA43277ABB7D00878378 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A081AA42277ABB7D00878378 /* TuyaSmartOutdoorKit-Example-iOS-Objc.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A081AA44277ABB7D00878378 /* TuyaSmartOutdoorKit-Example-iOS-Objc */ = {
+			isa = PBXGroup;
+			children = (
+				A081AA45277ABB7D00878378 /* AppDelegate.h */,
+				A081AA46277ABB7D00878378 /* AppDelegate.m */,
+				A081AA81277AC0BB00878378 /* AppKey.h */,
+				A081AA83277AC0BB00878378 /* PrefixHeader.pch */,
+				A081AA82277AC0BB00878378 /* t_s.bmp */,
+				A081AA93277AE73F00878378 /* Helper */,
+				A081AA65277AC0BB00878378 /* Storyboard */,
+				A081AA6C277AC0BB00878378 /* ViewController */,
+				A081AA51277ABB8000878378 /* Assets.xcassets */,
+				A081AA53277ABB8000878378 /* LaunchScreen.storyboard */,
+				A081AA56277ABB8000878378 /* Info.plist */,
+				A081AA57277ABB8000878378 /* main.m */,
+			);
+			path = "TuyaSmartOutdoorKit-Example-iOS-Objc";
+			sourceTree = "<group>";
+		};
+		A081AA65277AC0BB00878378 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				A06A5B7F278D560A00CD0D67 /* UserInformation.storyboard */,
+				A089D5C52787011400950C33 /* HomeList.storyboard */,
+				A089D5C62787011400950C33 /* NewHome.storyboard */,
+				A089D5C72787011400950C33 /* SwitchHome.storyboard */,
+				A081AA66277AC0BB00878378 /* TYSmartOutdoorMain.storyboard */,
+				A089D5702786928200950C33 /* API.storyboard */,
+				A081AA67277AC0BB00878378 /* Home.storyboard */,
+				A089D56E2786913300950C33 /* EZMode.storyboard */,
+				A089D56C2786902500950C33 /* APMode.storyboard */,
+				A081AA68277AC0BB00878378 /* UserInfo.storyboard */,
+				A081AA69277AC0BB00878378 /* Register.storyboard */,
+				A081AA6A277AC0BB00878378 /* Main.storyboard */,
+				A081AA6B277AC0BB00878378 /* Login.storyboard */,
+				A089D5A32786F7F100950C33 /* BLE.storyboard */,
+				A089D5A12786F7F100950C33 /* DualModel.storyboard */,
+				A089D5A22786F7F100950C33 /* SIGMesh.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		A081AA6C277AC0BB00878378 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A06A5B7B278D4C5A00CD0D67 /* Device Management */,
+				A089D5A92786FF0D00950C33 /* HomeManagement */,
+				A089D5882786E4E000950C33 /* Device Network Configuration */,
+				A081AA6D277AC0BB00878378 /* Outdoor */,
+				A081AA76277AC0BB00878378 /* Register */,
+				A081AA79277AC0BB00878378 /* UserInfo */,
+				A081AA7C277AC0BB00878378 /* Login */,
+				A0D8B64927903A6D00537332 /* MainViewController.h */,
+				A0D8B64A27903A6D00537332 /* MainViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A081AA6D277AC0BB00878378 /* Outdoor */ = {
+			isa = PBXGroup;
+			children = (
+				A070D9B6278EA99C00555374 /* Tool */,
+				A070D9B2278EA29000555374 /* Category */,
+				A089D5522785A1E600950C33 /* Views */,
+				A089D520278579C900950C33 /* Data */,
+				A089D5142785782C00950C33 /* Presenter */,
+				A081AA72277AC0BB00878378 /* TYODHomeTableViewController.h */,
+				A081AA6F277AC0BB00878378 /* TYODHomeTableViewController.m */,
+				A081AA75277AC0BB00878378 /* TYODDeviceListTableViewController.h */,
+				A081AA71277AC0BB00878378 /* TYODDeviceListTableViewController.m */,
+				A089D5D127870C0400950C33 /* TYODAPIViewController.h */,
+				A089D5D227870C0400950C33 /* TYODAPIViewController.m */,
+			);
+			path = Outdoor;
+			sourceTree = "<group>";
+		};
+		A081AA76277AC0BB00878378 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				A081AA77277AC0BB00878378 /* TYODRegisterTableViewController.m */,
+				A081AA78277AC0BB00878378 /* TYODRegisterTableViewController.h */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		A081AA79277AC0BB00878378 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				A06A5B81278D565600CD0D67 /* UserInformationTableViewController.h */,
+				A06A5B82278D565600CD0D67 /* UserInformationTableViewController.m */,
+				A081AA7A277AC0BB00878378 /* TYODUserInfoTableViewController.h */,
+				A081AA7B277AC0BB00878378 /* TYODUserInfoTableViewController.m */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
+		A081AA7C277AC0BB00878378 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A081AA7D277AC0BB00878378 /* TYODLoginViewController.h */,
+				A081AA7F277AC0BB00878378 /* TYODLoginViewController.m */,
+				A081AA7E277AC0BB00878378 /* TYODResetPasswordTableViewController.h */,
+				A081AA80277AC0BB00878378 /* TYODResetPasswordTableViewController.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A081AA93277AE73F00878378 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				A089D5C1278700C400950C33 /* Alert.h */,
+				A089D5BD278700C300950C33 /* Alert.m */,
+				A089D5BC278700C300950C33 /* NotificationName.h */,
+				A089D5C0278700C300950C33 /* NotificationName.m */,
+				A089D5BE278700C300950C33 /* UIButton+Extensions.h */,
+				A089D5BF278700C300950C33 /* UIButton+Extensions.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		A089D5142785782C00950C33 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A089D54127858D3E00950C33 /* TYSOHomePresenter.h */,
+				A089D54827858D3E00950C33 /* TYSOHomePresenter.m */,
+				A089D54227858D3E00950C33 /* TYSOHomePresenter+HomeData.h */,
+				A089D54727858D3E00950C33 /* TYSOHomePresenter+HomeData.m */,
+				A089D54427858D3E00950C33 /* TYSOHomePresenter+Network.h */,
+				A089D54527858D3E00950C33 /* TYSOHomePresenter+Network.m */,
+				A089D54627858D3E00950C33 /* TYSOHomePresenterDataProtocol.h */,
+				A089D54327858D3E00950C33 /* TYSOHomeViewProtocol.h */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		A089D520278579C900950C33 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A089D53D27858B4600950C33 /* TYODValueProtocol.h */,
+				A089D53427858A6000950C33 /* TuyaSmartDevice+Outdoors.h */,
+				A089D53727858A6000950C33 /* TuyaSmartDevice+Outdoors.m */,
+				A089D52F27858A6000950C33 /* TuyaSmartDeviceModel+ODDpSchema.h */,
+				A089D53027858A6000950C33 /* TuyaSmartDeviceModel+ODDpSchema.m */,
+				A089D53327858A6000950C33 /* TuyaSmartDeviceModel+Outdoors.h */,
+				A089D53227858A6000950C33 /* TuyaSmartDeviceModel+Outdoors.m */,
+				A089D53127858A6000950C33 /* TuyaSmartSchemaModel+ValueProtocol.h */,
+				A089D53527858A6000950C33 /* TuyaSmartSchemaModel+ValueProtocol.m */,
+				A089D53627858A6000950C33 /* TYODDPLanguageManager.h */,
+				A089D52E27858A6000950C33 /* TYODDPLanguageManager.m */,
+				A089D521278579F000950C33 /* TYODDataManager.h */,
+				A089D522278579F000950C33 /* TYODDataManager.m */,
+				A089D53E27858C6900950C33 /* TYSmartOutdoorUtils.h */,
+				A089D53F27858C6900950C33 /* TYSmartOutdoorUtils.m */,
+				A089D54F27859C8000950C33 /* TYSmartOutdoorRequestManager.h */,
+				A089D55027859C8000950C33 /* TYSmartOutdoorRequestManager.m */,
+				A054E6A8278BC36A00262886 /* TYODBluetoothStateManager.h */,
+				A054E6A9278BC36A00262886 /* TYODBluetoothStateManager.m */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		A089D5522785A1E600950C33 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A089D5672785C7E600950C33 /* TYODDeviceListTableViewCell.h */,
+				A089D5682785C7E600950C33 /* TYODDeviceListTableViewCell.m */,
+				A089D5732786C41400950C33 /* TYODDeviceStatusBehaveCell.h */,
+				A089D5742786C41400950C33 /* TYODDeviceStatusBehaveCell.m */,
+				A089D5792786C4C000950C33 /* TYODSwitchTableViewCell.h */,
+				A089D57A2786C4C000950C33 /* TYODSwitchTableViewCell.m */,
+				A089D57C2786C4D000950C33 /* TYODSliderTableViewCell.h */,
+				A089D57D2786C4D000950C33 /* TYODSliderTableViewCell.m */,
+				A089D57F2786C4E000950C33 /* TYODEnumTableViewCell.h */,
+				A089D5802786C4E000950C33 /* TYODEnumTableViewCell.m */,
+				A089D5822786C4EF00950C33 /* TYODStringTableViewCell.h */,
+				A089D5832786C4EF00950C33 /* TYODStringTableViewCell.m */,
+				A089D5852786C50100950C33 /* TYODLabelTableViewCell.h */,
+				A089D5862786C50100950C33 /* TYODLabelTableViewCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A089D5882786E4E000950C33 /* Device Network Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				A089D59C2786F7DE00950C33 /* BLEModelViewController.h */,
+				A089D59B2786F7DE00950C33 /* BLEModelViewController.m */,
+				A089D5982786F7DD00950C33 /* DualModelTableViewController.h */,
+				A089D5992786F7DD00950C33 /* DualModelTableViewController.m */,
+				A089D59A2786F7DE00950C33 /* SIGMeshTableViewController.h */,
+				A089D59D2786F7DE00950C33 /* SIGMeshTableViewController.m */,
+				A089D5892786E4E000950C33 /* APModeTableViewController.h */,
+				A089D58B2786E4E000950C33 /* APModeTableViewController.m */,
+				A089D58A2786E4E000950C33 /* EZModeTableViewController.h */,
+				A089D58C2786E4E000950C33 /* EZModeTableViewController.m */,
+			);
+			path = "Device Network Configuration";
+			sourceTree = "<group>";
+		};
+		A089D5A92786FF0D00950C33 /* HomeManagement */ = {
+			isa = PBXGroup;
+			children = (
+				A089D5B22786FF0D00950C33 /* Home.h */,
+				A089D5AA2786FF0D00950C33 /* Home.m */,
+				A089D5AB2786FF0D00950C33 /* NewHomeTableViewController.h */,
+				A089D5B02786FF0D00950C33 /* NewHomeTableViewController.m */,
+				A089D5B42786FF0D00950C33 /* SwitchHomeTableViewController.h */,
+				A089D5AD2786FF0D00950C33 /* SwitchHomeTableViewController.m */,
+				A089D5AE2786FF0D00950C33 /* HomeListTableViewController.h */,
+				A089D5B32786FF0D00950C33 /* HomeListTableViewController.m */,
+				A089D5AC2786FF0D00950C33 /* HomeDetailTableViewController.h */,
+				A089D5B12786FF0D00950C33 /* HomeDetailTableViewController.m */,
+				A089D5B52786FF0D00950C33 /* EditHomeTableViewController.h */,
+				A089D5AF2786FF0D00950C33 /* EditHomeTableViewController.m */,
+			);
+			path = HomeManagement;
+			sourceTree = "<group>";
+		};
+		AC065D40702D2FD4A622EA70 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				157DF7C266F52AE177BB8EF5 /* Pods-TuyaSmartOutdoorKit-Example-iOS-Objc.debug.xcconfig */,
+				55E8769B1CEA17E69B4BB0F4 /* Pods-TuyaSmartOutdoorKit-Example-iOS-Objc.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FDB29AB3457D41045367B988 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				55C67AC32BD3EC882AA643CF /* libPods-TuyaSmartOutdoorKit-Example-iOS-Objc.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A081AA41277ABB7D00878378 /* TuyaSmartOutdoorKit-Example-iOS-Objc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A081AA5B277ABB8000878378 /* Build configuration list for PBXNativeTarget "TuyaSmartOutdoorKit-Example-iOS-Objc" */;
+			buildPhases = (
+				94506BF0D2F123B37748829D /* [CP] Check Pods Manifest.lock */,
+				A081AA3E277ABB7D00878378 /* Sources */,
+				A081AA3F277ABB7D00878378 /* Frameworks */,
+				A081AA40277ABB7D00878378 /* Resources */,
+				D77BD8D73732AC67BDCB0CBF /* [CP] Embed Pods Frameworks */,
+				AD3EBC33FB378E003AC91C3D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TuyaSmartOutdoorKit-Example-iOS-Objc";
+			productName = "TuyaSmartOutdoorKit-Example-iOS-Objc";
+			productReference = A081AA42277ABB7D00878378 /* TuyaSmartOutdoorKit-Example-iOS-Objc.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A081AA3A277ABB7D00878378 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					A081AA41277ABB7D00878378 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = A081AA3D277ABB7D00878378 /* Build configuration list for PBXProject "TuyaSmartOutdoorKit-Example-iOS-Objc" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A081AA39277ABB7D00878378;
+			productRefGroup = A081AA43277ABB7D00878378 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A081AA41277ABB7D00878378 /* TuyaSmartOutdoorKit-Example-iOS-Objc */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A081AA40277ABB7D00878378 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A081AA89277AC0BB00878378 /* Login.storyboard in Resources */,
+				A089D5CA2787011400950C33 /* SwitchHome.storyboard in Resources */,
+				A089D5A52786F7F100950C33 /* SIGMesh.storyboard in Resources */,
+				A081AA88277AC0BB00878378 /* Main.storyboard in Resources */,
+				A081AA55277ABB8000878378 /* LaunchScreen.storyboard in Resources */,
+				A081AA86277AC0BB00878378 /* UserInfo.storyboard in Resources */,
+				A089D56D2786902500950C33 /* APMode.storyboard in Resources */,
+				A081AA52277ABB8000878378 /* Assets.xcassets in Resources */,
+				A089D56F2786913300950C33 /* EZMode.storyboard in Resources */,
+				A081AA84277AC0BB00878378 /* TYSmartOutdoorMain.storyboard in Resources */,
+				A081AA92277AC0BB00878378 /* t_s.bmp in Resources */,
+				A089D5A42786F7F100950C33 /* DualModel.storyboard in Resources */,
+				A081AA85277AC0BB00878378 /* Home.storyboard in Resources */,
+				A089D5A62786F7F100950C33 /* BLE.storyboard in Resources */,
+				A06A5B80278D560A00CD0D67 /* UserInformation.storyboard in Resources */,
+				A081AA87277AC0BB00878378 /* Register.storyboard in Resources */,
+				A089D5712786928200950C33 /* API.storyboard in Resources */,
+				A089D5C92787011400950C33 /* NewHome.storyboard in Resources */,
+				A089D5C82787011400950C33 /* HomeList.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		94506BF0D2F123B37748829D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TuyaSmartOutdoorKit-Example-iOS-Objc-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD3EBC33FB378E003AC91C3D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TuyaSmartOutdoorKit-Example-iOS-Objc/Pods-TuyaSmartOutdoorKit-Example-iOS-Objc-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TuyaSmartOutdoorKit-Example-iOS-Objc/Pods-TuyaSmartOutdoorKit-Example-iOS-Objc-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TuyaSmartOutdoorKit-Example-iOS-Objc/Pods-TuyaSmartOutdoorKit-Example-iOS-Objc-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D77BD8D73732AC67BDCB0CBF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TuyaSmartOutdoorKit-Example-iOS-Objc/Pods-TuyaSmartOutdoorKit-Example-iOS-Objc-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TuyaSmartOutdoorKit-Example-iOS-Objc/Pods-TuyaSmartOutdoorKit-Example-iOS-Objc-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TuyaSmartOutdoorKit-Example-iOS-Objc/Pods-TuyaSmartOutdoorKit-Example-iOS-Objc-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A081AA3E277ABB7D00878378 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A081AA91277AC0BB00878378 /* TYODResetPasswordTableViewController.m in Sources */,
+				A089D58E2786E4E100950C33 /* EZModeTableViewController.m in Sources */,
+				A089D5B82786FF0D00950C33 /* EditHomeTableViewController.m in Sources */,
+				A0D8B64B27903A6E00537332 /* MainViewController.m in Sources */,
+				A089D523278579F000950C33 /* TYODDataManager.m in Sources */,
+				A081AA8E277AC0BB00878378 /* TYODRegisterTableViewController.m in Sources */,
+				A081AA98277AE73F00878378 /* TYODProgressHUD.m in Sources */,
+				A089D5B92786FF0D00950C33 /* NewHomeTableViewController.m in Sources */,
+				A089D5D327870C0400950C33 /* TYODAPIViewController.m in Sources */,
+				A089D54E278598F800950C33 /* UIViewController+Outdoor.m in Sources */,
+				A089D5692785C7E600950C33 /* TYODDeviceListTableViewCell.m in Sources */,
+				A054E6AA278BC36A00262886 /* TYODBluetoothStateManager.m in Sources */,
+				A070D9B9278EA9BA00555374 /* TYODDPObserver.m in Sources */,
+				A089D5752786C41500950C33 /* TYODDeviceStatusBehaveCell.m in Sources */,
+				A089D58D2786E4E100950C33 /* APModeTableViewController.m in Sources */,
+				A089D5C3278700C400950C33 /* UIButton+Extensions.m in Sources */,
+				A089D54B27858D3E00950C33 /* TYSOHomePresenter.m in Sources */,
+				A089D59E2786F7DE00950C33 /* DualModelTableViewController.m in Sources */,
+				A089D5842786C4EF00950C33 /* TYODStringTableViewCell.m in Sources */,
+				A089D53C27858A6100950C33 /* TuyaSmartDevice+Outdoors.m in Sources */,
+				A081AA99277AE73F00878378 /* TYODConfigTool.m in Sources */,
+				A089D5BA2786FF0D00950C33 /* HomeDetailTableViewController.m in Sources */,
+				A089D5812786C4E000950C33 /* TYODEnumTableViewCell.m in Sources */,
+				A089D5BB2786FF0D00950C33 /* HomeListTableViewController.m in Sources */,
+				A06A5B83278D565600CD0D67 /* UserInformationTableViewController.m in Sources */,
+				A089D5C4278700C400950C33 /* NotificationName.m in Sources */,
+				A081AA47277ABB7D00878378 /* AppDelegate.m in Sources */,
+				A089D53A27858A6100950C33 /* TuyaSmartDeviceModel+Outdoors.m in Sources */,
+				A089D53B27858A6100950C33 /* TuyaSmartSchemaModel+ValueProtocol.m in Sources */,
+				A089D5A02786F7DF00950C33 /* SIGMeshTableViewController.m in Sources */,
+				A089D54027858C6900950C33 /* TYSmartOutdoorUtils.m in Sources */,
+				A081AA8F277AC0BB00878378 /* TYODUserInfoTableViewController.m in Sources */,
+				A089D54927858D3E00950C33 /* TYSOHomePresenter+Network.m in Sources */,
+				A089D5C2278700C400950C33 /* Alert.m in Sources */,
+				A089D54A27858D3E00950C33 /* TYSOHomePresenter+HomeData.m in Sources */,
+				A06A5B7E278D4C8500CD0D67 /* DeviceDetailTableViewController.m in Sources */,
+				A081AA8B277AC0BB00878378 /* TYODDeviceListTableViewController.m in Sources */,
+				A089D5872786C50100950C33 /* TYODLabelTableViewCell.m in Sources */,
+				A089D59F2786F7DF00950C33 /* BLEModelViewController.m in Sources */,
+				A089D5B62786FF0D00950C33 /* Home.m in Sources */,
+				A081AA90277AC0BB00878378 /* TYODLoginViewController.m in Sources */,
+				A089D53927858A6100950C33 /* TuyaSmartDeviceModel+ODDpSchema.m in Sources */,
+				A089D57E2786C4D000950C33 /* TYODSliderTableViewCell.m in Sources */,
+				A089D5B72786FF0D00950C33 /* SwitchHomeTableViewController.m in Sources */,
+				A089D57B2786C4C000950C33 /* TYODSwitchTableViewCell.m in Sources */,
+				A081AA8A277AC0BB00878378 /* TYODHomeTableViewController.m in Sources */,
+				A070D9B5278EA2A900555374 /* NSObject+Outdoor.m in Sources */,
+				A089D53827858A6100950C33 /* TYODDPLanguageManager.m in Sources */,
+				A089D55127859C8000950C33 /* TYSmartOutdoorRequestManager.m in Sources */,
+				A081AA58277ABB8000878378 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A081AA53277ABB8000878378 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A081AA54277ABB8000878378 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A081AA59277ABB8000878378 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A081AA5A277ABB8000878378 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A081AA5C277ABB8000878378 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 157DF7C266F52AE177BB8EF5 /* Pods-TuyaSmartOutdoorKit-Example-iOS-Objc.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TKX5FSG78V;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/TYBluetooth/Build\"",
+					"\"${PODS_ROOT}/TYBluetoothInterface/Build\"/**",
+					"\"${PODS_ROOT}/TYFoundationKit/Build\"",
+					"\"${PODS_ROOT}/TYKVStorageLibrary/Build\"",
+					"\"${PODS_ROOT}/TYMbedtls/Carthage/Build/iOS\"",
+					"\"${PODS_ROOT}/TYOEMConfig/Build\"",
+					"\"${PODS_ROOT}/TYPanelBundleManager/Build\"",
+					"\"${PODS_ROOT}/TYUIKit/Build\"",
+					"\"${PODS_ROOT}/TuyaDefaultPanelUIKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartActivatorCoreKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartActivatorKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartBLECoreKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartBLEKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartBLEMeshKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartBaseKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartDefaultPanelKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartDeviceCoreKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartDeviceKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartFeedbackKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartHomeKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartLangsExtraBizBundle/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartMQTTChannelKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartMbedTLS/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartMessageKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartNetworkKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartOutdoorKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartQUIC/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartSceneCoreKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartSceneKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartShareKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartSocketChannelKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartTimerKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartUtil/Build\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TYBluetooth\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TYBluetoothInterface\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TYFoundationKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TYKVStorageLibrary\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TYOEMConfig\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TYPanelBundleManager\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TYUIKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaDefaultPanelUIKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartActivatorCoreKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartActivatorKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartBLECoreKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartBLEKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartBLEMeshKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartBaseKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartDefaultPanelKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartDeviceCoreKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartDeviceKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartFeedbackKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartHomeKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartLangsExtraBizBundle\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartMQTTChannelKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartMbedTLS\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartMessageKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartNetworkKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartOutdoorKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartQUIC\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartSceneCoreKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartSceneKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartShareKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartSocketChannelKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartTimerKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartUtil\"",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/TuyaSmartOutdoorKit-Example-iOS-Objc/PrefixHeader.pch";
+				INFOPLIST_FILE = "TuyaSmartOutdoorKit-Example-iOS-Objc/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CocoaAsyncSocket\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/DACircularProgress\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MMKV\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MMKVCore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Reachability\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ReactiveObjC\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SVProgressHUD\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYModel\"",
+					"\"${PODS_ROOT}/TYLogMacro/TYLogMacro-0.1.0\"",
+					"\"${PODS_ROOT}/TYSmartEventPredefined/TYSmartEventPredefined-1.2.84\"",
+					"\"${PODS_ROOT}/TYTarKit/ios\"",
+					"\"${PODS_ROOT}/TuyaSmartActivatorCoreKit/Build/VendorsLibrary\"",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"CocoaAsyncSocket\"",
+					"-l\"Masonry\"",
+					"-l\"Reachability\"",
+					"-l\"ReactiveObjC\"",
+					"-l\"SVProgressHUD\"",
+					"-l\"TuyaSmartActivator\"",
+					"-l\"YYModel\"",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreBluetooth\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"TYBluetooth\"",
+					"-framework",
+					"\"TuyaDefaultPanelUIKit\"",
+					"-framework",
+					"\"TuyaSmartActivatorCoreKit\"",
+					"-framework",
+					"\"TuyaSmartActivatorKit\"",
+					"-framework",
+					"\"TuyaSmartBLECoreKit\"",
+					"-framework",
+					"\"TuyaSmartBLEKit\"",
+					"-framework",
+					"\"TuyaSmartBLEMeshKit\"",
+					"-framework",
+					"\"TuyaSmartBaseKit\"",
+					"-framework",
+					"\"TuyaSmartDefaultPanelKit\"",
+					"-framework",
+					"\"TuyaSmartDeviceCoreKit\"",
+					"-framework",
+					"\"TuyaSmartDeviceKit\"",
+					"-framework",
+					"\"TuyaSmartFeedbackKit\"",
+					"-framework",
+					"\"TuyaSmartMQTTChannelKit\"",
+					"-framework",
+					"\"TuyaSmartMessageKit\"",
+					"-framework",
+					"\"TuyaSmartNetworkKit\"",
+					"-framework",
+					"\"TuyaSmartQUIC\"",
+					"-framework",
+					"\"TuyaSmartSceneKit\"",
+					"-framework",
+					"\"TuyaSmartShareKit\"",
+					"-framework",
+					"\"TuyaSmartSocketChannelKit\"",
+					"-framework",
+					"\"TuyaSmartTimerKit\"",
+					"-framework",
+					"\"TuyaSmartUtil\"",
+					"-framework",
+					"\"UIKit\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A081AA5D277ABB8000878378 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55E8769B1CEA17E69B4BB0F4 /* Pods-TuyaSmartOutdoorKit-Example-iOS-Objc.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TKX5FSG78V;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/TYBluetooth/Build\"",
+					"\"${PODS_ROOT}/TYBluetoothInterface/Build\"/**",
+					"\"${PODS_ROOT}/TYFoundationKit/Build\"",
+					"\"${PODS_ROOT}/TYKVStorageLibrary/Build\"",
+					"\"${PODS_ROOT}/TYMbedtls/Carthage/Build/iOS\"",
+					"\"${PODS_ROOT}/TYOEMConfig/Build\"",
+					"\"${PODS_ROOT}/TYPanelBundleManager/Build\"",
+					"\"${PODS_ROOT}/TYUIKit/Build\"",
+					"\"${PODS_ROOT}/TuyaDefaultPanelUIKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartActivatorCoreKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartActivatorKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartBLECoreKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartBLEKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartBLEMeshKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartBaseKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartDefaultPanelKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartDeviceCoreKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartDeviceKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartFeedbackKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartHomeKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartLangsExtraBizBundle/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartMQTTChannelKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartMbedTLS/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartMessageKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartNetworkKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartOutdoorKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartQUIC/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartSceneCoreKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartSceneKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartShareKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartSocketChannelKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartTimerKit/Build\"",
+					"\"${PODS_ROOT}/TuyaSmartUtil/Build\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TYBluetooth\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TYBluetoothInterface\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TYFoundationKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TYKVStorageLibrary\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TYOEMConfig\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TYPanelBundleManager\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TYUIKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaDefaultPanelUIKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartActivatorCoreKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartActivatorKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartBLECoreKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartBLEKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartBLEMeshKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartBaseKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartDefaultPanelKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartDeviceCoreKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartDeviceKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartFeedbackKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartHomeKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartLangsExtraBizBundle\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartMQTTChannelKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartMbedTLS\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartMessageKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartNetworkKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartOutdoorKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartQUIC\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartSceneCoreKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartSceneKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartShareKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartSocketChannelKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartTimerKit\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/TuyaSmartUtil\"",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/TuyaSmartOutdoorKit-Example-iOS-Objc/PrefixHeader.pch";
+				INFOPLIST_FILE = "TuyaSmartOutdoorKit-Example-iOS-Objc/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CocoaAsyncSocket\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/DACircularProgress\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MMKV\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MMKVCore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Reachability\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ReactiveObjC\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SVProgressHUD\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYModel\"",
+					"\"${PODS_ROOT}/TYLogMacro/TYLogMacro-0.1.0\"",
+					"\"${PODS_ROOT}/TYSmartEventPredefined/TYSmartEventPredefined-1.2.84\"",
+					"\"${PODS_ROOT}/TYTarKit/ios\"",
+					"\"${PODS_ROOT}/TuyaSmartActivatorCoreKit/Build/VendorsLibrary\"",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"CocoaAsyncSocket\"",
+					"-l\"Masonry\"",
+					"-l\"Reachability\"",
+					"-l\"ReactiveObjC\"",
+					"-l\"SVProgressHUD\"",
+					"-l\"TuyaSmartActivator\"",
+					"-l\"YYModel\"",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreBluetooth\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"TYBluetooth\"",
+					"-framework",
+					"\"TuyaDefaultPanelUIKit\"",
+					"-framework",
+					"\"TuyaSmartActivatorCoreKit\"",
+					"-framework",
+					"\"TuyaSmartActivatorKit\"",
+					"-framework",
+					"\"TuyaSmartBLECoreKit\"",
+					"-framework",
+					"\"TuyaSmartBLEKit\"",
+					"-framework",
+					"\"TuyaSmartBLEMeshKit\"",
+					"-framework",
+					"\"TuyaSmartBaseKit\"",
+					"-framework",
+					"\"TuyaSmartDefaultPanelKit\"",
+					"-framework",
+					"\"TuyaSmartDeviceCoreKit\"",
+					"-framework",
+					"\"TuyaSmartDeviceKit\"",
+					"-framework",
+					"\"TuyaSmartFeedbackKit\"",
+					"-framework",
+					"\"TuyaSmartMQTTChannelKit\"",
+					"-framework",
+					"\"TuyaSmartMessageKit\"",
+					"-framework",
+					"\"TuyaSmartNetworkKit\"",
+					"-framework",
+					"\"TuyaSmartQUIC\"",
+					"-framework",
+					"\"TuyaSmartSceneKit\"",
+					"-framework",
+					"\"TuyaSmartShareKit\"",
+					"-framework",
+					"\"TuyaSmartSocketChannelKit\"",
+					"-framework",
+					"\"TuyaSmartTimerKit\"",
+					"-framework",
+					"\"TuyaSmartUtil\"",
+					"-framework",
+					"\"UIKit\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A081AA3D277ABB7D00878378 /* Build configuration list for PBXProject "TuyaSmartOutdoorKit-Example-iOS-Objc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A081AA59277ABB8000878378 /* Debug */,
+				A081AA5A277ABB8000878378 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A081AA5B277ABB8000878378 /* Build configuration list for PBXNativeTarget "TuyaSmartOutdoorKit-Example-iOS-Objc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A081AA5C277ABB8000878378 /* Debug */,
+				A081AA5D277ABB8000878378 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A081AA3A277ABB7D00878378 /* Project object */;
+}

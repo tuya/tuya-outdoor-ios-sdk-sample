@@ -1,0 +1,27 @@
+//
+//  PrefixHeader.pch
+//  TuyaSmartOutdoorKit-Example-iOS-Objc
+//
+//  Copyright (c) 2014-2021 Tuya Inc. (https://developer.tuya.com/)
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import <TuyaSmartHomeKit/TuyaSmartKit.h>
+#import <TuyaSmartActivatorKit/TuyaSmartActivatorKit.h>
+#import <TuyaSmartOutdoorKit/TuyaSmartOutdoorKit.h>
+#import <TYFoundationKit/TYFoundationKit.h>
+
+#import "TYODProgressHUD.h"
+#import "Home.h"
+#import "TYODConfigTool.h"
+#import "TYODDataManager.h"
+#import "TYODDPLanguageManager.h"
+
+#import <YYModel/YYModel.h>
+#import <MJRefresh/MJRefresh.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+
+#endif /* PrefixHeader_pch */
