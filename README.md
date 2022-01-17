@@ -60,6 +60,7 @@ Tuya Smart Travel App SDK for iOS is built based on `TuyaSmartDeviceCoreKit` and
 
 7. To debug it by using a simulator on a MacBook with the M1 chip, add the following content to the Pods project.
 
+![M1EngineeringConfiguration](https://github.com/tuya/tuya-outdoor-ios-sdk-sample/blob/develop/M1EngineeringConfiguration.png)
 
 **Note**: The bundle ID, AppKey, AppSecret, and security image must be the same as those used for your app on the [Tuya IoT Development Platform](https://iot.tuya.com). Otherwise, API requests in this sample will fail.
 
