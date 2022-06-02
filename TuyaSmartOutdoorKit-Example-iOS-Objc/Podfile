@@ -17,6 +17,6 @@ target 'TuyaSmartOutdoorKit-Example-iOS-Objc' do
   #Dp multilingual
   pod 'TuyaSmartLangsExtraBizBundle', '~> 3.32.5'
   #outdoor
-  pod 'TuyaSmartOutdoorKit', :podspec => 'https://images.tuyacn.com/app/taojing/Outdoorkit/TuyaSmartOutdoorKit_0.1.0_TuyaSmartOutdoorKit.podspec.json'
+  pod 'TuyaSmartOutdoorKit', '~> 1.0.1'
 
 end

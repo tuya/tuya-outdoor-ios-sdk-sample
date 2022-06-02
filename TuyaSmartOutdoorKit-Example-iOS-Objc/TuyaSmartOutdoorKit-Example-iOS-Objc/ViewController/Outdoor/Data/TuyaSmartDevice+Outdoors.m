@@ -56,18 +56,22 @@ static NSMutableDictionary<NSString *, NSNumber*> *s_rideTimeDict;
         if (failure) failure(nil);
         return;
     }
+    // If the DP sending part needs to go through the Bluetooth channel, please check the Bluetooth permission and status.
+    BOOL bleAuth = NO; // pre check ble status Unauthorized or PoweredOff
+    if (bleAuth) {
+        [TYODProgressHUD showErrorWithStatus:@"BLEUnauthorized || BLEPoweredOff"];
+        if (failure) failure(nil);
+        return;
+    }
+    BOOL bleOffline = NO; // pre check offline
+    if (bleOffline) {
+        [self tyod_showBLEOfflineAlert];
+        if (failure) failure(nil);
+        return;
+    }
+
     [self tyod_publishDPWithCode:code DPValue:dpValue success:success failure:^(NSError *error) {
-        if (error.code == TuyaSmartOutdoorErrorCodeBLEUnauthorized || error.code == TuyaSmartOutdoorErrorCodeBLEPoweredOff) {
-            [TYODProgressHUD showErrorWithStatus:@"BLEUnauthorized || BLEPoweredOff"];
-            if (failure) failure(nil);
-        }
-        else if (error.code == TuyaSmartOutdoorErrorCodeBLEOffline) {
-            [self tyod_showBLEOfflineAlert];
-            if (failure) failure(nil);
-        }
-        else {
-            if (failure) failure(error);
-        }
+        if (failure) failure(error);
     }];
 }
 
