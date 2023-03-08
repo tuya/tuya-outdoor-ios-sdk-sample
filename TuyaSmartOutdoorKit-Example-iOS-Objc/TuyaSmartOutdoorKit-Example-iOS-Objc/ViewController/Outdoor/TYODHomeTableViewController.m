@@ -36,6 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
     self.presenter = [[TYSOHomePresenter alloc] initWithView:self];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(shareList:)

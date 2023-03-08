@@ -16,8 +16,17 @@ target 'TuyaSmartOutdoorKit-Example-iOS-Objc' do
   pod 'SDWebImage', '~> 5.12.2'
   pod_tuyaHomeKit
   #Dp multilingual
-  pod 'TuyaSmartLangsExtraBizBundle', '~> 3.32.5'
+  pod 'ThingSmartLangsPackKit', '~> 1.1.1'
+  pod 'TYFoundationKit'
   #outdoor
   pod 'TuyaSmartOutdoorKit', '~> 1.0.1'
 
+end
+
+post_install do |installer|
+  `cd TuyaSmartOutdoorKit-Example-iOS-Objc; [[ -f AppKey.h ]] || cp AppKey.h.default AppKey.h;`
+
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+  end
 end

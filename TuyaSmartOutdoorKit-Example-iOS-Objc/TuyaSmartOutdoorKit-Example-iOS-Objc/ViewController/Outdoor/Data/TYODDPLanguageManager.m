@@ -5,7 +5,7 @@
 //  Copyright (c) 2014-2021 Tuya Inc. (https://developer.tuya.com/)
 
 #import "TYODDPLanguageManager.h"
-#import <TuyaSmartLangsExtraBizBundle/TuyaSmartLangsManager.h>
+#import <ThingSmartLangsPackKit/ThingSmartLangsPackKit.h>
 
 static NSString * const KDpLocalDeviceLangsKey = @"KLocalDeviceLangsKey";
 
@@ -59,21 +59,15 @@ static NSString * const KDpLocalDeviceLangsKey = @"KLocalDeviceLangsKey";
         dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
         NSString *langu = TY_SystemLanguage();
         for (TuyaSmartDeviceModel *deviceModel in mArr) {
-            [[TuyaSmartLangsManager sharedInstance] getProductLangWithProductId:deviceModel.productId
-                                                                       i18nTime:deviceModel.i18nTime
-                                                                   successBlock:^(NSDictionary * _Nonnull langsDic)
-            {
+            [[ThingSmartLangsPackDownloader downloader] downloadLangsPackWithProductID:deviceModel.productId i18nTime:deviceModel.i18nTime callbackQueue:dispatch_get_global_queue(0, 0) completeBlock:^(NSDictionary<NSString *,NSDictionary<NSString *,NSString *> *> * _Nullable langsPack, NSError * _Nullable error) {
                 ty_strongify(self);
-                NSDictionary<NSString *,NSString *> *la = [langsDic ty_dictionaryForKey:@"en"];
-                if ([[langsDic allKeys] containsObject:langu]) {
-                    la = langsDic[langu];
+                NSDictionary<NSString *,NSString *> *la = [langsPack ty_dictionaryForKey:@"en"];
+                if ([[langsPack allKeys] containsObject:langu]) {
+                    la = langsPack[langu];
                 }
                 if (la) { //fix
                     [self setLang:la PID:deviceModel.productId];
                 }
-                dispatch_semaphore_signal(semaphore);
-                
-            } failBlock:^(NSError * _Nonnull error) {
                 dispatch_semaphore_signal(semaphore);
             }];
             dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
