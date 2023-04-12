@@ -1,23 +1,18 @@
-source 'https://cdn.cocoapods.org/'
-source 'https://github.com/TuyaInc/TuyaPublicSpecs.git'
+source 'https://github.com/tuya/tuya-pod-specs.git'
+source "https://github.com/TuyaInc/TuyaPublicSpecs.git"
 source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '11.0'
 inhibit_all_warnings!
 
-def pod_tuyaHomeKit 
-  pod 'TuyaSmartHomeKit'
-end
-
 target 'TuyaSmartOutdoorKit-Example-iOS-Objc' do
-
-  pod 'SVProgressHUD', '~> 2.2.5'
-  pod 'MJRefresh', '~> 3.7.5'
-  pod 'SDWebImage', '~> 5.12.2'
-  pod_tuyaHomeKit
+  pod 'TuyaSmartHomeKit'
+  pod 'SVProgressHUD'
+  pod 'MJRefresh'
+  pod 'SDWebImage'
   #Dp multilingual
-  pod 'TuyaSmartLangsExtraBizBundle', '~> 3.32.5'
+  pod 'TuyaSmartLangsExtraBizBundle'
   #outdoor
-  pod 'TuyaSmartOutdoorKit', '~> 1.0.1'
+  pod 'TuyaSmartOutdoorKit', :path => '../../TuyaSmartOutdoorKit'
 
 end

@@ -24,12 +24,22 @@
 }
 
 - (IBAction)removeDeviceTapped:(id)sender {
+    TuyaSmartDeviceModel *device = self.device.deviceModel;
+    if (!device.isOnline && [[ThingODBTInductiveUnlock sharedInstance] checkPairedStatus:device.devId]) {
+        [Alert showBasicAlertOnVC:self withTitle:@"Attention" message:@"The device has turned on auto unlock function, and the device needs to be unbound when the device is online"];
+        return;
+    } else if (!device.isOnline && ([[ThingODHidInductiveUnlock sharedInstance] supportHIDAbility:device.devId])) {
+        [Alert showBasicAlertOnVC:self withTitle:@"Unbind Bluetooth device" message:@"The device is a HID device, please connect the device to unbind it."];
+        return;
+    }
+
     UIAlertController *alertViewController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Remove the Device?", @"") message:NSLocalizedString(@"If you choose to remove the device, you'll no long hold control over this device.", @"") preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *removeAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Remove", @"Perform remove device action")
                                                            style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action)
     {
         [self.device remove:^{
             [self.navigationController popViewControllerAnimated:YES];
+            [Alert showBasicAlertOnVC:[UIApplication sharedApplication].keyWindow.rootViewController withTitle:@"Attention" message:@"To ensure you won't receive notifications of the removed device, tap Go or go to Settings > Bluetooth to check if the device is removed from your phone."];
         } failure:^(NSError *error) {
             [Alert showBasicAlertOnVC:[UIApplication sharedApplication].keyWindow.rootViewController withTitle:@"Failed to Remove" message:error.localizedDescription];
         }];
@@ -49,4 +59,5 @@
         [self removeDeviceTapped:self.removeDeviceButton];
     }
 }
+
 @end

@@ -5,7 +5,7 @@
 //  Copyright (c) 2014-2021 Tuya Inc. (https://developer.tuya.com/)
 
 #import "MainViewController.h"
-#import <TuyaSmartOutdoorKit/TuyaSmartOutdoorKit-umbrella.h>
+#import <TuyaSmartOutdoorKit/TuyaSmartOutdoorKit.h>
 
 @interface MainViewController ()
 

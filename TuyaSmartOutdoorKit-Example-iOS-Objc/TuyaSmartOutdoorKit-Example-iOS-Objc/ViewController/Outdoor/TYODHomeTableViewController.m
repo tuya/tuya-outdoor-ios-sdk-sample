@@ -11,7 +11,6 @@
 #import "TYSOHomePresenter+HomeData.h"
 #import "TYODBluetoothStateManager.h"
 #import "NSObject+Outdoor.h"
-#import "TYODDPObserver.h"
 #import "TuyaSmartDeviceModel+ODDpSchema.h"
 
 #import "TYODSwitchTableViewCell.h"
@@ -20,6 +19,7 @@
 #import "TYODStringTableViewCell.h"
 #import "TYODLabelTableViewCell.h"
 #import "DeviceDetailTableViewController.h"
+#import "TYODDPObserver.h"
 
 @interface TYODHomeTableViewController ()<TYSOHomeViewProtocol,TYODDPObserverDelegate>
 
@@ -55,6 +55,7 @@
     [self listenforChangesInTheseDpPoints];
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshingActionAndReloadData)];
     self.tableView.mj_header = header;
+    self.tableView.mj_header.automaticallyChangeAlpha = YES;
 }
 
 - (void)refreshingActionAndReloadData {

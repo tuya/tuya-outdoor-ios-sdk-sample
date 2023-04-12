@@ -7,7 +7,7 @@
 #import <Foundation/Foundation.h>
 
 #define kDeviceOffline          @"deviceOffline"
-#define kDeviceOnline          @"deviceOnline"
+#define kDeviceOnline           @"deviceOnline"
 
 NS_ASSUME_NONNULL_BEGIN
 

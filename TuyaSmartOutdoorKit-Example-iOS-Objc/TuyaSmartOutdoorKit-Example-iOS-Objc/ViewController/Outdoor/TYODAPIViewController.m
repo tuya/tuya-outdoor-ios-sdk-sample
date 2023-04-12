@@ -22,6 +22,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
+    tapGestureRecognizer.cancelsTouchesInView = NO;
+    [self.tableView addGestureRecognizer:tapGestureRecognizer];
+}
+
+
+-(void)keyboardHide:(UITapGestureRecognizer*)tap{
+  [self.textView resignFirstResponder];
 }
 
 #pragma mark - Table view data source

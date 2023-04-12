@@ -6,6 +6,7 @@
 
 #import "TYSOHomePresenter+Network.h"
 #import "TYSmartOutdoorRequestManager.h"
+#import <TuyaSmartBLECoreKit/TuyaSmartBLEManager.h>
 
 @implementation TYSOHomePresenter (Network)
 
@@ -13,6 +14,7 @@
     dispatch_group_t group = dispatch_group_create();
     dispatch_queue_t queue = dispatch_queue_create("com.tuya.outdoors.presenter", DISPATCH_QUEUE_CONCURRENT);
     [self requestDeviceListWithCompletion:^{
+        [[TuyaSmartBLEManager sharedInstance] startListeningWithType:TYBLEScanTypeNoraml cacheStatu:NO];
         [self reloadHomeData];
         ty_weakify(self);
         dispatch_group_async(group, queue, ^{
@@ -136,7 +138,7 @@
     if (home) {
         self.home = home;
         self.home.delegate = self;
-        [self.home getHomeDetailWithSuccess:^(TuyaSmartHomeModel *homeModel) {
+        [self.home getHomeDataWithSuccess:^(TuyaSmartHomeModel *homeModel) {
             NSLog(@"getHomeDetailWithSuccess: %@", homeModel.name);
             if (completion) completion();
         } failure:^(NSError *error) {

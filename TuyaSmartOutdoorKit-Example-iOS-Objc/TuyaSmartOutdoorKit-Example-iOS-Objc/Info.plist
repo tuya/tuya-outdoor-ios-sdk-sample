@@ -2,6 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>bluetooth-central</string>
+	</array>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>need bluetooth</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>need bluetooth peripheral</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>need location</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>need location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>need open location</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -20,8 +34,6 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>"TuyaSmartOutdoorKit-Example-iOS-Objc"Requires you to run using Bluetooth access, which is used to search devices for network configuration.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
