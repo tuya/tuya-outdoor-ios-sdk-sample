@@ -8,12 +8,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^TYODDPObserverSchemaMBlock)(TuyaSmartSchemaModel *schemaM);
+typedef void(^TYODDPObserverSchemaMBlock)(ThingSmartSchemaModel *schemaM);
 
 @class TYODDPObserver;
 @protocol TYODDPObserverDelegate <NSObject>
 
-- (void)observer:(TYODDPObserver *)observer deviceID:(NSString *)deviceID schemaM:(TuyaSmartSchemaModel *)schemaM;
+- (void)observer:(TYODDPObserver *)observer deviceID:(NSString *)deviceID schemaM:(ThingSmartSchemaModel *)schemaM;
 
 @end
 

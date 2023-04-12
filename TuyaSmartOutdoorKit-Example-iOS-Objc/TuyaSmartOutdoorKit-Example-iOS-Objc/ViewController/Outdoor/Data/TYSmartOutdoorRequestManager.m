@@ -25,10 +25,10 @@ static id _instace = nil;
 }
 
 - (void)requestOutdoorsDevicesIconWithParams:(NSArray<NSString *> *)deviceIds
-                                  completion:(void(^)(NSDictionary<NSString *,TuyaSmartOutdoorProductIconModel *> *result))completion {
+                                  completion:(void(^)(NSDictionary<NSString *,ThingSmartOutdoorProductIconModel *> *result))completion {
     
     NSSet<NSString *> *set = [NSSet setWithArray:deviceIds];
-    [self.service requestProductIconWithDeviceIDList:set success:^(NSDictionary<NSString *,TuyaSmartOutdoorProductIconModel *> * _Nonnull productIconMap) {
+    [self.service requestProductIconWithDeviceIDList:set success:^(NSDictionary<NSString *,ThingSmartOutdoorProductIconModel *> * _Nonnull productIconMap) {
         if (completion) {
             completion(productIconMap);
         }
@@ -40,9 +40,9 @@ static id _instace = nil;
 }
 
 #pragma mark -
-- (TuyaSmartOutdoorDeviceListService *)service {
+- (ThingSmartOutdoorDeviceListService *)service {
     if (!_service) {
-        _service = [[TuyaSmartOutdoorDeviceListService alloc] init];
+        _service = [[ThingSmartOutdoorDeviceListService alloc] init];
     }
     return _service;
 }

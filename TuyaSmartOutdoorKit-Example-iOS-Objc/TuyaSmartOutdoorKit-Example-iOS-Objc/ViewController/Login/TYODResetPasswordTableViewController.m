@@ -22,8 +22,8 @@
 }
 
 - (IBAction)sendVerficationCodeButtonAction:(id)sender {
-    [[TuyaSmartUser sharedInstance] sendVerifyCodeWithUserName:self.accountTextField.text
-                                                        region:[[TuyaSmartUser sharedInstance] getDefaultRegionWithCountryCode:self.countryCodeTextField.text]
+    [[ThingSmartUser sharedInstance] sendVerifyCodeWithUserName:self.accountTextField.text
+                                                        region:[[ThingSmartUser sharedInstance] getDefaultRegionWithCountryCode:self.countryCodeTextField.text]
                                                    countryCode:self.countryCodeTextField.text
                                                           type:3
                                                        success:^
@@ -36,7 +36,7 @@
 
 - (IBAction)resetButtonAction:(id)sender {
     if ([self.accountTextField.text containsString:@"@"]) {
-        [[TuyaSmartUser sharedInstance] resetPasswordByEmail:self.countryCodeTextField.text
+        [[ThingSmartUser sharedInstance] resetPasswordByEmail:self.countryCodeTextField.text
                                                        email:self.accountTextField.text
                                                  newPassword:self.passwordTextField.text
                                                         code:self.verficationCodeTextField.text
@@ -47,7 +47,7 @@
             [TYODProgressHUD showErrorWithStatus:error.localizedDescription];
         }];
     }else{
-        [[TuyaSmartUser sharedInstance] resetPasswordByPhone:self.countryCodeTextField.text
+        [[ThingSmartUser sharedInstance] resetPasswordByPhone:self.countryCodeTextField.text
                                                  phoneNumber:self.accountTextField.text
                                                  newPassword:self.passwordTextField.text
                                                         code:self.verficationCodeTextField.text

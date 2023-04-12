@@ -7,13 +7,13 @@
 
 #import "TYODUnLockViewController.h"
 #import <CoreLocation/CoreLocation.h>
-#import <TuyaSmartBLEKit/TuyaSmartBLEKit.h>
+#import <ThingSmartBLEKit/ThingSmartBLEKit.h>
 #import "TYODDataManager.h"
-#import "TuyaSmartDeviceModel+ODDpSchema.h"
+#import "ThingSmartDeviceModel+ODDpSchema.h"
 #import "TYODProgressHUD.h"
 #import "Alert.h"
 
-@interface TYODUnLockViewController ()<CLLocationManagerDelegate, TuyaSmartODInductiveUnlockDelegate, ThingODHidInductiveUnlockDelegate, ThingODBTInductiveUnlockDelegate>
+@interface TYODUnLockViewController ()<CLLocationManagerDelegate, ThingSmartODInductiveUnlockDelegate, ThingODHidInductiveUnlockDelegate, ThingODBTInductiveUnlockDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, assign, getter=isPaired) BOOL paired;
@@ -46,7 +46,7 @@
                                                  name:@"TYODChangeDeviceAndRefresh"
                                                object:nil];
     
-    [TuyaSmartODInductiveUnlock sharedInstance].delegate = self;
+    [ThingSmartODInductiveUnlock sharedInstance].delegate = self;
     [ThingODHidInductiveUnlock sharedInstance].delegate = self;
     [ThingODBTInductiveUnlock sharedInstance].delegate = self;
 }
@@ -68,10 +68,10 @@
 - (void)checkUnlockType {
     NSString *devID = [TYODDataManager currentDeviceID];
     self.unLockSwitch.enabled = NO;
-    ty_weakify(self)
+    thing_weakify(self)
     // unlock type
-    [[TuyaSmartODInductiveUnlock sharedInstance] getInductiveUnlockType:devID completion:^(InductiveUnlockType type) {
-        ty_strongify(self)
+    [[ThingSmartODInductiveUnlock sharedInstance] getInductiveUnlockType:devID completion:^(InductiveUnlockType type) {
+        thing_strongify(self)
         self.type = type;
         if (type == InductiveUnlockTypeBLEHID) {
             self.unlockTypeLabel.text = @"BLE_HID";
@@ -119,7 +119,7 @@
     self.hidBindStatus.text = bindStatus ? @"BIND" : @"UNBIND";
 }
 
-#pragma mark - TuyaSmartODInductiveUnlockDelegate
+#pragma mark - ThingSmartODInductiveUnlockDelegate
 
 - (void)listenUnlockStatusCallback:(UnlockStatus)status {
     switch (status) {
@@ -244,7 +244,7 @@
 
 - (IBAction)unLockSwitch:(UISwitch *)sender {
     NSString *devId = [TYODDataManager currentDeviceID];
-    ty_weakify(self)
+    thing_weakify(self)
     if (self.type == InductiveUnlockTypeBLEHID) {
         if (sender.isOn) {
             [[ThingODHidInductiveUnlock sharedInstance] turnOnHidInductiveUnlock:devId finished:^{
@@ -273,7 +273,7 @@
             }
         } else {
             [[ThingODBTInductiveUnlock sharedInstance] turnOffBTInductiveUnlock:devId finished:^{
-                ty_strongify(self)
+                thing_strongify(self)
                 [self hideDistanceView:YES];
                 [Alert showBasicAlertOnVC:[UIApplication sharedApplication].keyWindow.rootViewController withTitle:@"Attention" message:@"To ensure you won't receive notifications of the removed device, tap Go or go to Settings > Bluetooth to check if the device is removed from your phone."];
             } error:^(NSError * _Nonnull error) {
@@ -318,17 +318,17 @@
 - (void)getDeviceBtNameWithCompletion:(void(^)(NSString * btName))completion {
     NSString *devId = [TYODDataManager currentDeviceID];
 
-    tysdk_dispatch_async_on_default_global_thread(^{
+    thingsdk_dispatch_async_on_default_global_thread(^{
         dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
         __block NSString *btName = nil;
-        [[TuyaSmartBLEManager sharedInstance] queryBLEDualModeBTInfoWithDeviceId:devId success:^(TYBLEDualModeBTModel * _Nonnull btModel) {
+        [[ThingSmartBLEManager sharedInstance] queryBLEDualModeBTInfoWithDeviceId:devId success:^(ThingBLEDualModeBTModel * _Nonnull btModel) {
             btName = btModel.deviceName;
             dispatch_semaphore_signal(semaphore);
         } failure:^(NSError *error) {
             dispatch_semaphore_signal(semaphore);
         }];
         dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC));
-        tysdk_dispatch_async_on_main_thread(^{
+        thingsdk_dispatch_async_on_main_thread(^{
             if (completion) {
                 completion(btName);
             }
@@ -337,10 +337,10 @@
 }
 
 - (BOOL)needsPreFetchBtInfoWithDevice:(NSString *)devId {
-    TuyaSmartDeviceOTAModel *ota = [[TYCoreCacheService sharedInstance] getDeviceOtaInfoWithDevId:devId];
+    ThingSmartDeviceOTAModel *ota = [[ThingCoreCacheService sharedInstance] getDeviceOtaInfoWithDevId:devId];
 
     if (!ota) return NO;
-    return [ota deviceCapabilitySupport:TuyaSmartDeviceCapabilityLinkBT];
+    return [ota deviceCapabilitySupport:ThingSmartDeviceCapabilityLinkBT];
 }
 
 - (void)hideDistanceView:(BOOL)hidden {

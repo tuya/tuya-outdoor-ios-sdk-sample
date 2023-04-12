@@ -24,7 +24,7 @@
 #pragma mark --- action ---
 - (IBAction)loginAction:(id)sender {
     if ([self.accountTextField.text containsString:@"@"]) { 
-        [[TuyaSmartUser sharedInstance] loginByEmail:self.countryCodeTextField.text
+        [[ThingSmartUser sharedInstance] loginByEmail:self.countryCodeTextField.text
                                                email:self.accountTextField.text
                                             password:self.passwordTextField.text
                                              success:^
@@ -36,7 +36,7 @@
             [TYODProgressHUD showErrorWithStatus:error.localizedDescription];
         }];
     }else{
-        [[TuyaSmartUser sharedInstance] loginByPhone:self.countryCodeTextField.text
+        [[ThingSmartUser sharedInstance] loginByPhone:self.countryCodeTextField.text
                                          phoneNumber:self.accountTextField.text
                                             password:self.passwordTextField.text
                                              success:^

@@ -1,17 +1,17 @@
 //
-//  TuyaSmartSchemaModel+ValueProtocol.m
+//  ThingSmartSchemaModel+ValueProtocol.m
 //  TuyaSmartOutdoorKit-Example-iOS-Objc
 //
 //  Copyright (c) 2014-2021 Tuya Inc. (https://developer.tuya.com/)
 
-#import "TuyaSmartSchemaModel+ValueProtocol.h"
+#import "ThingSmartSchemaModel+ValueProtocol.h"
 
-@implementation TuyaSmartSchemaModel (ValueProtocol)
+@implementation ThingSmartSchemaModel (ValueProtocol)
 
 // TYODNumberValueProtocol
 - (NSNumber *)numberValue {
     NSInteger scale = self.property.scale;
-    double value = [self.tyod_DPValue ty_double] / pow(10, scale);
+    double value = [self.tsod_DPValue thing_double] / pow(10, scale);
     return @(value);
 }
 
@@ -37,12 +37,12 @@
 
 // TYODStringValueProtocol
 - (NSString *)stringValue {
-    return [self.tyod_DPValue ty_string];
+    return [self.tsod_DPValue thing_string];
 }
 
 // TYODBoolValueProtocol
 - (BOOL)boolValue{
-    return [self.tyod_DPValue ty_bool];
+    return [self.tsod_DPValue thing_bool];
 }
 
 // TYODEnumValueProtocol
@@ -55,7 +55,7 @@
 
 // TYODFaultValueProtocol
 - (NSString *)binaryValue{
-    return [self.tyod_DPValue ty_string];
+    return [self.tsod_DPValue thing_string];
 }
 
 // TYODRawValueProtocol

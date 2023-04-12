@@ -24,7 +24,7 @@
 }
 
 - (IBAction)removeDeviceTapped:(id)sender {
-    TuyaSmartDeviceModel *device = self.device.deviceModel;
+    ThingSmartDeviceModel *device = self.device.deviceModel;
     if (!device.isOnline && [[ThingODBTInductiveUnlock sharedInstance] checkPairedStatus:device.devId]) {
         [Alert showBasicAlertOnVC:self withTitle:@"Attention" message:@"The device has turned on auto unlock function, and the device needs to be unbound when the device is online"];
         return;

@@ -14,10 +14,10 @@ static NSString * TYODDP_CurrentDeviceID(void) {
 }
 
 static NSString * TYODDP_observerKey(NSString *deviceID, NSString *code) {
-    TuyaSmartDeviceModel *deviceModel = [TuyaSmartDevice deviceWithDeviceId:deviceID].deviceModel;
-    NSString *dpID = [deviceModel tyod_schemaMWithCode:code].dpId;
+    ThingSmartDeviceModel *deviceModel = [ThingSmartDevice deviceWithDeviceId:deviceID].deviceModel;
+    NSString *dpID = [deviceModel tsod_schemaMWithCode:code].dpId;
     
-    if (!dpID.ty_isStringAndNotEmpty) return nil;
+    if (!dpID.thing_isStringAndNotEmpty) return nil;
     
     NSString *key = [NSString stringWithFormat:@"%@_%@", deviceModel.devId, dpID];
     return key;
@@ -33,7 +33,7 @@ static NSString * TYODDP_observerKey(NSString *deviceID, NSString *code) {
 
 @implementation TYODDPObserver
 + (void)addDelegate:(id<TYODDPObserverDelegate>)delegate {
-    if (!TYODDP_CurrentDeviceID().ty_isStringAndNotEmpty) return;
+    if (!TYODDP_CurrentDeviceID().thing_isStringAndNotEmpty) return;
     [self addObserverDelegate:delegate deviceID:TYODDP_CurrentDeviceID()];
 }
 
@@ -52,18 +52,18 @@ static NSString * TYODDP_observerKey(NSString *deviceID, NSString *code) {
 }
 
 + (void)addObserverDelegate:(id<TYODDPObserverDelegate>)delegate deviceID:(NSString *)deviceID codes:(NSArray<NSString *> *)codes {
-    TYAssertCond([delegate conformsToProtocol:@protocol(TYODDPObserverDelegate)]);
-    TYAssertCond(codes.ty_isArrayAndNotEmpty);
-    TYAssertCond(deviceID.ty_isStringAndNotEmpty);
+    ThingAssertCond([delegate conformsToProtocol:@protocol(TYODDPObserverDelegate)]);
+    ThingAssertCond(codes.thing_isArrayAndNotEmpty);
+    ThingAssertCond(deviceID.thing_isStringAndNotEmpty);
     
-    if (!TYODDP_CurrentDeviceID().ty_isStringAndNotEmpty) return;
+    if (!TYODDP_CurrentDeviceID().thing_isStringAndNotEmpty) return;
     if (!delegate) return;
-    if (!codes.ty_isArrayAndNotEmpty) return;
-    if (!deviceID.ty_isStringAndNotEmpty) return;
+    if (!codes.thing_isArrayAndNotEmpty) return;
+    if (!deviceID.thing_isStringAndNotEmpty) return;
     
     for (NSString *code in codes) {
         NSString *key = TYODDP_observerKey(deviceID, code);
-        if (!key.ty_isStringAndNotEmpty) continue;
+        if (!key.thing_isStringAndNotEmpty) continue;
         
         NSHashTable<id<TYODDPObserverDelegate>> *hashTable = [[TYODDPObserver observer].codeDelegatesMap objectForKey:key];
         if (!hashTable) {
@@ -79,7 +79,7 @@ static NSString * TYODDP_observerKey(NSString *deviceID, NSString *code) {
 + (void)removeObserverDelegate:(id<TYODDPObserverDelegate>)delegate deviceID:(NSString *)deviceID codes:(NSArray<NSString *> *)codes {
     for (NSString *code in codes) {
         NSString *key = TYODDP_observerKey(deviceID, code);
-        if (!key.ty_isStringAndNotEmpty) continue;
+        if (!key.thing_isStringAndNotEmpty) continue;
         
         NSHashTable<id<TYODDPObserverDelegate>> *hashTable = [[TYODDPObserver observer].codeDelegatesMap objectForKey:key];
         if (hashTable) {
@@ -94,17 +94,17 @@ static NSString * TYODDP_observerKey(NSString *deviceID, NSString *code) {
 }
 
 + (TYODDPObserverSchemaMBlock)monitorDPWithDeviceID:(NSString *)deviceID code:(NSString *)code schemaMBlock:(TYODDPObserverSchemaMBlock)schemaMBlock {
-    TYAssertCond(code.ty_isStringAndNotEmpty);
-    TYAssertCond(schemaMBlock);
-    TYAssertCond(deviceID.ty_isStringAndNotEmpty);
+    ThingAssertCond(code.thing_isStringAndNotEmpty);
+    ThingAssertCond(schemaMBlock);
+    ThingAssertCond(deviceID.thing_isStringAndNotEmpty);
     
-    if (!code.ty_isStringAndNotEmpty) return nil;
-    if (!TYODDP_CurrentDeviceID().ty_isStringAndNotEmpty) return nil;
-    if (!deviceID.ty_isStringAndNotEmpty) return nil;
+    if (!code.thing_isStringAndNotEmpty) return nil;
+    if (!TYODDP_CurrentDeviceID().thing_isStringAndNotEmpty) return nil;
+    if (!deviceID.thing_isStringAndNotEmpty) return nil;
     
     NSString *key = TYODDP_observerKey(deviceID, code);
     
-    if (!key.ty_isStringAndNotEmpty) return nil;
+    if (!key.thing_isStringAndNotEmpty) return nil;
     
     NSHashTable<TYODDPObserverSchemaMBlock> *hashTable = [[TYODDPObserver observer].codeBlocksMap objectForKey:key];
     if (!hashTable) {
@@ -119,15 +119,15 @@ static NSString * TYODDP_observerKey(NSString *deviceID, NSString *code) {
 
 #pragma mark - logic
 - (void)deviceDPsUpdate:(NSNotification *)notification {
-    NSString *devID = [notification.object ty_stringForKey:@"devId"];
-    NSDictionary<NSString *, id> *dpsDict = [notification.object ty_dictionaryForKey:@"dps"];
+    NSString *devID = [notification.object thing_stringForKey:@"devId"];
+    NSDictionary<NSString *, id> *dpsDict = [notification.object thing_dictionaryForKey:@"dps"];
     
-    TuyaSmartDeviceModel *deviceModel = [TuyaSmartDevice deviceWithDeviceId:devID].deviceModel;
+    ThingSmartDeviceModel *deviceModel = [ThingSmartDevice deviceWithDeviceId:devID].deviceModel;
     for (NSString *dpID in dpsDict.allKeys) {
         NSString *key = [NSString stringWithFormat:@"%@_%@", devID, dpID];
         
         // ...block
-        TuyaSmartSchemaModel *schemaM = [deviceModel tyod_schemaMWithCode:[self.schemaAdaptorMap ty_stringForKey:key]];
+        ThingSmartSchemaModel *schemaM = [deviceModel tsod_schemaMWithCode:[self.schemaAdaptorMap thing_stringForKey:key]];
         NSHashTable<TYODDPObserverSchemaMBlock> *hashTableBlocks = [[TYODDPObserver observer].codeBlocksMap objectForKey:key];
         NSEnumerator <TYODDPObserverSchemaMBlock> *blocks = hashTableBlocks.objectEnumerator;
         TYODDPObserverSchemaMBlock schemaMBlock = blocks.nextObject;
@@ -151,10 +151,10 @@ static NSString * TYODDP_observerKey(NSString *deviceID, NSString *code) {
 
 #pragma mark - Private
 + (NSArray<NSString *> *)assembleCodesFromDeviceID:(NSString *)deviceID {
-    NSArray<TuyaSmartSchemaModel *> *schemaArr = [TuyaSmartDevice deviceWithDeviceId:deviceID].deviceModel.schemaArray;
+    NSArray<ThingSmartSchemaModel *> *schemaArr = [ThingSmartDevice deviceWithDeviceId:deviceID].deviceModel.schemaArray;
     
     NSMutableArray<NSString *> *mCodes = [NSMutableArray arrayWithCapacity:schemaArr.count];
-    for (TuyaSmartSchemaModel *schemaM in schemaArr) {
+    for (ThingSmartSchemaModel *schemaM in schemaArr) {
         [mCodes addObject:schemaM.code];
     }
     return mCodes.copy;

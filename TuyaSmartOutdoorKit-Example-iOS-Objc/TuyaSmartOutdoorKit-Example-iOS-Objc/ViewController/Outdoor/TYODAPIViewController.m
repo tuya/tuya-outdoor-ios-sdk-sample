@@ -12,9 +12,9 @@
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic) NSMutableArray *listAry;
 
-@property (nonatomic, strong) TuyaSmartOutdoorDeviceListService *deviceListService;
-@property (nonatomic, strong) TuyaSmartOutdoorCyclingService *cyclingService;
-@property (nonatomic, strong) TuyaSmartOutdoorStoreService *storeService;
+@property (nonatomic, strong) ThingSmartOutdoorDeviceListService *deviceListService;
+@property (nonatomic, strong) ThingSmartOutdoorCyclingService *cyclingService;
+@property (nonatomic, strong) ThingSmartOutdoorStoreService *storeService;
 
 @end
 
@@ -44,7 +44,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TYODAPI"
                                                             forIndexPath:indexPath];
-    cell.textLabel.text = [self.listAry ty_safeObjectAtIndex:indexPath.row];
+    cell.textLabel.text = [self.listAry thing_safeObjectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -53,19 +53,19 @@
     if (!devId) {
         return;
     }
-    ty_weakify(self)
+    thing_weakify(self)
     switch (indexPath.row) {
         case 0:
         {
             NSSet<NSString *> *set = [NSSet setWithArray:@[devId]];
             [self.deviceListService requestProductIconWithDeviceIDList:set
-                                                               success:^(NSDictionary<NSString *,TuyaSmartOutdoorProductIconModel *> * _Nonnull productIconMap)
+                                                               success:^(NSDictionary<NSString *,ThingSmartOutdoorProductIconModel *> * _Nonnull productIconMap)
             {
-                ty_strongify(self)
+                thing_strongify(self)
                 self.textView.text = [productIconMap yy_modelToJSONString];
                 [TYODProgressHUD showSuccessWithStatus:self.textView.text];
             } failure:^(NSError * _Nonnull error) {
-                ty_strongify(self)
+                thing_strongify(self)
                 self.textView.text = error.localizedDescription;
                 [TYODProgressHUD showErrorWithStatus:self.textView.text];
             }];
@@ -73,12 +73,12 @@
             break;
         case 1:
         {
-            [self.deviceListService requestHardwareWithDeviceID:devId success:^(TuyaSmartOutdoorDeviceHardwareModel * _Nonnull hardwareModel) {
-                ty_strongify(self)
+            [self.deviceListService requestHardwareWithDeviceID:devId success:^(ThingSmartOutdoorDeviceHardwareModel * _Nonnull hardwareModel) {
+                thing_strongify(self)
                 self.textView.text = [hardwareModel yy_modelToJSONString];
                 [TYODProgressHUD showSuccessWithStatus:self.textView.text];
             } failure:^(NSError * _Nonnull error) {
-                ty_strongify(self)
+                thing_strongify(self)
                 self.textView.text = error.localizedDescription;
                 [TYODProgressHUD showErrorWithStatus:self.textView.text];
             }];
@@ -86,8 +86,8 @@
             break;
         case 2:
         {
-            [self.cyclingService requestTripTrackWithDeviceId:devId size:10 completion:^(NSArray<TuyaSmartOutdoorCycleRecordModel *> * _Nonnull records, NSError * _Nonnull error) {
-                ty_strongify(self)
+            [self.cyclingService requestTripTrackWithDeviceId:devId size:10 completion:^(NSArray<ThingSmartOutdoorCycleRecordModel *> * _Nonnull records, NSError * _Nonnull error) {
+                thing_strongify(self)
                 if (error) {
                     self.textView.text = error.localizedDescription;
                     [TYODProgressHUD showErrorWithStatus:self.textView.text];
@@ -105,9 +105,9 @@
             [self.cyclingService requestTripTrackStatisticWithDeviceId:devId
                                                              startTime:startTime
                                                                endTime:endTime
-                                                            completion:^(TuyaSmartOutdoorCycleRecordModel * _Nonnull record, NSError * _Nonnull error)
+                                                            completion:^(ThingSmartOutdoorCycleRecordModel * _Nonnull record, NSError * _Nonnull error)
             {
-                ty_strongify(self)
+                thing_strongify(self)
                 if (error) {
                     self.textView.text = error.localizedDescription;
                     [TYODProgressHUD showErrorWithStatus:self.textView.text];
@@ -120,19 +120,19 @@
             break;
         case 4:
         {
-            TuyaSmartOutdoorLocationUploadModel *model = [[TuyaSmartOutdoorLocationUploadModel alloc] init];
+            ThingSmartOutdoorLocationUploadModel *model = [[ThingSmartOutdoorLocationUploadModel alloc] init];
             model.coord = CLLocationCoordinate2DMake(31.157840043548337, 121.15179116499475);
             model.speed = 14;
             model.mileage = 14;
             model.started = YES;
             model.batteryValue = 99;
-            NSString *productId = [TuyaSmartDevice deviceWithDeviceId:devId].deviceModel.productId;
+            NSString *productId = [ThingSmartDevice deviceWithDeviceId:devId].deviceModel.productId;
             [self.cyclingService uploadLocatonWithDeviceId:devId
                                                  productId:productId
                                                uploadModel:model
                                                 completion:^(BOOL success, NSError * _Nonnull error)
             {
-                ty_strongify(self)
+                thing_strongify(self)
                 if (error) {
                     self.textView.text = error.localizedDescription;
                     [TYODProgressHUD showErrorWithStatus:self.textView.text];
@@ -145,16 +145,16 @@
             break;
         case 5:
         {
-            TuyaSmartOutdoorStoreRequestModel *model = [[TuyaSmartOutdoorStoreRequestModel alloc] init];
+            ThingSmartOutdoorStoreRequestModel *model = [[ThingSmartOutdoorStoreRequestModel alloc] init];
             model.radius = 20;
             model.longitude = 31.157840043548337;
             model.latitude = 121.15179116499475;
             model.coordType = @"WGS84-google";
             model.max = 10;
             [self.storeService requestStoreWithParams:model
-                                           completion:^(NSArray<TuyaSmartOutdoorStoreModel *> * _Nonnull storeList, NSError * _Nonnull error)
+                                           completion:^(NSArray<ThingSmartOutdoorStoreModel *> * _Nonnull storeList, NSError * _Nonnull error)
             {
-                ty_strongify(self)
+                thing_strongify(self)
                 if (error) {
                     self.textView.text = error.localizedDescription;
                     [TYODProgressHUD showErrorWithStatus:self.textView.text];
@@ -167,7 +167,7 @@
             break;
         case 6:
         {
-            TuyaSmartOutdoorStorePageRequestModel *model = [[TuyaSmartOutdoorStorePageRequestModel alloc] init];
+            ThingSmartOutdoorStorePageRequestModel *model = [[ThingSmartOutdoorStorePageRequestModel alloc] init];
             model.longitude = 31.157840043548337;
             model.latitude = 121.15179116499475;
             model.coordType = @"WGS84-google";
@@ -175,9 +175,9 @@
             model.pageIndex = 0;
             model.pageSize = 10;
             [self.storeService requestStorePagesWithParams:model
-                                                completion:^(NSArray<TuyaSmartOutdoorStoreModel *> * _Nonnull storeList, NSError * _Nonnull error)
+                                                completion:^(NSArray<ThingSmartOutdoorStoreModel *> * _Nonnull storeList, NSError * _Nonnull error)
             {
-                ty_strongify(self)
+                thing_strongify(self)
                 if (error) {
                     self.textView.text = error.localizedDescription;
                     [TYODProgressHUD showErrorWithStatus:self.textView.text];
@@ -201,23 +201,23 @@
     return _listAry;
 }
 
-- (TuyaSmartOutdoorDeviceListService*)deviceListService {
+- (ThingSmartOutdoorDeviceListService*)deviceListService {
     if (!_deviceListService) {
-        _deviceListService = [[TuyaSmartOutdoorDeviceListService alloc] init];
+        _deviceListService = [[ThingSmartOutdoorDeviceListService alloc] init];
     }
     return _deviceListService;
 }
 
-- (TuyaSmartOutdoorCyclingService *)cyclingService {
+- (ThingSmartOutdoorCyclingService *)cyclingService {
     if (!_cyclingService) {
-        _cyclingService = [[TuyaSmartOutdoorCyclingService alloc] init];
+        _cyclingService = [[ThingSmartOutdoorCyclingService alloc] init];
     }
     return _cyclingService;
 }
 
-- (TuyaSmartOutdoorStoreService *)storeService {
+- (ThingSmartOutdoorStoreService *)storeService {
     if (!_storeService) {
-        _storeService = [[TuyaSmartOutdoorStoreService alloc] init];
+        _storeService = [[ThingSmartOutdoorStoreService alloc] init];
     }
     return _storeService;
 }

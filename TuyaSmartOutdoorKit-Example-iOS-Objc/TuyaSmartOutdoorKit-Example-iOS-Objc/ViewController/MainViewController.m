@@ -5,7 +5,7 @@
 //  Copyright (c) 2014-2021 Tuya Inc. (https://developer.tuya.com/)
 
 #import "MainViewController.h"
-#import <TuyaSmartOutdoorKit/TuyaSmartOutdoorKit.h>
+#import <ThingSmartOutdoorKit/ThingSmartOutdoorKit.h>
 
 @interface MainViewController ()
 
@@ -19,7 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     NSString *version;
-    NSDictionary *dic = [[TuyaSmartSDK sharedInstance] valueForKey:@"sdkVerMark"];
+    NSDictionary *dic = [[ThingSmartSDK sharedInstance] valueForKey:@"sdkVerMark"];
     if (dic) {
         version = [dic objectForKey:@"outdoorSDK"];
     }

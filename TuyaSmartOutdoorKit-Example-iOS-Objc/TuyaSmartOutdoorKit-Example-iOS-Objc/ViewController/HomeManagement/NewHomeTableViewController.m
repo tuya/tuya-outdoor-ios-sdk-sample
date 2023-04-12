@@ -5,6 +5,7 @@
 //  Copyright (c) 2014-2021 Tuya Inc. (https://developer.tuya.com/)
 
 #import "NewHomeTableViewController.h"
+#import <CoreLocation/CoreLocation.h>
 #import "Alert.h"
 
 @interface NewHomeTableViewController ()<CLLocationManagerDelegate>
@@ -13,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *cityTextField;
 
 
-@property(strong, nonatomic) TuyaSmartHomeManager *homeManager;
+@property(strong, nonatomic) ThingSmartHomeManager *homeManager;
 @property(strong, nonatomic) CLLocationManager *locationManager;
 @property(assign, nonatomic) double longitude;
 @property(assign, nonatomic) double latitude;
@@ -53,9 +54,9 @@
     self.latitude = location.coordinate.latitude;
 }
 
-- (TuyaSmartHomeManager *)homeManager {
+- (ThingSmartHomeManager *)homeManager {
     if (!_homeManager) {
-        _homeManager = [[TuyaSmartHomeManager alloc] init];
+        _homeManager = [[ThingSmartHomeManager alloc] init];
     }
     return _homeManager;
 }

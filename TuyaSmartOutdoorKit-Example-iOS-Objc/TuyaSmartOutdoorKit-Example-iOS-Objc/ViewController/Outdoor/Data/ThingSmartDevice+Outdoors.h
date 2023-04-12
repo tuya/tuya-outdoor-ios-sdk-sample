@@ -1,14 +1,14 @@
 //
-//  TuyaSmartDevice+Outdoors.h
+//  ThingSmartDevice+Outdoors.h
 //  TuyaSmartOutdoorKit-Example-iOS-Objc
 //
 //  Copyright (c) 2014-2021 Tuya Inc. (https://developer.tuya.com/)
 
-#import <TuyaSmartDeviceCoreKit/TuyaSmartDeviceCoreKit.h>
+#import <ThingSmartDeviceCoreKit/ThingSmartDeviceCoreKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TuyaSmartDevice (Outdoors)
+@interface ThingSmartDevice (Outdoors)
 
 @property (nonatomic, assign) NSTimeInterval tyso_beginRideTime;
 @property (nonatomic, assign) NSTimeInterval tyso_beginNaviTime;
@@ -20,8 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param failure Failure callback
 - (void)tyod_publish_code:(NSString *)code
                   dpValue:(id)dpValue
-                  success:(nullable TYSuccessHandler)success
-                  failure:(nullable TYFailureError)failure;
+                  success:(nullable ThingSuccessHandler)success
+                  failure:(nullable ThingFailureError)failure;
 @end
 
 NS_ASSUME_NONNULL_END

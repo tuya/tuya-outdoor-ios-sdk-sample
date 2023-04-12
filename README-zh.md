@@ -4,7 +4,7 @@
 
 ---
 
-涂鸦智慧出行 App SDK基于'TuyaSmartDeviceCoreKit'构建，并扩展与户外相关的功能，以加快您的开发过程。主要包括了以下功能：
+涂鸦智慧出行 App SDK基于'ThingSmartDeviceCoreKit'构建，并扩展与户外相关的功能，以加快您的开发过程。主要包括了以下功能：
 
 - 获取设备DP模型信息
 - 获取设备高清图片

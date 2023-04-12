@@ -10,13 +10,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TYSmartOutdoorRequestManager : NSObject
 
-@property (nonatomic, strong) TuyaSmartOutdoorDeviceListService *service;
+@property (nonatomic, strong) ThingSmartOutdoorDeviceListService *service;
 
 + (instancetype)shareInstance;
 
 //Request device HD picture according to device ID
 - (void)requestOutdoorsDevicesIconWithParams:(NSArray<NSString *> *)deviceIds
-                                  completion:(void(^)(NSDictionary<NSString *,TuyaSmartOutdoorProductIconModel *> *result))completion;
+                                  completion:(void(^)(NSDictionary<NSString *,ThingSmartOutdoorProductIconModel *> *result))completion;
 
 @end
 

@@ -27,7 +27,7 @@
 }
 
 - (IBAction)logOutButtonAction:(id)sender {
-    [[TuyaSmartUser sharedInstance] loginOut:^{
+    [[ThingSmartUser sharedInstance] loginOut:^{
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UINavigationController *nav = [mainStoryboard instantiateInitialViewController];
         [UIApplication sharedApplication].keyWindow.rootViewController = nav;

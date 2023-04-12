@@ -34,9 +34,9 @@
 		A081AA99277AE73F00878378 /* TYODConfigTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A081AA96277AE73F00878378 /* TYODConfigTool.m */; };
 		A089D523278579F000950C33 /* TYODDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D522278579F000950C33 /* TYODDataManager.m */; };
 		A089D53827858A6100950C33 /* TYODDPLanguageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D52E27858A6000950C33 /* TYODDPLanguageManager.m */; };
-		A089D53927858A6100950C33 /* TuyaSmartDeviceModel+ODDpSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D53027858A6000950C33 /* TuyaSmartDeviceModel+ODDpSchema.m */; };
-		A089D53A27858A6100950C33 /* TuyaSmartDeviceModel+Outdoors.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D53227858A6000950C33 /* TuyaSmartDeviceModel+Outdoors.m */; };
-		A089D53B27858A6100950C33 /* TuyaSmartSchemaModel+ValueProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D53527858A6000950C33 /* TuyaSmartSchemaModel+ValueProtocol.m */; };
+		A089D53927858A6100950C33 /* ThingSmartDeviceModel+ODDpSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D53027858A6000950C33 /* ThingSmartDeviceModel+ODDpSchema.m */; };
+		A089D53A27858A6100950C33 /* ThingSmartDeviceModel+Outdoors.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D53227858A6000950C33 /* ThingSmartDeviceModel+Outdoors.m */; };
+		A089D53B27858A6100950C33 /* ThingSmartSchemaModel+ValueProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D53527858A6000950C33 /* ThingSmartSchemaModel+ValueProtocol.m */; };
 		A089D54027858C6900950C33 /* TYSmartOutdoorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D53F27858C6900950C33 /* TYSmartOutdoorUtils.m */; };
 		A089D54927858D3E00950C33 /* TYSOHomePresenter+Network.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D54527858D3E00950C33 /* TYSOHomePresenter+Network.m */; };
 		A089D54A27858D3E00950C33 /* TYSOHomePresenter+HomeData.m in Sources */ = {isa = PBXBuildFile; fileRef = A089D54727858D3E00950C33 /* TYSOHomePresenter+HomeData.m */; };
@@ -78,7 +78,7 @@
 		E5172C9429CAE74900721661 /* TYODDPObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = E5172C9229CAE74900721661 /* TYODDPObserver.m */; };
 		E54F7E3929C8040C009F17F7 /* UnLock.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E54F7E3829C8040C009F17F7 /* UnLock.storyboard */; };
 		E54F7E3C29C80446009F17F7 /* TYODUnLockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E54F7E3B29C80446009F17F7 /* TYODUnLockViewController.m */; };
-		E5D1344F29E00E3C00D8917C /* TuyaSmartDevice+Outdoors.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D1344E29E00E3C00D8917C /* TuyaSmartDevice+Outdoors.m */; };
+		E5D1344F29E00E3C00D8917C /* ThingSmartDevice+Outdoors.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D1344E29E00E3C00D8917C /* ThingSmartDevice+Outdoors.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,12 +129,12 @@
 		A089D521278579F000950C33 /* TYODDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYODDataManager.h; sourceTree = "<group>"; };
 		A089D522278579F000950C33 /* TYODDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYODDataManager.m; sourceTree = "<group>"; };
 		A089D52E27858A6000950C33 /* TYODDPLanguageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYODDPLanguageManager.m; sourceTree = "<group>"; };
-		A089D52F27858A6000950C33 /* TuyaSmartDeviceModel+ODDpSchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TuyaSmartDeviceModel+ODDpSchema.h"; sourceTree = "<group>"; };
-		A089D53027858A6000950C33 /* TuyaSmartDeviceModel+ODDpSchema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TuyaSmartDeviceModel+ODDpSchema.m"; sourceTree = "<group>"; };
-		A089D53127858A6000950C33 /* TuyaSmartSchemaModel+ValueProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TuyaSmartSchemaModel+ValueProtocol.h"; sourceTree = "<group>"; };
-		A089D53227858A6000950C33 /* TuyaSmartDeviceModel+Outdoors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TuyaSmartDeviceModel+Outdoors.m"; sourceTree = "<group>"; };
-		A089D53327858A6000950C33 /* TuyaSmartDeviceModel+Outdoors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TuyaSmartDeviceModel+Outdoors.h"; sourceTree = "<group>"; };
-		A089D53527858A6000950C33 /* TuyaSmartSchemaModel+ValueProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TuyaSmartSchemaModel+ValueProtocol.m"; sourceTree = "<group>"; };
+		A089D52F27858A6000950C33 /* ThingSmartDeviceModel+ODDpSchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ThingSmartDeviceModel+ODDpSchema.h"; sourceTree = "<group>"; };
+		A089D53027858A6000950C33 /* ThingSmartDeviceModel+ODDpSchema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ThingSmartDeviceModel+ODDpSchema.m"; sourceTree = "<group>"; };
+		A089D53127858A6000950C33 /* ThingSmartSchemaModel+ValueProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ThingSmartSchemaModel+ValueProtocol.h"; sourceTree = "<group>"; };
+		A089D53227858A6000950C33 /* ThingSmartDeviceModel+Outdoors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ThingSmartDeviceModel+Outdoors.m"; sourceTree = "<group>"; };
+		A089D53327858A6000950C33 /* ThingSmartDeviceModel+Outdoors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ThingSmartDeviceModel+Outdoors.h"; sourceTree = "<group>"; };
+		A089D53527858A6000950C33 /* ThingSmartSchemaModel+ValueProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ThingSmartSchemaModel+ValueProtocol.m"; sourceTree = "<group>"; };
 		A089D53627858A6000950C33 /* TYODDPLanguageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYODDPLanguageManager.h; sourceTree = "<group>"; };
 		A089D53D27858B4600950C33 /* TYODValueProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYODValueProtocol.h; sourceTree = "<group>"; };
 		A089D53E27858C6900950C33 /* TYSmartOutdoorUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYSmartOutdoorUtils.h; sourceTree = "<group>"; };
@@ -211,8 +211,8 @@
 		E54F7E3829C8040C009F17F7 /* UnLock.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UnLock.storyboard; sourceTree = "<group>"; };
 		E54F7E3A29C80446009F17F7 /* TYODUnLockViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYODUnLockViewController.h; sourceTree = "<group>"; };
 		E54F7E3B29C80446009F17F7 /* TYODUnLockViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYODUnLockViewController.m; sourceTree = "<group>"; };
-		E5D1344D29E00E3C00D8917C /* TuyaSmartDevice+Outdoors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TuyaSmartDevice+Outdoors.h"; sourceTree = "<group>"; };
-		E5D1344E29E00E3C00D8917C /* TuyaSmartDevice+Outdoors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TuyaSmartDevice+Outdoors.m"; sourceTree = "<group>"; };
+		E5D1344D29E00E3C00D8917C /* ThingSmartDevice+Outdoors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ThingSmartDevice+Outdoors.h"; sourceTree = "<group>"; };
+		E5D1344E29E00E3C00D8917C /* ThingSmartDevice+Outdoors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ThingSmartDevice+Outdoors.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -420,14 +420,14 @@
 			isa = PBXGroup;
 			children = (
 				A089D53D27858B4600950C33 /* TYODValueProtocol.h */,
-				E5D1344D29E00E3C00D8917C /* TuyaSmartDevice+Outdoors.h */,
-				E5D1344E29E00E3C00D8917C /* TuyaSmartDevice+Outdoors.m */,
-				A089D52F27858A6000950C33 /* TuyaSmartDeviceModel+ODDpSchema.h */,
-				A089D53027858A6000950C33 /* TuyaSmartDeviceModel+ODDpSchema.m */,
-				A089D53327858A6000950C33 /* TuyaSmartDeviceModel+Outdoors.h */,
-				A089D53227858A6000950C33 /* TuyaSmartDeviceModel+Outdoors.m */,
-				A089D53127858A6000950C33 /* TuyaSmartSchemaModel+ValueProtocol.h */,
-				A089D53527858A6000950C33 /* TuyaSmartSchemaModel+ValueProtocol.m */,
+				E5D1344D29E00E3C00D8917C /* ThingSmartDevice+Outdoors.h */,
+				E5D1344E29E00E3C00D8917C /* ThingSmartDevice+Outdoors.m */,
+				A089D52F27858A6000950C33 /* ThingSmartDeviceModel+ODDpSchema.h */,
+				A089D53027858A6000950C33 /* ThingSmartDeviceModel+ODDpSchema.m */,
+				A089D53327858A6000950C33 /* ThingSmartDeviceModel+Outdoors.h */,
+				A089D53227858A6000950C33 /* ThingSmartDeviceModel+Outdoors.m */,
+				A089D53127858A6000950C33 /* ThingSmartSchemaModel+ValueProtocol.h */,
+				A089D53527858A6000950C33 /* ThingSmartSchemaModel+ValueProtocol.m */,
 				A089D53627858A6000950C33 /* TYODDPLanguageManager.h */,
 				A089D52E27858A6000950C33 /* TYODDPLanguageManager.m */,
 				A089D521278579F000950C33 /* TYODDataManager.h */,
@@ -689,11 +689,11 @@
 				A089D5812786C4E000950C33 /* TYODEnumTableViewCell.m in Sources */,
 				A089D5BB2786FF0D00950C33 /* HomeListTableViewController.m in Sources */,
 				A06A5B83278D565600CD0D67 /* UserInformationTableViewController.m in Sources */,
-				E5D1344F29E00E3C00D8917C /* TuyaSmartDevice+Outdoors.m in Sources */,
+				E5D1344F29E00E3C00D8917C /* ThingSmartDevice+Outdoors.m in Sources */,
 				A089D5C4278700C400950C33 /* NotificationName.m in Sources */,
 				A081AA47277ABB7D00878378 /* AppDelegate.m in Sources */,
-				A089D53A27858A6100950C33 /* TuyaSmartDeviceModel+Outdoors.m in Sources */,
-				A089D53B27858A6100950C33 /* TuyaSmartSchemaModel+ValueProtocol.m in Sources */,
+				A089D53A27858A6100950C33 /* ThingSmartDeviceModel+Outdoors.m in Sources */,
+				A089D53B27858A6100950C33 /* ThingSmartSchemaModel+ValueProtocol.m in Sources */,
 				A089D5A02786F7DF00950C33 /* SIGMeshTableViewController.m in Sources */,
 				A089D54027858C6900950C33 /* TYSmartOutdoorUtils.m in Sources */,
 				A081AA8F277AC0BB00878378 /* TYODUserInfoTableViewController.m in Sources */,
@@ -706,7 +706,7 @@
 				A089D59F2786F7DF00950C33 /* BLEModelViewController.m in Sources */,
 				A089D5B62786FF0D00950C33 /* Home.m in Sources */,
 				A081AA90277AC0BB00878378 /* TYODLoginViewController.m in Sources */,
-				A089D53927858A6100950C33 /* TuyaSmartDeviceModel+ODDpSchema.m in Sources */,
+				A089D53927858A6100950C33 /* ThingSmartDeviceModel+ODDpSchema.m in Sources */,
 				A089D57E2786C4D000950C33 /* TYODSliderTableViewCell.m in Sources */,
 				A089D5B72786FF0D00950C33 /* SwitchHomeTableViewController.m in Sources */,
 				A089D57B2786C4C000950C33 /* TYODSwitchTableViewCell.m in Sources */,
@@ -851,7 +851,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TKX5FSG78V;
+				DEVELOPMENT_TEAM = YU53J7686A;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/TYBluetooth/Build\"",
@@ -975,47 +975,43 @@
 					"-framework",
 					"\"SystemConfiguration\"",
 					"-framework",
-					"\"TYBluetooth\"",
+					"\"ThingBluetooth\"",
 					"-framework",
-					"\"TuyaSmartActivatorCoreKit\"",
+					"\"ThingSmartActivatorCoreKit\"",
 					"-framework",
-					"\"TuyaSmartActivatorKit\"",
+					"\"ThingSmartActivatorKit\"",
 					"-framework",
-					"\"TuyaSmartBLECoreKit\"",
+					"\"ThingSmartBLECoreKit\"",
 					"-framework",
-					"\"TuyaSmartBLEKit\"",
+					"\"ThingSmartBLEKit\"",
 					"-framework",
-					"\"TuyaSmartBLEMeshKit\"",
+					"\"ThingSmartBLEMeshKit\"",
 					"-framework",
-					"\"TuyaSmartBaseKit\"",
+					"\"ThingSmartBaseKit\"",
 					"-framework",
-					"\"TuyaSmartDeviceCoreKit\"",
+					"\"ThingSmartDeviceCoreKit\"",
 					"-framework",
-					"\"TuyaSmartDeviceKit\"",
+					"\"ThingSmartDeviceKit\"",
 					"-framework",
-					"\"TuyaSmartFeedbackKit\"",
+					"\"ThingSmartFeedbackKit\"",
 					"-framework",
-					"\"TuyaSmartMQTTChannelKit\"",
+					"\"ThingSmartMQTTChannelKit\"",
 					"-framework",
-					"\"TuyaSmartMessageKit\"",
+					"\"ThingSmartMessageKit\"",
 					"-framework",
-					"\"TuyaSmartNetworkKit\"",
+					"\"ThingSmartNetworkKit\"",
 					"-framework",
-					"\"TuyaSmartQUIC\"",
+					"\"ThingSmartSceneKit\"",
 					"-framework",
-					"\"TuyaSmartSceneKit\"",
+					"\"ThingSmartShareKit\"",
 					"-framework",
-					"\"TuyaSmartShareKit\"",
+					"\"ThingSmartSocketChannelKit\"",
 					"-framework",
-					"\"TuyaSmartSocketChannelKit\"",
-					"-framework",
-					"\"TuyaSmartTimerKit\"",
-					"-framework",
-					"\"TuyaSmartUtil\"",
+					"\"ThingSmartTimerKit\"",
 					"-framework",
 					"\"UIKit\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.regression.travel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1028,7 +1024,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TKX5FSG78V;
+				DEVELOPMENT_TEAM = YU53J7686A;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/TYBluetooth/Build\"",
@@ -1153,47 +1149,43 @@
 					"-framework",
 					"\"SystemConfiguration\"",
 					"-framework",
-					"\"TYBluetooth\"",
+					"\"ThingBluetooth\"",
 					"-framework",
-					"\"TuyaSmartActivatorCoreKit\"",
+					"\"ThingSmartActivatorCoreKit\"",
 					"-framework",
-					"\"TuyaSmartActivatorKit\"",
+					"\"ThingSmartActivatorKit\"",
 					"-framework",
-					"\"TuyaSmartBLECoreKit\"",
+					"\"ThingSmartBLECoreKit\"",
 					"-framework",
-					"\"TuyaSmartBLEKit\"",
+					"\"ThingSmartBLEKit\"",
 					"-framework",
-					"\"TuyaSmartBLEMeshKit\"",
+					"\"ThingSmartBLEMeshKit\"",
 					"-framework",
-					"\"TuyaSmartBaseKit\"",
+					"\"ThingSmartBaseKit\"",
 					"-framework",
-					"\"TuyaSmartDeviceCoreKit\"",
+					"\"ThingSmartDeviceCoreKit\"",
 					"-framework",
-					"\"TuyaSmartDeviceKit\"",
+					"\"ThingSmartDeviceKit\"",
 					"-framework",
-					"\"TuyaSmartFeedbackKit\"",
+					"\"ThingSmartFeedbackKit\"",
 					"-framework",
-					"\"TuyaSmartMQTTChannelKit\"",
+					"\"ThingSmartMQTTChannelKit\"",
 					"-framework",
-					"\"TuyaSmartMessageKit\"",
+					"\"ThingSmartMessageKit\"",
 					"-framework",
-					"\"TuyaSmartNetworkKit\"",
+					"\"ThingSmartNetworkKit\"",
 					"-framework",
-					"\"TuyaSmartQUIC\"",
+					"\"ThingSmartSceneKit\"",
 					"-framework",
-					"\"TuyaSmartSceneKit\"",
+					"\"ThingSmartShareKit\"",
 					"-framework",
-					"\"TuyaSmartShareKit\"",
+					"\"ThingSmartSocketChannelKit\"",
 					"-framework",
-					"\"TuyaSmartSocketChannelKit\"",
-					"-framework",
-					"\"TuyaSmartTimerKit\"",
-					"-framework",
-					"\"TuyaSmartUtil\"",
+					"\"ThingSmartTimerKit\"",
 					"-framework",
 					"\"UIKit\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.regression.travel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

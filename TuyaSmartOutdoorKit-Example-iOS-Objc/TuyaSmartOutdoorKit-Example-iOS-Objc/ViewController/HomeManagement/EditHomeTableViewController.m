@@ -5,6 +5,7 @@
 //  Copyright (c) 2014-2021 Tuya Inc. (https://developer.tuya.com/)
 
 #import "EditHomeTableViewController.h"
+#import <CoreLocation/CoreLocation.h>
 #import "Alert.h"
 
 @interface EditHomeTableViewController ()<CLLocationManagerDelegate>

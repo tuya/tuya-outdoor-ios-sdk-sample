@@ -11,7 +11,7 @@
 #import "TYSOHomePresenter+HomeData.h"
 #import "TYODBluetoothStateManager.h"
 #import "NSObject+Outdoor.h"
-#import "TuyaSmartDeviceModel+ODDpSchema.h"
+#import "ThingSmartDeviceModel+ODDpSchema.h"
 
 #import "TYODSwitchTableViewCell.h"
 #import "TYODSliderTableViewCell.h"
@@ -59,9 +59,9 @@
 }
 
 - (void)refreshingActionAndReloadData {
-    ty_weakify(self)
+    thing_weakify(self)
     [self.presenter reloadWithCompletion:^{
-        ty_strongify(self)
+        thing_strongify(self)
         [self reloadViewData];
         [self.tableView.mj_header endRefreshing];
     }];
@@ -73,14 +73,14 @@
         if ([self.presenter currentDevice].deviceModel == nil) {
             self.presenter = [[TYSOHomePresenter alloc] initWithView:self];
         }
-        ty_weakify(self)
+        thing_weakify(self)
         [self.presenter reloadWithCompletion:^{
-            ty_strongify(self)
+            thing_strongify(self)
             [self reloadViewData];
         }];
     }
     ///
-    TuyaSmartDeviceModel *deviceModel = [self.presenter currentDevice].deviceModel;
+    ThingSmartDeviceModel *deviceModel = [self.presenter currentDevice].deviceModel;
     bool isOnline = deviceModel.isOnline;
     if (!isOnline && deviceModel) {
         [TYODProgressHUD showErrorWithStatus:@"The device is offline. The control panel is unavailable."];
@@ -93,16 +93,16 @@
 
 ///Account A deletes A shared device. Account B deletes the cache of the device
 - (void)shareList:(NSNotification *)notification {
-    NSString *UUID = [notification.object ty_string];
+    NSString *UUID = [notification.object thing_string];
     if (!UUID) {
         return;
     }
     if ([[self.presenter currentDevice].deviceModel.uuid isEqualToString:UUID]) {
         [TYODDataManager clearCurrentDevice];
     }
-    ty_weakify(self)
+    thing_weakify(self)
     [self.presenter reloadWithCompletion:^{
-        ty_strongify(self)
+        thing_strongify(self)
         if ([[self.presenter currentDevice].deviceModel.uuid isEqualToString:UUID]) {
             [self.presenter clearCurrentDevice];
         }
@@ -131,9 +131,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    TuyaSmartSchemaModel *schema = [[self.presenter currentDevice].deviceModel.schemaArray ty_safeObjectAtIndex:indexPath.row];
+    ThingSmartSchemaModel *schema = [[self.presenter currentDevice].deviceModel.schemaArray thing_safeObjectAtIndex:indexPath.row];
     
-    schema = [[self.presenter currentDevice].deviceModel tyod_schemaMWithCode:schema.code];
+    schema = [[self.presenter currentDevice].deviceModel tsod_schemaMWithCode:schema.code];
     if ([schema.code isEqualToString:dpod_gps_signal_strength]) {
         schema = [[self.presenter currentDevice].deviceModel tyso_gps_signal];
     }
@@ -165,8 +165,8 @@
     NSString *cellIdentifier = [self.presenter cellIdentifierWithSchemaModel:schema];
     cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     isReadOnly = [@"ro" isEqualToString:schema.mode];
-    ty_weakify(self)
-    ty_weakify(cell)
+    thing_weakify(self)
+    thing_weakify(cell)
     ///Dp multilingual
     NSString *key = [NSString stringWithFormat:@"dp_%@", schema.code];
     NSString *title = key.tyod_dp_localized ? : schema.name;
@@ -174,12 +174,12 @@
         case DeviceControlCellTypeSwitchCell:
         {
             ((TYODSwitchTableViewCell *)cell).label.text = title;
-            [((TYODSwitchTableViewCell *)cell).switchButton setOn:[schema.tyod_DPValue ty_bool]];
+            [((TYODSwitchTableViewCell *)cell).switchButton setOn:[schema.tsod_DPValue thing_bool]];
             ((TYODSwitchTableViewCell *)cell).isReadOnly = isReadOnly;
             ((TYODSwitchTableViewCell *)cell).schema = schema;
             ((TYODSwitchTableViewCell *)cell).switchAction = ^(UISwitch *switchButton) {
-                ty_strongify(self)
-                ty_strongify(cell)
+                thing_strongify(self)
+                thing_strongify(cell)
                 [self publishMessageWithCode:schema.code idV:@(switchButton.isOn) cell:cell];
             };
             break;
@@ -187,7 +187,7 @@
         case DeviceControlCellTypeSliderCell:
         {
             NSMutableString *detailStr = [NSMutableString string];
-            [detailStr appendFormat:@"%@",[schema.tyod_DPValue ty_string]];
+            [detailStr appendFormat:@"%@",[schema.tsod_DPValue thing_string]];
             if (schema.property.unit) {
                 [detailStr appendString:schema.property.unit];
             }
@@ -196,13 +196,13 @@
             ((TYODSliderTableViewCell *)cell).slider.minimumValue = schema.property.min;
             ((TYODSliderTableViewCell *)cell).slider.maximumValue = schema.property.max;
             [((TYODSliderTableViewCell *)cell).slider setContinuous:NO];
-            ((TYODSliderTableViewCell *)cell).slider.value = [schema.tyod_DPValue ty_float];
+            ((TYODSliderTableViewCell *)cell).slider.value = [schema.tsod_DPValue thing_float];
             ((TYODSliderTableViewCell *)cell).isReadOnly = isReadOnly;
             ((TYODSliderTableViewCell *)cell).sliderAction = ^(UISlider * _Nonnull slider) {
                 float step = schema.property.step;
                 float roundedValue = round(slider.value / step) * step;
-                ty_strongify(self)
-                ty_strongify(cell)
+                thing_strongify(self)
+                thing_strongify(cell)
                 [self publishMessageWithCode:schema.code idV:@((int)roundedValue) cell:cell];
             };
             break;
@@ -211,12 +211,12 @@
         {
             ((TYODEnumTableViewCell *)cell).label.text = title;
             ((TYODEnumTableViewCell *)cell).optionArray = [schema.property.range mutableCopy];
-            ((TYODEnumTableViewCell *)cell).currentOption = [schema.tyod_DPValue ty_string];
-            ((TYODEnumTableViewCell *)cell).detailLabel.text = [schema.tyod_DPValue ty_string];
+            ((TYODEnumTableViewCell *)cell).currentOption = [schema.tsod_DPValue thing_string];
+            ((TYODEnumTableViewCell *)cell).detailLabel.text = [schema.tsod_DPValue thing_string];
             ((TYODEnumTableViewCell *)cell).isReadOnly = isReadOnly;
             ((TYODEnumTableViewCell *)cell).selectAction = ^(NSString * _Nonnull option) {
-                ty_strongify(self)
-                ty_strongify(cell)
+                thing_strongify(self)
+                thing_strongify(cell)
                 [self publishMessageWithCode:schema.code idV:option cell:cell];
             };
             break;
@@ -224,13 +224,13 @@
         case DeviceControlCellTypeStringCell:
         {
             ((TYODStringTableViewCell *)cell).label.text = title;
-            ((TYODStringTableViewCell *)cell).textField.text = [schema.tyod_DPValue ty_string];
+            ((TYODStringTableViewCell *)cell).textField.text = [schema.tsod_DPValue thing_string];
             ((TYODStringTableViewCell *)cell).isReadOnly = isReadOnly;
             ((TYODStringTableViewCell *)cell).buttonAction = ^(NSString * _Nonnull text) {
-                ty_strongify(self)
-                ty_strongify(cell)
+                thing_strongify(self)
+                thing_strongify(cell)
                 NSString *str = ((TYODStringTableViewCell *)cell).textField.text;
-                str = str ? str : [schema.tyod_DPValue ty_string];
+                str = str ? str : [schema.tsod_DPValue thing_string];
                 [self publishMessageWithCode:schema.code idV:str cell:cell];
             };
             break;
@@ -238,7 +238,7 @@
         case DeviceControlCellTypeLabelCell:
         {
             ((TYODLabelTableViewCell *)cell).label.text = title;
-            ((TYODLabelTableViewCell *)cell).detailLabel.text = [schema.tyod_DPValue ty_string];
+            ((TYODLabelTableViewCell *)cell).detailLabel.text = [schema.tsod_DPValue thing_string];
             break;
         }
         default:
@@ -261,7 +261,7 @@
 
 - (void)listenforChangesInTheseDpPoints {
     NSMutableArray *codeAry = [NSMutableArray array];
-    for (TuyaSmartSchemaModel *obj in [self.presenter currentDevice].deviceModel.schemaArray) {
+    for (ThingSmartSchemaModel *obj in [self.presenter currentDevice].deviceModel.schemaArray) {
         [codeAry addObject:obj.code];
     }
     if(codeAry.count){
@@ -270,9 +270,9 @@
 }
 
 - (void)publishMessageWithCode:(NSString *)code idV:(id)idV cell:(UITableViewCell *)cell {
-    ty_weakify(self)
-    [self.presenter.device tyod_publishDPWithCode:code DPValue:idV success:^{
-        ty_strongify(self)
+    thing_weakify(self)
+    [self.presenter.device tsod_publishDPWithCode:code DPValue:idV success:^{
+        thing_strongify(self)
         if ([self checkNeedHIDBindWithCode:code]) {
             [self tyod_performSelector:@selector(resetHIDBindStatusWithCode:) withObject:code afterDelay:15];
             [TYODProgressHUD show];
@@ -282,7 +282,7 @@
     } failure:^(NSError *error) {
         [TYODProgressHUD showErrorWithStatus:error.localizedDescription];
         if ([cell isKindOfClass:[TYODSwitchTableViewCell class]]) {
-            [((TYODSwitchTableViewCell *)cell).switchButton setOn:![idV ty_bool] animated:NO];
+            [((TYODSwitchTableViewCell *)cell).switchButton setOn:![idV thing_bool] animated:NO];
         }
     }];
 }
@@ -291,10 +291,10 @@
     NSArray<NSString *> *HIDCodes = @[dpod_auto_lock, dpod_auto_unlock];
     BOOL needHIDBind = NO;
     if ([HIDCodes containsObject:code]) {
-        TuyaSmartSchemaModel *dict = [[self.presenter currentDevice].deviceModel tyod_schemaMWithCode:code];
-        BOOL idV = [dict.tyod_DPValue ty_bool];
-        TuyaSmartSchemaModel *bindDict = [[self.presenter currentDevice].deviceModel tyod_schemaMWithCode:dpod_hid_bind];
-        NSString *bindState = [bindDict.tyod_DPValue ty_string];
+        ThingSmartSchemaModel *dict = [[self.presenter currentDevice].deviceModel tsod_schemaMWithCode:code];
+        BOOL idV = [dict.tsod_DPValue thing_bool];
+        ThingSmartSchemaModel *bindDict = [[self.presenter currentDevice].deviceModel tsod_schemaMWithCode:dpod_hid_bind];
+        NSString *bindState = [bindDict.tsod_DPValue thing_string];
         BOOL hadBind = [bindState isEqualToString:@"bind"];
         if (!idV && !hadBind) {
             needHIDBind = YES;
@@ -308,9 +308,9 @@
         [TYODProgressHUD dismiss];
         return;
     }
-    ty_weakify(self)
-    [self.presenter.device tyod_publishDPWithCode:code DPValue:@NO success:^{
-        ty_strongify(self)
+    thing_weakify(self)
+    [self.presenter.device tsod_publishDPWithCode:code DPValue:@NO success:^{
+        thing_strongify(self)
         [TYODProgressHUD dismiss];
         [self resertUIWithCode:code];
     } failure:^(NSError *error) {
@@ -334,20 +334,20 @@
     }];
 }
 
-- (void)observer:(TYODDPObserver *)observer deviceID:(NSString *)deviceID schemaM:(TuyaSmartSchemaModel *)schemaM {
+- (void)observer:(TYODDPObserver *)observer deviceID:(NSString *)deviceID schemaM:(ThingSmartSchemaModel *)schemaM {
     if ([schemaM.code isEqualToString:dpod_hid_bind]) {
-        NSString *bindState = [schemaM.tyod_DPValue ty_string];
+        NSString *bindState = [schemaM.tsod_DPValue thing_string];
         [self tyod_cancelPreviousPerformRequestsWithTarget:self];
         if ([bindState isEqualToString:@"bind"]) {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(8.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [TYODProgressHUD dismiss];
             });
         }else{
-            BOOL auto_lock_Value = [[[self.presenter currentDevice].deviceModel tyod_schemaMWithCode:dpod_auto_lock].tyod_DPValue ty_bool];
+            BOOL auto_lock_Value = [[[self.presenter currentDevice].deviceModel tsod_schemaMWithCode:dpod_auto_lock].tsod_DPValue thing_bool];
             if (auto_lock_Value) {
                 [self resetHIDBindStatusWithCode:dpod_auto_lock];
             }
-            BOOL auto_unlock_Value = [[[self.presenter currentDevice].deviceModel tyod_schemaMWithCode:dpod_auto_unlock].tyod_DPValue ty_bool];
+            BOOL auto_unlock_Value = [[[self.presenter currentDevice].deviceModel tsod_schemaMWithCode:dpod_auto_unlock].tsod_DPValue thing_bool];
             if (auto_unlock_Value) {
                 [self resetHIDBindStatusWithCode:dpod_auto_unlock];
             }
