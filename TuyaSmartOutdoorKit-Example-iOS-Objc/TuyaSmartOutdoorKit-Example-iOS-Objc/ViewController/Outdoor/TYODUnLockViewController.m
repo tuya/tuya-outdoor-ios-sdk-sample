@@ -139,10 +139,12 @@
             break;
     }
 }
+
 #pragma mark - ThingODHidInductiveUnlockDelegate
 
 - (void)listenHidBindStatusCallback:(HidBindStatus)status {
     [self checkHIDBindStatus];
+    self.unLockSwitch.enabled = YES;
 }
 
 #pragma mark - ThingODBTInductiveUnlockDelegate
@@ -181,14 +183,14 @@
 
 #pragma mark - CLLocationManagerDelegate
 - (void)locationManagerDidChangeAuthorization:(CLLocationManager *)manager {
-    [self checkAuthStatus];
+    [self updateAuthView];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
-    [self checkAuthStatus];
+    [self updateAuthView];
 }
 
-- (void)checkAuthStatus {
+- (BOOL)getAuthStatus {
     BOOL au = NO;
     CLAuthorizationStatus authS = kCLAuthorizationStatusNotDetermined;
     if (@available(iOS 14.0, *)) {
@@ -211,7 +213,11 @@
         fa = (self.locationManager.accuracyAuthorization == CLAccuracyAuthorizationFullAccuracy);
         enabled = fa && au;
     }
+    return enabled;
+}
 
+- (void)updateAuthView {
+    BOOL enabled = [self getAuthStatus];
     self.fullLocationStatus.text = enabled ? @"Enabled" : @"Disabled";
     
     self.authButton.hidden = enabled;
@@ -245,12 +251,17 @@
 
 
 - (IBAction)unLockSwitch:(UISwitch *)sender {
+    if (![self getAuthStatus]) {
+        [TYODProgressHUD showInfoWithStatus:@"You need to enable location access first"];
+        [sender setOn:!sender.isOn];
+        return;
+    }
     NSString *devId = [TYODDataManager currentDeviceID];
     thing_weakify(self)
     if (self.type == InductiveUnlockTypeBLEHID) {
         if (sender.isOn) {
             [[ThingODHidInductiveUnlock sharedInstance] turnOnHidInductiveUnlock:devId finished:^{
-                
+
             } error:^(NSError * _Nonnull error) {
                 [TYODProgressHUD showInfoWithStatus:error.localizedDescription];
                 [sender setOn:NO animated:YES];
@@ -267,7 +278,6 @@
         if (sender.isOn) {
             if (!self.paired) {
                 [[ThingODBTInductiveUnlock sharedInstance] turnOnBTInductiveUnlock:devId finished:^{
-                    
                 } error:^(NSError *error) {
                     [TYODProgressHUD showInfoWithStatus:error.localizedDescription];
                     [sender setOn:NO animated:YES];
