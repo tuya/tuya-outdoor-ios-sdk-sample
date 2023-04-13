@@ -45,7 +45,7 @@
                                              selector:@selector(changeDeviceAndRefresh)
                                                  name:@"TYODChangeDeviceAndRefresh"
                                                object:nil];
-    
+
     [ThingSmartODInductiveUnlock sharedInstance].delegate = self;
     [ThingODHidInductiveUnlock sharedInstance].delegate = self;
     [ThingODBTInductiveUnlock sharedInstance].delegate = self;
@@ -66,11 +66,11 @@
 }
 
 - (void)checkUnlockType {
-    NSString *devID = [TYODDataManager currentDeviceID];
+    NSString *devId = [TYODDataManager currentDeviceID];
     self.unLockSwitch.enabled = NO;
     thing_weakify(self)
     // unlock type
-    [[ThingSmartODInductiveUnlock sharedInstance] getInductiveUnlockType:devID completion:^(InductiveUnlockType type) {
+    [[ThingSmartODInductiveUnlock sharedInstance] getInductiveUnlockType:devId completion:^(InductiveUnlockType type) {
         thing_strongify(self)
         self.type = type;
         if (type == InductiveUnlockTypeBLEHID) {
@@ -80,7 +80,7 @@
             [self hideHIDBindStatusView:NO];
             [self hideDistanceView:YES];
             [self hideRecordDistanceView:NO];
-            BOOL unlockStatus = [[ThingODHidInductiveUnlock sharedInstance] getUnlockStatus:devID];
+            BOOL unlockStatus = [[ThingODHidInductiveUnlock sharedInstance] getUnlockStatus:devId];
             [self.unLockSwitch setOn:unlockStatus];
             [self enabledRecordDistanceView:unlockStatus];
         } else if (type == InductiveUnlockTypeBT) {
@@ -89,11 +89,11 @@
             [self hideHIDBindStatusView:YES];
             [self hideRecordDistanceView:YES];
             
-            self.paired = [[ThingODBTInductiveUnlock sharedInstance] checkPairedStatus:devID];
+            self.paired = [[ThingODBTInductiveUnlock sharedInstance] checkPairedStatus:devId];
             if (self.paired) {
                 [self.unLockSwitch setOn:YES];
                 [self hideDistanceView:NO];
-                self.stepSlider.value = [[ThingODBTInductiveUnlock sharedInstance] checkInductiveUnlockBindStatus:devID];
+                self.stepSlider.value = [[ThingODBTInductiveUnlock sharedInstance] getInductiveUnlockDistance:devId];
                 long level = lroundf(self.stepSlider.value);
                 self.levelLabel.text = [NSString stringWithFormat:@"level: %ld", level];
             } else {
@@ -108,14 +108,16 @@
             [self hideRecordDistanceView:YES];
         }
         self.unLockSwitch.enabled = YES;
+    } error:^(NSError * _Nonnull error) {
+        [TYODProgressHUD showInfoWithStatus:error.localizedDescription];
     }];
     
     [self.stepSlider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)checkHIDBindStatus {
-    NSString *devID = [TYODDataManager currentDeviceID];
-    BOOL bindStatus = [[ThingODHidInductiveUnlock sharedInstance] getHidBindStatus:devID];
+    NSString *devId = [TYODDataManager currentDeviceID];
+    BOOL bindStatus = [[ThingODHidInductiveUnlock sharedInstance] getHidBindStatus:devId];
     self.hidBindStatus.text = bindStatus ? @"BIND" : @"UNBIND";
 }
 
@@ -136,6 +138,11 @@
         default:
             break;
     }
+}
+#pragma mark - ThingODHidInductiveUnlockDelegate
+
+- (void)listenHidBindStatusCallback:(HidBindStatus)status {
+    [self checkHIDBindStatus];
 }
 
 #pragma mark - ThingODBTInductiveUnlockDelegate
@@ -170,11 +177,6 @@
             break;
         }
     }
-}
-
-#pragma mark - ThingODHidInductiveUnlockDelegate
-- (void)listenHidBindStatusCallback:(HidBindStatus)status {
-    [self checkHIDBindStatus];
 }
 
 #pragma mark - CLLocationManagerDelegate
@@ -303,10 +305,10 @@
 }
 
 - (void)sliderValueChanged:(UISlider *)sender {
-    long level = lroundf(sender.value);
-    self.levelLabel.text = [NSString stringWithFormat:@"level: %ld", level];
+    long distance = lroundf(sender.value);
+    self.levelLabel.text = [NSString stringWithFormat:@"level: %ld", distance];
     NSString *devId = [TYODDataManager currentDeviceID];
-    [[ThingODBTInductiveUnlock sharedInstance] bindBTInductiveStatus:devId level:level finished:^{
+    [[ThingODBTInductiveUnlock sharedInstance] setInductiveUnlockDistance:devId distance:distance finished:^{
 
     } error:^(NSError * _Nonnull error) {
         [TYODProgressHUD showInfoWithStatus:@"Bind Status Failed"];
@@ -334,13 +336,6 @@
             }
         });
     });
-}
-
-- (BOOL)needsPreFetchBtInfoWithDevice:(NSString *)devId {
-    ThingSmartDeviceOTAModel *ota = [[ThingCoreCacheService sharedInstance] getDeviceOtaInfoWithDevId:devId];
-
-    if (!ota) return NO;
-    return [ota deviceCapabilitySupport:ThingSmartDeviceCapabilityLinkBT];
 }
 
 - (void)hideDistanceView:(BOOL)hidden {

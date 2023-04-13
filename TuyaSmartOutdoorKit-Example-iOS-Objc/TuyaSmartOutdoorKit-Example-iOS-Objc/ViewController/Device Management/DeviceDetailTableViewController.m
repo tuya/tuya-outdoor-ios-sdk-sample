@@ -28,7 +28,7 @@
     if (!device.isOnline && [[ThingODBTInductiveUnlock sharedInstance] checkPairedStatus:device.devId]) {
         [Alert showBasicAlertOnVC:self withTitle:@"Attention" message:@"The device has turned on auto unlock function, and the device needs to be unbound when the device is online"];
         return;
-    } else if (!device.isOnline && ([[ThingODHidInductiveUnlock sharedInstance] supportHIDAbility:device.devId])) {
+    } else if (!device.isOnline && [[ThingODHidInductiveUnlock sharedInstance] supportHIDAbility:device.devId]) {
         [Alert showBasicAlertOnVC:self withTitle:@"Unbind Bluetooth device" message:@"The device is a HID device, please connect the device to unbind it."];
         return;
     }
