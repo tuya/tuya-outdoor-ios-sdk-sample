@@ -276,12 +276,16 @@
         }
     } else if (self.type == InductiveUnlockTypeBT) {
         if (sender.isOn) {
+            self.paired = [[ThingODBTInductiveUnlock sharedInstance] checkPairedStatus:devId];
             if (!self.paired) {
                 [[ThingODBTInductiveUnlock sharedInstance] turnOnBTInductiveUnlock:devId finished:^{
                 } error:^(NSError *error) {
                     [TYODProgressHUD showInfoWithStatus:error.localizedDescription];
                     [sender setOn:NO animated:YES];
                 }];
+            } else {
+                [TYODProgressHUD showInfoWithStatus:@"BT inductiv unlocking is still on"];
+                [self hideDistanceView:NO];
             }
         } else {
             [[ThingODBTInductiveUnlock sharedInstance] turnOffBTInductiveUnlock:devId finished:^{

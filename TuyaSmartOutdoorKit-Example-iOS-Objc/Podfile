@@ -1,6 +1,6 @@
+source 'https://cdn.cocoapods.org/'
+source 'https://github.com/tuya/TuyaPublicSpecs.git'
 source 'https://github.com/tuya/tuya-pod-specs.git'
-source "https://github.com/TuyaInc/TuyaPublicSpecs.git"
-source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '11.0'
 inhibit_all_warnings!
@@ -11,10 +11,10 @@ target 'TuyaSmartOutdoorKit-Example-iOS-Objc' do
   pod 'MJRefresh'
   pod 'SDWebImage'
   #Dp multilingual
-  pod 'ThingSmartLangsPackKit', '~> 1.1.1'
+  pod 'ThingSmartLangsPackKit'
   pod 'ThingFoundationKit'
   #outdoor
-  pod 'ThingSmartOutdoorKit'
+  pod 'ThingSmartOutdoorKit', '~> 5.0.1'
 
 end
 
