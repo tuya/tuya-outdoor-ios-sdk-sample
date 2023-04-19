@@ -946,8 +946,6 @@
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
-					"-l\"Masonry\"",
-					"-l\"Reachability\"",
 					"-l\"SVProgressHUD\"",
 					"-l\"YYModel\"",
 					"-l\"c++\"",
@@ -1120,8 +1118,6 @@
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
-					"-l\"Masonry\"",
-					"-l\"Reachability\"",
 					"-l\"SVProgressHUD\"",
 					"-l\"YYModel\"",
 					"-l\"c++\"",
