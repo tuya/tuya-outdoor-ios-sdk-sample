@@ -14,14 +14,24 @@ target 'TuyaSmartOutdoorKit-Example-iOS-Objc' do
   pod 'ThingSmartLangsPackKit'
   pod 'ThingFoundationKit'
   #outdoor
-  pod 'ThingSmartOutdoorKit', '~> 5.0.1'
+  pod 'ThingSmartOutdoorKit', '~> 5.2.0'
 
 end
 
 post_install do |installer|
   `cd TuyaSmartOutdoorKit-Example-iOS-Objc; [[ -f AppKey.h ]] || cp AppKey.h.default AppKey.h;`
 
-  installer.pods_project.build_configurations.each do |config|
-    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      # 消除文档警告
+      config.build_settings['CLANG_WARN_DOCUMENTATION_COMMENTS'] = 'NO'
+      # iOS 模拟器去除 arm64
+      config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+                  # Xcode 14 编译问题
+      config.build_settings["DEVELOPMENT_TEAM"] = "DWPHVGUZ22"
+      # Xcode 14 编译问题
+      config.build_settings['ENABLE_BITCODE'] = 'NO'
+      config.build_settings.delete("IPHONEOS_DEPLOYMENT_TARGET")
+    end
   end
 end
