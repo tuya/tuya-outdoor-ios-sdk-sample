@@ -56,7 +56,7 @@
 6. 下载 **安全图片** 并重命名为 `t_s.bmp`，将安全图片拖拽到 `Info.plist` 所在的文件夹下。
 7. 如果您想在搭载 M1 芯片的 MacBook 提供的模拟器上调试，前往 `Pods` > `PROJECT`，加入下图所示内容。
 
-![M1EngineeringConfiguration](https://github.com/tuya/tuya-outdoor-ios-sdk-sample/blob/develop/M1EngineeringConfiguration.png)
+![M1EngineeringConfiguration](https://github.com/tuya/tuya-outdoor-ios-sdk-sample/blob/main/M1EngineeringConfiguration.png)
 
 **注意**：**Bundle ID**、**AppKey**、**AppSecret** 和 安全图片 必须与您在 [涂鸦 IoT 开发平台](https://iot.tuya.com/) 创建的应用配置保持一致。否则，本示例工程无法正常运行。
 
