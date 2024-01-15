@@ -5,7 +5,7 @@
 //  Copyright (c) 2014-2021 Tuya Inc. (https://developer.tuya.com/)
 
 #import "TYODDeviceListTableViewCell.h"
-#import "TuyaSmartDeviceModel+ODDpSchema.h"
+#import "ThingSmartDeviceModel+ODDpSchema.h"
 
 @interface TYODDeviceListTableViewCell()
 
@@ -27,12 +27,12 @@
     // Configure the view for the selected state
 }
 
-- (void)setDeviceModel:(TuyaSmartDeviceModel *)deviceModel {
+- (void)setDeviceModel:(ThingSmartDeviceModel *)deviceModel {
     _deviceModel = deviceModel;
     NSDictionary *dic = [TYODDataManager localDeviceIconList];
     NSString *iconUrl;
     if (dic && dic.allKeys > 0) {
-        iconUrl = [dic ty_stringForKey:_deviceModel.productId];
+        iconUrl = [dic thing_stringForKey:_deviceModel.productId];
     }
     if (!iconUrl) {
         iconUrl = _deviceModel.iconUrl;

@@ -5,7 +5,7 @@
 //  Copyright (c) 2014-2021 Tuya Inc. (https://developer.tuya.com/)
 
 #import "TYODDataManager.h"
-#import <TYFoundationKit/TYFoundationKit.h>
+#import <ThingFoundationKit/ThingFoundationKit.h>
 
 NSString *TYSOCurrentSelectedDeviceWillChange = @"TYSOCurrentSelectedDeviceWillChange";
 NSString *TYSOCurrentSelectedDeviceDidChange  = @"TYSOCurrentSelectedDeviceDidChange";
@@ -20,7 +20,7 @@ static NSString * const KLocalDeviceLangsKey = @"KLocalDeviceLangsKey";
 
 #pragma mark -
 + (void)setCurrentDeviceID:(NSString *)currentDeviceID {
-    TYAssertCond(currentDeviceID.length > 0);
+    ThingAssertCond(currentDeviceID.length > 0);
     if (currentDeviceID == nil) return;
     if ([_currentDeviceID isEqualToString:currentDeviceID]) return;
 
@@ -39,13 +39,13 @@ static NSString * const KLocalDeviceLangsKey = @"KLocalDeviceLangsKey";
         _currentDeviceID = [[NSUserDefaults standardUserDefaults] objectForKey:kCurrentDeviceKey];
     }
     if (_currentDeviceID.length <= 0) {
-        NSArray <TuyaSmartDeviceModel *> *deviceArr = [TYODDataManager outdoorsDeviceList];
+        NSArray <ThingSmartDeviceModel *> *deviceArr = [TYODDataManager outdoorsDeviceList];
         if (deviceArr.count > 0) {
             _currentDeviceID = deviceArr.lastObject.devId;
         }
     }
     if (_currentDeviceID.length <= 0) {
-        NSArray<TuyaSmartDeviceModel *> *sharedDevArr = [TYODDataManager outdoorsSharedDeviceList];
+        NSArray<ThingSmartDeviceModel *> *sharedDevArr = [TYODDataManager outdoorsSharedDeviceList];
         if (sharedDevArr.count > 0) {
             _currentDeviceID =  sharedDevArr.lastObject.devId;
         }
@@ -54,36 +54,36 @@ static NSString * const KLocalDeviceLangsKey = @"KLocalDeviceLangsKey";
 }
 
 #pragma mark - init
-+ (NSArray<TuyaSmartDeviceModel *> *)outdoorsDeviceList {
-    TuyaSmartHomeModel *homeModel = [Home getCurrentHome];
-    TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:homeModel.homeId];
-    NSMutableArray<TuyaSmartDeviceModel *> *oriDeviceArr = home.deviceList.mutableCopy;
-    NSMutableArray<TuyaSmartDeviceModel *> *deviceArr = [NSMutableArray array];
++ (NSArray<ThingSmartDeviceModel *> *)outdoorsDeviceList {
+    ThingSmartHomeModel *homeModel = [Home getCurrentHome];
+    ThingSmartHome *home = [ThingSmartHome homeWithHomeId:homeModel.homeId];
+    NSMutableArray<ThingSmartDeviceModel *> *oriDeviceArr = home.deviceList.mutableCopy;
+    NSMutableArray<ThingSmartDeviceModel *> *deviceArr = [NSMutableArray array];
     NSArray<NSString *> *filterCodes = TYODCategoryCodeList();
-    [oriDeviceArr enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(TuyaSmartDeviceModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [oriDeviceArr enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(ThingSmartDeviceModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([filterCodes containsObject:obj.category]) {
             [deviceArr addObject:obj];
         }
     }];
     ///The latest display is on the back
-    [deviceArr sortUsingComparator:^NSComparisonResult(TuyaSmartDeviceModel *obj1, TuyaSmartDeviceModel *obj2) {
+    [deviceArr sortUsingComparator:^NSComparisonResult(ThingSmartDeviceModel *obj1, ThingSmartDeviceModel *obj2) {
         return [obj1 homeDisplayOrder] < [obj2 homeDisplayOrder] ? NSOrderedAscending :NSOrderedDescending;
     }];
     return deviceArr.copy;
 }
 
-+ (NSArray<TuyaSmartDeviceModel *> *)outdoorsSharedDeviceList {
-    TuyaSmartHomeModel *homeModel = [Home getCurrentHome];
-    TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:homeModel.homeId];
-    NSMutableArray<TuyaSmartDeviceModel *> *oriDeviceArr = home.sharedDeviceList.mutableCopy;
-    NSMutableArray<TuyaSmartDeviceModel *> *deviceArr = [NSMutableArray array];
++ (NSArray<ThingSmartDeviceModel *> *)outdoorsSharedDeviceList {
+    ThingSmartHomeModel *homeModel = [Home getCurrentHome];
+    ThingSmartHome *home = [ThingSmartHome homeWithHomeId:homeModel.homeId];
+    NSMutableArray<ThingSmartDeviceModel *> *oriDeviceArr = home.sharedDeviceList.mutableCopy;
+    NSMutableArray<ThingSmartDeviceModel *> *deviceArr = [NSMutableArray array];
     NSArray<NSString *> *filterCodes = TYODCategoryCodeList();
-    [oriDeviceArr enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(TuyaSmartDeviceModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [oriDeviceArr enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(ThingSmartDeviceModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([filterCodes containsObject:obj.category]) {
             [deviceArr addObject:obj];
         }
     }];
-    [deviceArr sortUsingComparator:^NSComparisonResult(TuyaSmartDeviceModel *  _Nonnull obj1, TuyaSmartDeviceModel *  _Nonnull obj2) {
+    [deviceArr sortUsingComparator:^NSComparisonResult(ThingSmartDeviceModel *  _Nonnull obj1, ThingSmartDeviceModel *  _Nonnull obj2) {
         return obj1.activeTime > obj2.activeTime ? NSOrderedAscending :NSOrderedDescending;
     }];
     return deviceArr.copy;
@@ -91,7 +91,7 @@ static NSString * const KLocalDeviceLangsKey = @"KLocalDeviceLangsKey";
 
 + (BOOL)isSharedOutdoorsDeviceWithDeviceID:(NSString *)deviceID {
     __block BOOL shared = NO;
-    [[self.class outdoorsSharedDeviceList] enumerateObjectsUsingBlock:^(TuyaSmartDeviceModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [[self.class outdoorsSharedDeviceList] enumerateObjectsUsingBlock:^(ThingSmartDeviceModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj.devId isEqualToString:deviceID]) {
             shared = YES;
             *stop = YES;
@@ -103,13 +103,13 @@ static NSString * const KLocalDeviceLangsKey = @"KLocalDeviceLangsKey";
 
 #pragma mark --- Total outdoor equipment ---
 + (NSInteger)outdoorsDeviceListAllCount {
-    TuyaSmartHomeModel *homeModel = [Home getCurrentHome];
-    TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:homeModel.homeId];
-    NSMutableArray<TuyaSmartDeviceModel *> *oriDeviceArr = [NSMutableArray arrayWithArray:home.sharedDeviceList];
+    ThingSmartHomeModel *homeModel = [Home getCurrentHome];
+    ThingSmartHome *home = [ThingSmartHome homeWithHomeId:homeModel.homeId];
+    NSMutableArray<ThingSmartDeviceModel *> *oriDeviceArr = [NSMutableArray arrayWithArray:home.sharedDeviceList];
     [oriDeviceArr addObjectsFromArray:home.deviceList];
     NSArray<NSString *> *filterCodes = TYODCategoryCodeList();
-    __block NSMutableArray<TuyaSmartDeviceModel *> *deviceArr = [NSMutableArray array];
-    [oriDeviceArr enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(TuyaSmartDeviceModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    __block NSMutableArray<ThingSmartDeviceModel *> *deviceArr = [NSMutableArray array];
+    [oriDeviceArr enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(ThingSmartDeviceModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([filterCodes containsObject:obj.category]) {
             [deviceArr addObject:obj];
         }

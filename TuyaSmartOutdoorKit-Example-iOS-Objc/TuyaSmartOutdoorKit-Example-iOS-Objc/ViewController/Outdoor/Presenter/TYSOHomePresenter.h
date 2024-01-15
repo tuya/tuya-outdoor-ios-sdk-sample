@@ -8,15 +8,15 @@
 #import "TYSOHomeViewProtocol.h"
 #import "TYSOHomePresenterDataProtocol.h"
 
-@class TuyaSmartHome,TuyaSmartHomeManager,TuyaSmartDevice;
+@class ThingSmartHome,ThingSmartHomeManager,ThingSmartDevice;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TYSOHomePresenter : NSObject<TYSOHomePresenterDataProtocol,TuyaSmartHomeDelegate>
+@interface TYSOHomePresenter : NSObject<TYSOHomePresenterDataProtocol,ThingSmartHomeDelegate>
 
-@property (nonatomic, strong) TuyaSmartHome *home;
-@property (nonatomic, strong) TuyaSmartHomeManager *homeManager;
-@property (nonatomic, strong) TuyaSmartDevice *__nullable device;
+@property (nonatomic, strong) ThingSmartHome *home;
+@property (nonatomic, strong) ThingSmartHomeManager *homeManager;
+@property (nonatomic, strong) ThingSmartDevice *__nullable device;
 @property (nonatomic, strong) NSMutableDictionary *cyclingRecord;
 @property (nonatomic, strong) NSMutableDictionary *deviceIconList; 
 

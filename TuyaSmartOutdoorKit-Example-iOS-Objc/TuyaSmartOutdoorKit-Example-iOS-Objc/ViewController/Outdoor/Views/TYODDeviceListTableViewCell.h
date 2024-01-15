@@ -10,7 +10,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TYODDeviceListTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) TuyaSmartDeviceModel *deviceModel;
+@property (nonatomic, strong) ThingSmartDeviceModel *deviceModel;
 
 @end
 

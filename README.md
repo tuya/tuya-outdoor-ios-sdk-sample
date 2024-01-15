@@ -7,7 +7,7 @@
 
 ## Overview
 
-Tuya Smart Travel App SDK for iOS is built based on `TuyaSmartDeviceCoreKit` and integrates with features for smart travel scenarios to speed up your app development process. The following features are supported:
+Tuya Smart Travel App SDK for iOS is built based on `ThingSmartDeviceCoreKit` and integrates with features for smart travel scenarios to speed up your app development process. The following features are supported:
 
 * Get information about the device data point (DP) model
 * Get high-definition images of devices

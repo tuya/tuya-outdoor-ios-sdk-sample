@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UISwitch *switchButton;
 @property (strong, nonatomic) void(^switchAction)(UISwitch *switchButton);
-@property (strong, nonatomic) TuyaSmartSchemaModel *schema;
+@property (strong, nonatomic) ThingSmartSchemaModel *schema;
 
 @end
 

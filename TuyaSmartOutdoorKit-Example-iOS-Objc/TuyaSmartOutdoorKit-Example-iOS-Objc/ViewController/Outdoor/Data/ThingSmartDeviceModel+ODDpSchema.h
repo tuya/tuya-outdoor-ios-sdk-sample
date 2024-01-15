@@ -1,28 +1,28 @@
 //
-//  TuyaSmartDeviceModel+ODDpSchema.h
+//  ThingSmartDeviceModel+ODDpSchema.h
 //  TuyaSmartOutdoorKit-Example-iOS-Objc
 //
 //  Copyright (c) 2014-2021 Tuya Inc. (https://developer.tuya.com/)
 
-#import <TuyaSmartDeviceCoreKit/TuyaSmartDeviceCoreKit.h>
+#import <ThingSmartDeviceCoreKit/ThingSmartDeviceCoreKit.h>
 #import "TYODValueProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef TuyaSmartSchemaModel<TYODNumberValueProtocol> TYODNumDp;
-typedef TuyaSmartSchemaModel<TYODBoolValueProtocol> TYODBoolDp;
-typedef TuyaSmartSchemaModel<TYODEnumValueProtocol> TYODEnumDp;
-typedef TuyaSmartSchemaModel<TYODStringValueProtocol> TYODStrDp;
-typedef TuyaSmartSchemaModel<TYODRawValueProtocol> TYODRawDp;
-typedef TuyaSmartSchemaModel<TYODFaultValueProtocol> TYODFaultDp;
+typedef ThingSmartSchemaModel<TYODNumberValueProtocol> TYODNumDp;
+typedef ThingSmartSchemaModel<TYODBoolValueProtocol> TYODBoolDp;
+typedef ThingSmartSchemaModel<TYODEnumValueProtocol> TYODEnumDp;
+typedef ThingSmartSchemaModel<TYODStringValueProtocol> TYODStrDp;
+typedef ThingSmartSchemaModel<TYODRawValueProtocol> TYODRawDp;
+typedef ThingSmartSchemaModel<TYODFaultValueProtocol> TYODFaultDp;
 
-@interface TuyaSmartDeviceModel (ODDpSchema)
+@interface ThingSmartDeviceModel (ODDpSchema)
 
 - (TYODNumDp *)tyso_gps_signal;
 
 - (TYODNumDp *)tyso_gsm_signal;
 
-- (TuyaSmartSchemaModel<TYODEnumValueProtocol> *)tyso_4g_signal_strength;
+- (ThingSmartSchemaModel<TYODEnumValueProtocol> *)tyso_4g_signal_strength;
 - (TYODNumDp *)tyso_endurance_mileage;
 - (TYODNumDp *)tyso_mileage_total;
 - (TYODNumDp *)tyso_battery_percentage;

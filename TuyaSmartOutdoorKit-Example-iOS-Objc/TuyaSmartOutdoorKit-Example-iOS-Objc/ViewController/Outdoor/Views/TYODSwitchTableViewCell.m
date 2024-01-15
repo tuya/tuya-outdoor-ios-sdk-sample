@@ -20,9 +20,9 @@
     if (self.switchAction) {
         self.switchAction(sender);
     }
-    ty_weakify(self)
+    thing_weakify(self)
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        ty_strongify(self)
+        thing_strongify(self)
         self.userInteractionEnabled = YES;
     });
 }

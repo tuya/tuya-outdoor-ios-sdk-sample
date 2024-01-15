@@ -5,15 +5,15 @@
 //  Copyright (c) 2014-2021 Tuya Inc. (https://developer.tuya.com/)
 
 #import "TYSOHomePresenter.h"
-#import <TuyaSmartBaseKit/TuyaSmartBaseKit.h>
-#import "TuyaSmartDeviceModel+Outdoors.h"
-#import "TuyaSmartDevice+Outdoors.h"
+#import <ThingSmartBaseKit/ThingSmartBaseKit.h>
+#import "ThingSmartDeviceModel+Outdoors.h"
+#import "ThingSmartDevice+Outdoors.h"
 #import "TYSmartOutdoorUtils.h"
 #import "TYSOHomePresenter+Network.h"
 #import "UIViewController+Outdoor.h"
 
 @interface TYSOHomePresenter ()
-<TuyaSmartDeviceDelegate,TuyaSmartHomeManagerDelegate>
+<ThingSmartDeviceDelegate,ThingSmartHomeManagerDelegate>
 
 @property (nonatomic, assign) NSInteger outdoorsDevCount;
 @property (nonatomic, assign) BOOL isFirst;
@@ -33,7 +33,7 @@
         self.isFirst = YES;
         self.device = nil;
         
-        _homeManager = [[TuyaSmartHomeManager alloc] init];
+        _homeManager = [[ThingSmartHomeManager alloc] init];
         _homeManager.delegate = self;
         [self loadSOHomeData];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(homeIdDidChanged:) name:@"kTYTPNotificationHomeIdDidChanged" object:nil];
@@ -48,9 +48,9 @@
     }else {
         self.outdoorsDevCount = [TYODDataManager outdoorsDeviceList].count;
     }
-    ty_weakify(self)
-    [self.homeManager getHomeListWithSuccess:^(NSArray<TuyaSmartHomeModel *> *homes) {
-        ty_strongify(self)
+    thing_weakify(self)
+    [self.homeManager getHomeListWithSuccess:^(NSArray<ThingSmartHomeModel *> *homes) {
+        thing_strongify(self)
         if (homes.count == 0) {
             [TYODProgressHUD dismiss];
             [self.homeManager addHomeWithName:@"home"
@@ -60,8 +60,8 @@
                                     longitude:0
                                       success:^(long long result)
             {
-                if ([TuyaSmartHome homeWithHomeId:result]) {
-                    [Home setCurrentHome:[TuyaSmartHome homeWithHomeId:result].homeModel];
+                if ([ThingSmartHome homeWithHomeId:result]) {
+                    [Home setCurrentHome:[ThingSmartHome homeWithHomeId:result].homeModel];
                 }
             } failure:^(NSError *error) {
                 
@@ -75,16 +75,16 @@
         [self requestViewDataAndResultDispose];
         [self fetchDeviceOTAInfoData];
     } failure:^(NSError *error) {
-        ty_strongify(self)
+        thing_strongify(self)
         self.isFirst = NO;
         [TYODProgressHUD dismiss];
     }];
 }
 
 - (void)requestViewDataAndResultDispose {
-    ty_weakify(self);
+    thing_weakify(self);
     [self requestViewDataWithCompletion:^{
-        ty_strongify(self)
+        thing_strongify(self)
         self.outdoorsDevCount = [TYODDataManager outdoorsDeviceList].count;
         [self.view reloadViewData];
         [TYODProgressHUD dismiss];
@@ -94,9 +94,9 @@
 
 - (void)reloadWithCompletion:(dispatch_block_t)completion {
     if (!self.isFirst) {
-        ty_weakify(self)
+        thing_weakify(self)
         [self requestViewDataWithCompletion:^{
-            ty_strongify(self)
+            thing_strongify(self)
             self.outdoorsDevCount = [TYODDataManager outdoorsDeviceList].count;
             if (completion) {
                 completion();
@@ -113,11 +113,11 @@
     [self.view reloadViewData];
 }
 
-- (TuyaSmartDevice *)currentDevice {
-    TuyaSmartDevice * device = self.device;
+- (ThingSmartDevice *)currentDevice {
+    ThingSmartDevice * device = self.device;
     if (device) {
         device.deviceModel.tyso_cyclingRecord = self.cyclingRecord[device.deviceModel.devId];
-        device.deviceModel.tyod_deviceIcon = [self.deviceIconList ty_stringForKey:device.deviceModel.productId];
+        device.deviceModel.tyod_deviceIcon = [self.deviceIconList thing_stringForKey:device.deviceModel.productId];
     }
     return device;
 }
@@ -144,7 +144,7 @@
 }
 
 - (BOOL)isOutdoorsHomeAndVisible {
-    TYAssertCond([self.view isKindOfClass:UIViewController.class]);
+    ThingAssertCond([self.view isKindOfClass:UIViewController.class]);
     UIViewController *topVC = TY_TopViewController();
     BOOL isHome = NO;
     if ([topVC.childViewControllers containsObject:(UIViewController *)self.view] || [topVC isEqual:self.view]) {
@@ -153,9 +153,9 @@
     return isHome && topVC.isTy_visible;
 }
 
-#pragma mark --- TuyaSmartHomeDelegate ----
-- (void)home:(TuyaSmartHome *)home didAddDeivice:(TuyaSmartDeviceModel *)device {
-    NSArray<TuyaSmartDeviceModel *> *devList = [TYODDataManager outdoorsDeviceList];
+#pragma mark --- ThingSmartHomeDelegate ----
+- (void)home:(ThingSmartHome *)home didAddDeivice:(ThingSmartDeviceModel *)device {
+    NSArray<ThingSmartDeviceModel *> *devList = [TYODDataManager outdoorsDeviceList];
     NSLog(@"add device name: %@ devID: %@", device.name, device.devId);
     if (self.outdoorsDevCount == devList.count) {
         return;
@@ -167,17 +167,17 @@
     [self fetchDeviceOTAInfoData];
 }
 
-#pragma mark --- TuyaSmartDeviceDelegate ---
-- (void)deviceInfoUpdate:(TuyaSmartDevice *)device {
+#pragma mark --- ThingSmartDeviceDelegate ---
+- (void)deviceInfoUpdate:(ThingSmartDevice *)device {
     [self.view reloadViewData];
     NSLog(@"%s", __FUNCTION__);
 }
 
-- (void)deviceOnlineUpdate:(TuyaSmartDevice *)device {
+- (void)deviceOnlineUpdate:(ThingSmartDevice *)device {
     [self.view reloadViewData];
 }
 
-- (void)deviceRemoved:(TuyaSmartDevice *)device {
+- (void)deviceRemoved:(ThingSmartDevice *)device {
     NSLog(@"%s: %@", __FUNCTION__, device.deviceModel.devId);
     self.device = nil;
     [TYODDataManager clearCurrentDevice];
@@ -185,12 +185,12 @@
     [self.view reloadViewData];
 }
 
-#pragma mark --- TuyaSmartHomeManagerDelegate ---
-- (void)homeManager:(TuyaSmartHomeManager *)manager didRemoveHome:(long long)homeId {
+#pragma mark --- ThingSmartHomeManagerDelegate ---
+- (void)homeManager:(ThingSmartHomeManager *)manager didRemoveHome:(long long)homeId {
 
 }
 
-- (void)homeManager:(TuyaSmartHomeManager *)manager didAddHome:(TuyaSmartHomeModel *)home {
+- (void)homeManager:(ThingSmartHomeManager *)manager didAddHome:(ThingSmartHomeModel *)home {
     [self loadSOHomeData];
 }
 
@@ -202,14 +202,14 @@
 }
 
 #pragma mark -- get ---
-- (TuyaSmartDevice *)device {
+- (ThingSmartDevice *)device {
     if (_device && _device.deviceModel == nil) {
         [TYODDataManager clearCurrentDevice];
         _device = nil;
     }
     if (!_device) {
         NSString *deviceID = TYODDataManager.currentDeviceID;
-        _device = [TuyaSmartDevice deviceWithDeviceId:deviceID];
+        _device = [ThingSmartDevice deviceWithDeviceId:deviceID];
         if (_device) {
             _device.delegate = self;
         }

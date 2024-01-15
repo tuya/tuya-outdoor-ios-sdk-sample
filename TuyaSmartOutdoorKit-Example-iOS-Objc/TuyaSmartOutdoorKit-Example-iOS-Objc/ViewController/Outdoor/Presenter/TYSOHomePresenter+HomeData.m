@@ -8,7 +8,7 @@
 
 @implementation TYSOHomePresenter (HomeData)
 
-- (NSString *)cellIdentifierWithSchemaModel:(TuyaSmartSchemaModel *)schema {
+- (NSString *)cellIdentifierWithSchemaModel:(ThingSmartSchemaModel *)schema {
     NSString *type = [schema.type isEqualToString:@"obj"] ? schema.property.type : schema.type;
     if ([type isEqualToString:@"bool"]) {
         return @"device-switch-cell";
@@ -27,7 +27,7 @@
     }
 }
 
-- (DeviceControlCellType)cellTypeWithSchemaModel:(TuyaSmartSchemaModel *)schema {
+- (DeviceControlCellType)cellTypeWithSchemaModel:(ThingSmartSchemaModel *)schema {
     NSString *type = [schema.type isEqualToString:@"obj"] ? schema.property.type : schema.type;
     if ([type isEqualToString:@"bool"]) {
         return DeviceControlCellTypeSwitchCell;

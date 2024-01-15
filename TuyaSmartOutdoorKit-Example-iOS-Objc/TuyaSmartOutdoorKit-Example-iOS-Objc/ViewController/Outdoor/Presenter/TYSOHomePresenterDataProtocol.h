@@ -8,11 +8,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class TuyaSmartDevice;
+@class ThingSmartDevice;
 @protocol TYSOHomePresenterDataProtocol <NSObject>
 
 - (void)reloadWithCompletion:(dispatch_block_t)completion;
-- (TuyaSmartDevice *)currentDevice;
+- (ThingSmartDevice *)currentDevice;
 - (void)clearCurrentDevice;
 
 @end
@@ -27,8 +27,8 @@ typedef NS_ENUM(NSInteger, DeviceControlCellType) {
 
 @protocol TYODHomePresenterViewProtocol <NSObject>
 
-- (NSString *)cellIdentifierWithSchemaModel:(TuyaSmartSchemaModel *)schema;
-- (DeviceControlCellType)cellTypeWithSchemaModel:(TuyaSmartSchemaModel *)schema;
+- (NSString *)cellIdentifierWithSchemaModel:(ThingSmartSchemaModel *)schema;
+- (DeviceControlCellType)cellTypeWithSchemaModel:(ThingSmartSchemaModel *)schema;
 
 @end
 

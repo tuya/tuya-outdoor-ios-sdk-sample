@@ -1,20 +1,20 @@
 //
-//  TuyaSmartDeviceModel+Outdoors.m
+//  ThingSmartDeviceModel+Outdoors.m
 //  TuyaSmartOutdoorKit-Example-iOS-Objc
 //
 //  Copyright (c) 2014-2021 Tuya Inc. (https://developer.tuya.com/)
 
-#import "TuyaSmartDeviceModel+Outdoors.h"
+#import "ThingSmartDeviceModel+Outdoors.h"
 #import <objc/runtime.h>
 
 static void *kTYSmartOutdoorsCyclingRecord  = &kTYSmartOutdoorsCyclingRecord;
 static void *KTYSmartOutdoorsDeviceIcon     = &KTYSmartOutdoorsDeviceIcon;
 
-@interface TuyaSmartDeviceModel ()
+@interface ThingSmartDeviceModel ()
 
 @end
 
-@implementation TuyaSmartDeviceModel (Outdoors)
+@implementation ThingSmartDeviceModel (Outdoors)
 
 - (void)setTyso_cyclingRecord:(NSDictionary *)tyso_cyclingRecord {
     objc_setAssociatedObject(self, kTYSmartOutdoorsCyclingRecord, tyso_cyclingRecord, OBJC_ASSOCIATION_COPY);
@@ -34,23 +34,23 @@ static void *KTYSmartOutdoorsDeviceIcon     = &KTYSmartOutdoorsDeviceIcon;
 
 
 - (BOOL)tyso_have_gps {
-    TuyaSmartSchemaModel *obj = [self tyod_schemaMWithCode:dpod_gps_signal_strength];
+    ThingSmartSchemaModel *obj = [self tsod_schemaMWithCode:dpod_gps_signal_strength];
     return obj ? YES : NO;
 }
 
 - (BOOL)tyso_fault_detection {
-    TuyaSmartSchemaModel *obj = [self tyod_schemaMWithCode:dpod_fault_detection];
+    ThingSmartSchemaModel *obj = [self tsod_schemaMWithCode:dpod_fault_detection];
     return obj ? YES : NO;
 }
 
 - (BOOL)tyso_battery_status {
-    TuyaSmartSchemaModel *obj = [self tyod_schemaMWithCode:dpod_battery_status];
+    ThingSmartSchemaModel *obj = [self tsod_schemaMWithCode:dpod_battery_status];
     return obj ? YES : NO;
 }
 
 - (BOOL)tyso_unlocked {
-    TuyaSmartSchemaModel *obj = [self tyod_schemaMWithCode:dpod_blelock_switch];
-    BOOL value = [obj.tyod_DPValue ty_bool];
+    ThingSmartSchemaModel *obj = [self tsod_schemaMWithCode:dpod_blelock_switch];
+    BOOL value = [obj.tsod_DPValue thing_bool];
     return value;
 }
 
@@ -73,14 +73,14 @@ static void *KTYSmartOutdoorsDeviceIcon     = &KTYSmartOutdoorsDeviceIcon;
 
 - (BOOL)isBLEOnline {
     BOOL status = NO;
-    if (self.onlineType & (TuyaSmartDeviceOnlineTypeBLE | TuyaSmartDeviceOnlineTypeMeshBLE)) {
+    if (self.onlineType & (ThingSmartDeviceOnlineTypeBLE | ThingSmartDeviceOnlineTypeMeshBLE)) {
         status = YES;
     }
     return status;
 }
 
 - (BOOL)isSingleBLEDevice {
-    BOOL status = TuyaSmartDeviceModelTypeBle == self.deviceType;
+    BOOL status = ThingSmartDeviceModelTypeBle == self.deviceType;
     return status;
 }
 
@@ -89,10 +89,10 @@ static void *KTYSmartOutdoorsDeviceIcon     = &KTYSmartOutdoorsDeviceIcon;
         return nil;
     }
     
-    TuyaSmartSchemaModel *schemeModel = [self tyod_schemaMWithCode:codeString];
-    id value = [self.dpsTime ty_safeObjectForKey:schemeModel.dpId];
+    ThingSmartSchemaModel *schemeModel = [self tsod_schemaMWithCode:codeString];
+    id value = [self.dpsTime thing_safeObjectForKey:schemeModel.dpId];
     if (value) {
-        return @([value ty_double]);
+        return @([value thing_double]);
     } else {
         return nil;
     }
@@ -102,11 +102,11 @@ static void *KTYSmartOutdoorsDeviceIcon     = &KTYSmartOutdoorsDeviceIcon;
     return [self mileageUnit:[self tyso_once_mileage]];
 }
 
-- (NSString *)mileageUnit:(TuyaSmartSchemaModel *)schemaModel {
+- (NSString *)mileageUnit:(ThingSmartSchemaModel *)schemaModel {
     NSString *unitStr = @"km";
-    TuyaSmartSchemaModel *unitModel = [self tyod_schemaMWithCode:dpod_unit_set];
+    ThingSmartSchemaModel *unitModel = [self tsod_schemaMWithCode:dpod_unit_set];
     if (unitModel) {
-        unitStr = [unitModel.tyod_DPValue ty_string];
+        unitStr = [unitModel.tsod_DPValue thing_string];
     } else if (schemaModel) {
         unitStr = schemaModel.property.unit;
     }

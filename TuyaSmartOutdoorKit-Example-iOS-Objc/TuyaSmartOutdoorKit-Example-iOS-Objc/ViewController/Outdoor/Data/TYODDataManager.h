@@ -13,15 +13,15 @@ UIKIT_EXTERN NSString *TYSOCurrentSelectedDeviceWillChange;
 // You can add some preprocessing here while currentDeviceId has changed
 UIKIT_EXTERN NSString *TYSOCurrentSelectedDeviceDidChange;
 
-@class TuyaSmartDeviceModel;
+@class ThingSmartDeviceModel;
 
 @interface TYODDataManager : NSObject
 
 @property (class, nonatomic, copy, nullable) NSString *currentDeviceID;
 
-+ (NSArray<TuyaSmartDeviceModel *> *)outdoorsDeviceList;
++ (NSArray<ThingSmartDeviceModel *> *)outdoorsDeviceList;
 
-+ (NSArray<TuyaSmartDeviceModel *> *)outdoorsSharedDeviceList;
++ (NSArray<ThingSmartDeviceModel *> *)outdoorsSharedDeviceList;
 
 + (BOOL)isSharedOutdoorsDeviceWithDeviceID:(NSString *)deviceID;
 

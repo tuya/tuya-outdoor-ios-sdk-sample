@@ -1,15 +1,15 @@
 //
-//  TuyaSmartDeviceModel+Outdoors.h
+//  ThingSmartDeviceModel+Outdoors.h
 //  TuyaSmartOutdoorKit-Example-iOS-Objc
 //
 //  Copyright (c) 2014-2021 Tuya Inc. (https://developer.tuya.com/)
 
-#import <TuyaSmartDeviceCoreKit/TuyaSmartDeviceCoreKit.h>
-#import "TuyaSmartDeviceModel+ODDpSchema.h"
+#import <ThingSmartDeviceCoreKit/ThingSmartDeviceCoreKit.h>
+#import "ThingSmartDeviceModel+ODDpSchema.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TuyaSmartDeviceModel (Outdoors)
+@interface ThingSmartDeviceModel (Outdoors)
 
 @property (nonatomic, copy, nullable) NSDictionary *tyso_cyclingRecord; // Cycle track
 @property (nonatomic, copy, nullable) NSString *tyod_deviceIcon; //Device icon
@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)isSingleBLEDevice;
 
 - (NSString *)mileageUnit;
-- (NSString *)mileageUnit:(TuyaSmartSchemaModel *)schemaModel;
+- (NSString *)mileageUnit:(ThingSmartSchemaModel *)schemaModel;
 
 @end
 

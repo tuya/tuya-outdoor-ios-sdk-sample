@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// Update dp multilingual application startup/add device call
 ///deviceModelAry Device list
-- (void)updateDpLanguageWithDeviceModelAry:(NSArray<TuyaSmartDeviceModel *> *)deviceModelAry
+- (void)updateDpLanguageWithDeviceModelAry:(NSArray<ThingSmartDeviceModel *> *)deviceModelAry
                                 completion:(void(^)(void))completion;
 
 

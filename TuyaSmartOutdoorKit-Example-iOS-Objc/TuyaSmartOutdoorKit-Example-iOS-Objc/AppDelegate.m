@@ -15,14 +15,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[TuyaSmartSDK sharedInstance] startWithAppKey:APP_KEY secretKey:APP_SECRET_KEY];
+    [[ThingSmartSDK sharedInstance] startWithAppKey:APP_KEY secretKey:APP_SECRET_KEY];
     
     // Enable debug mode, which allows you to see logs.
     #ifdef DEBUG
-    [[TuyaSmartSDK sharedInstance] setDebugMode:YES];
+    [[ThingSmartSDK sharedInstance] setDebugMode:YES];
     #endif
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    if ([TuyaSmartUser sharedInstance].isLogin) {
+    if ([ThingSmartUser sharedInstance].isLogin) {
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"TYSmartOutdoorMain" bundle:nil];
         UINavigationController *nav = [mainStoryboard instantiateInitialViewController];
         self.window.rootViewController = nav;

@@ -5,7 +5,7 @@
 //  Copyright (c) 2014-2021 Tuya Inc. (https://developer.tuya.com/)
 
 #import "TYODDPLanguageManager.h"
-#import <TuyaSmartLangsExtraBizBundle/TuyaSmartLangsManager.h>
+#import <ThingSmartLangsPackKit/ThingSmartLangsPackKit.h>
 
 static NSString * const KDpLocalDeviceLangsKey = @"KLocalDeviceLangsKey";
 
@@ -28,7 +28,7 @@ static NSString * const KDpLocalDeviceLangsKey = @"KLocalDeviceLangsKey";
 }
 
 ///Update DP multilanguage
-- (void)updateDpLanguageWithDeviceModelAry:(NSArray<TuyaSmartDeviceModel *> *)deviceModelAry
+- (void)updateDpLanguageWithDeviceModelAry:(NSArray<ThingSmartDeviceModel *> *)deviceModelAry
                                 completion:(void(^)(void))completion {
     if (deviceModelAry.count < 1) {
         if (completion) {
@@ -36,10 +36,10 @@ static NSString * const KDpLocalDeviceLangsKey = @"KLocalDeviceLangsKey";
         }
         return;
     }
-    __block NSMutableArray<TuyaSmartDeviceModel *> *mArr = [NSMutableArray array];
+    __block NSMutableArray<ThingSmartDeviceModel *> *mArr = [NSMutableArray array];
     __block NSMutableArray<NSString *> *mPIDArr = [NSMutableArray array];
     //Language pack download - Shared Device + My device
-    [deviceModelAry enumerateObjectsUsingBlock:^(TuyaSmartDeviceModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [deviceModelAry enumerateObjectsUsingBlock:^(ThingSmartDeviceModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj.productId.length > 0 && ![mPIDArr containsObject:obj.productId]) {
             [mArr addObject:obj];
             [mPIDArr addObject:obj.productId];
@@ -54,26 +54,20 @@ static NSString * const KDpLocalDeviceLangsKey = @"KLocalDeviceLangsKey";
         }
         return;
     }
-    ty_weakify(self);
+    thing_weakify(self);
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-        NSString *langu = TY_SystemLanguage();
-        for (TuyaSmartDeviceModel *deviceModel in mArr) {
-            [[TuyaSmartLangsManager sharedInstance] getProductLangWithProductId:deviceModel.productId
-                                                                       i18nTime:deviceModel.i18nTime
-                                                                   successBlock:^(NSDictionary * _Nonnull langsDic)
-            {
-                ty_strongify(self);
-                NSDictionary<NSString *,NSString *> *la = [langsDic ty_dictionaryForKey:@"en"];
-                if ([[langsDic allKeys] containsObject:langu]) {
-                    la = langsDic[langu];
+        NSString *langu = Thing_SystemLanguage();
+        for (ThingSmartDeviceModel *deviceModel in mArr) {
+            [[ThingSmartLangsPackDownloader downloader] downloadLangsPackWithProductID:deviceModel.productId i18nTime:deviceModel.i18nTime callbackQueue:dispatch_get_global_queue(0, 0) completeBlock:^(NSDictionary<NSString *,NSDictionary<NSString *,NSString *> *> * _Nullable langsPack, NSError * _Nullable error) {
+                thing_strongify(self);
+                NSDictionary<NSString *,NSString *> *la = [langsPack thing_dictionaryForKey:@"en"];
+                if ([[langsPack allKeys] containsObject:langu]) {
+                    la = langsPack[langu];
                 }
                 if (la) { //fix
                     [self setLang:la PID:deviceModel.productId];
                 }
-                dispatch_semaphore_signal(semaphore);
-                
-            } failBlock:^(NSError * _Nonnull error) {
                 dispatch_semaphore_signal(semaphore);
             }];
             dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
@@ -86,13 +80,13 @@ static NSString * const KDpLocalDeviceLangsKey = @"KLocalDeviceLangsKey";
 
 ///Gets multiple languages for the current device
 - (NSMutableDictionary *)getDeviceDPLanguageWithPID:(NSString *)PID; {
-    return [self.dpLanguageDictionary ty_safeObjectForKey:PID];
+    return [self.dpLanguageDictionary thing_safeObjectForKey:PID];
 }
 
 ///Save the multilingual copy of the obtained product in memory
 - (void)setLang:(NSDictionary *)lang PID:(NSString *)PID {
-    [self.dpLanguageDictionary ty_safeSetObject:lang forKey:PID];///memory
-    [self.dpTempLanguageDic ty_safeSetObject:lang forKey:PID];///temporary
+    [self.dpLanguageDictionary thing_safeSetObject:lang forKey:PID];///memory
+    [self.dpTempLanguageDic thing_safeSetObject:lang forKey:PID];///temporary
     [self synchronousDPLangs:self.dpLanguageDictionary]; ///Save to a local directory
 }
 
@@ -133,22 +127,22 @@ static NSString * const KDpLocalDeviceLangsKey = @"KLocalDeviceLangsKey";
 @implementation NSString (TYSmartOutdoor)
 
 - (NSString *)tyod_dp_localized {
-    TuyaSmartDeviceModel *deviceModel = [TuyaSmartDevice deviceWithDeviceId:TYODDataManager.currentDeviceID].deviceModel;
+    ThingSmartDeviceModel *deviceModel = [ThingSmartDevice deviceWithDeviceId:TYODDataManager.currentDeviceID].deviceModel;
     NSDictionary *dic = [[TYODDPLanguageManager sharedInstance] getDeviceDPLanguageWithPID:deviceModel.productId];
-    NSString *str = [dic ty_safeObjectForKey:self];
+    NSString *str = [dic thing_safeObjectForKey:self];
     return str;
 }
 
 - (NSString *)tyod_dp_localizedWithPID:(NSString *)PID {
     NSDictionary *dic = [[TYODDPLanguageManager sharedInstance] getDeviceDPLanguageWithPID:PID];
-    NSString *str = [dic ty_safeObjectForKey:self];
+    NSString *str = [dic thing_safeObjectForKey:self];
     return str;
 }
 
 - (NSString *)tyod_dp_localizedWithDefault:(NSString *)defaultString {
-    TuyaSmartDeviceModel *deviceModel = [TuyaSmartDevice deviceWithDeviceId:TYODDataManager.currentDeviceID].deviceModel;
+    ThingSmartDeviceModel *deviceModel = [ThingSmartDevice deviceWithDeviceId:TYODDataManager.currentDeviceID].deviceModel;
     NSDictionary *dic = [[TYODDPLanguageManager sharedInstance] getDeviceDPLanguageWithPID:deviceModel.productId];
-    NSString *str = [dic ty_safeObjectForKey:self];
+    NSString *str = [dic thing_safeObjectForKey:self];
     if (!str) {
         str = defaultString;
     }

@@ -10,8 +10,8 @@
 
 @interface TYODDeviceListTableViewController ()
 
-@property (nonatomic, strong) NSMutableArray<TuyaSmartDeviceModel *> *deviceList;
-@property (nonatomic, strong) NSMutableArray<TuyaSmartDeviceModel *> *sharedDeviceList;
+@property (nonatomic, strong) NSMutableArray<ThingSmartDeviceModel *> *deviceList;
+@property (nonatomic, strong) NSMutableArray<ThingSmartDeviceModel *> *sharedDeviceList;
 
 @end
 
@@ -37,11 +37,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TYODDeviceListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TYODDeviceListTableViewCell"
                                                                         forIndexPath:indexPath];
-    TuyaSmartDeviceModel *deviceModel;
+    ThingSmartDeviceModel *deviceModel;
     if (indexPath.section == 0) {
-        deviceModel = [self.deviceList ty_safeObjectAtIndex:indexPath.row];
+        deviceModel = [self.deviceList thing_safeObjectAtIndex:indexPath.row];
     }else{
-        deviceModel = [self.sharedDeviceList ty_safeObjectAtIndex:indexPath.row];
+        deviceModel = [self.sharedDeviceList thing_safeObjectAtIndex:indexPath.row];
     }
     cell.deviceModel = deviceModel;
     if ([deviceModel.devId isEqualToString:[TYODDataManager currentDeviceID]]) {
@@ -53,11 +53,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    TuyaSmartDeviceModel *deviceModel;
+    ThingSmartDeviceModel *deviceModel;
     if (indexPath.section == 0) {
-        deviceModel = [self.deviceList ty_safeObjectAtIndex:indexPath.row];
+        deviceModel = [self.deviceList thing_safeObjectAtIndex:indexPath.row];
     }else{
-        deviceModel = [self.sharedDeviceList ty_safeObjectAtIndex:indexPath.row];
+        deviceModel = [self.sharedDeviceList thing_safeObjectAtIndex:indexPath.row];
     }
     [TYODDataManager clearCurrentDevice];
     TYODDataManager.currentDeviceID = deviceModel.devId;
@@ -73,7 +73,7 @@
     }
 }
 
-- (NSMutableArray<TuyaSmartDeviceModel *> *)deviceList {
+- (NSMutableArray<ThingSmartDeviceModel *> *)deviceList {
     if (!_deviceList) {
         _deviceList = [NSMutableArray array];
         [_deviceList addObjectsFromArray:[TYODDataManager outdoorsDeviceList]];
@@ -81,7 +81,7 @@
     return _deviceList;
 }
 
-- (NSMutableArray<TuyaSmartDeviceModel *> *)sharedDeviceList {
+- (NSMutableArray<ThingSmartDeviceModel *> *)sharedDeviceList {
     if (!_sharedDeviceList) {
         _sharedDeviceList = [NSMutableArray array];
         [_sharedDeviceList addObjectsFromArray:[TYODDataManager outdoorsSharedDeviceList]];

@@ -7,10 +7,10 @@
 #import "SIGMeshTableViewController.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 
-@interface SIGMeshTableViewController ()<TuyaSmartSIGMeshManagerDelegate>
+@interface SIGMeshTableViewController ()<ThingSmartSIGMeshManagerDelegate>
 
 @property (nonatomic, assign) BOOL isSuccess;
-@property (nonatomic, strong) NSMutableArray<TuyaSmartSIGMeshDiscoverDeviceInfo *> *dataSource;
+@property (nonatomic, strong) NSMutableArray<ThingSmartSIGMeshDiscoverDeviceInfo *> *dataSource;
 
 @end
 
@@ -31,28 +31,28 @@
     if (!self.isSuccess) {
         [SVProgressHUD dismiss];
     }
-    [TuyaSmartSIGMeshManager.sharedInstance stopActiveDevice];
-    [TuyaSmartSIGMeshManager.sharedInstance stopSerachDevice];
-    TuyaSmartSIGMeshManager.sharedInstance.delegate = nil;
+    [ThingSmartSIGMeshManager.sharedInstance stopActiveDevice];
+    [ThingSmartSIGMeshManager.sharedInstance stopSerachDevice];
+    ThingSmartSIGMeshManager.sharedInstance.delegate = nil;
 }
 
 - (IBAction)searchClicked:(id)sender {
     long long homeId = [Home getCurrentHome].homeId;
-    TuyaSmartBleMeshModel *model = [TuyaSmartHome homeWithHomeId:homeId].sigMeshModel;
+    ThingSmartBleMeshModel *model = [ThingSmartHome homeWithHomeId:homeId].sigMeshModel;
     
     if (model == nil) {
         [SVProgressHUD show];
-        [TuyaSmartBleMesh createSIGMeshWithHomeId:homeId success:^(TuyaSmartBleMeshModel * _Nonnull meshModel) {
-            [TuyaSmartSIGMeshManager.sharedInstance startScanWithScanType:ScanForUnprovision meshModel:meshModel];
-            TuyaSmartSIGMeshManager.sharedInstance.delegate = self;
+        [ThingSmartBleMesh createSIGMeshWithHomeId:homeId success:^(ThingSmartBleMeshModel * _Nonnull meshModel) {
+            [ThingSmartSIGMeshManager.sharedInstance startScanWithScanType:ScanForUnprovision meshModel:meshModel];
+            ThingSmartSIGMeshManager.sharedInstance.delegate = self;
         } failure:^(NSError *error) {
             [SVProgressHUD dismiss];
         }];
         return;
     }
     
-    [TuyaSmartSIGMeshManager.sharedInstance startScanWithScanType:ScanForUnprovision meshModel:model];
-    TuyaSmartSIGMeshManager.sharedInstance.delegate = self;
+    [ThingSmartSIGMeshManager.sharedInstance startScanWithScanType:ScanForUnprovision meshModel:model];
+    ThingSmartSIGMeshManager.sharedInstance.delegate = self;
 }
 
 - (NSMutableArray *)dataSource{
@@ -70,29 +70,29 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SIGMeshCellID" forIndexPath:indexPath];
-    TuyaSmartSIGMeshDiscoverDeviceInfo *info = self.dataSource[indexPath.row];
+    ThingSmartSIGMeshDiscoverDeviceInfo *info = self.dataSource[indexPath.row];
     cell.textLabel.text = info.mac;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     long long homeId = [Home getCurrentHome].homeId;
-    TuyaSmartBleMeshModel *model = [TuyaSmartHome homeWithHomeId:homeId].sigMeshModel;
+    ThingSmartBleMeshModel *model = [ThingSmartHome homeWithHomeId:homeId].sigMeshModel;
     [SVProgressHUD showWithStatus:NSLocalizedString(@"Configuring", @"")];
-    [TuyaSmartSIGMeshManager.sharedInstance startActive:self.dataSource meshModel:model];
+    [ThingSmartSIGMeshManager.sharedInstance startActive:self.dataSource meshModel:model];
 }
 
-#pragma mark - TuyaSmartSIGMeshManagerDelegate
+#pragma mark - ThingSmartSIGMeshManagerDelegate
 
-- (void)sigMeshManager:(TuyaSmartSIGMeshManager *)manager didScanedDevice:(TuyaSmartSIGMeshDiscoverDeviceInfo *)device{
+- (void)sigMeshManager:(ThingSmartSIGMeshManager *)manager didScanedDevice:(ThingSmartSIGMeshDiscoverDeviceInfo *)device{
     [self.dataSource addObject:device];
     [self.tableView reloadData];
 }
 
-- (void)sigMeshManager:(TuyaSmartSIGMeshManager *)manager didActiveSubDevice:(TuyaSmartSIGMeshDiscoverDeviceInfo *)device devId:(NSString *)devId error:(NSError *)error{
+- (void)sigMeshManager:(ThingSmartSIGMeshManager *)manager didActiveSubDevice:(ThingSmartSIGMeshDiscoverDeviceInfo *)device devId:(NSString *)devId error:(NSError *)error{
     long long homeId = [Home getCurrentHome].homeId;
-    TuyaSmartBleMeshModel *model = [TuyaSmartHome homeWithHomeId:homeId].sigMeshModel;
-    [TuyaSmartSIGMeshManager.sharedInstance startScanWithScanType:ScanForProxyed meshModel:model];
+    ThingSmartBleMeshModel *model = [ThingSmartHome homeWithHomeId:homeId].sigMeshModel;
+    [ThingSmartSIGMeshManager.sharedInstance startScanWithScanType:ScanForProxyed meshModel:model];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [SVProgressHUD showWithStatus:NSLocalizedString(@"Configuring", @"")];
         self.isSuccess = YES;
@@ -102,7 +102,7 @@
     });
 }
 
-- (void)sigMeshManager:(TuyaSmartSIGMeshManager *)manager didFailToActiveDevice:(TuyaSmartSIGMeshDiscoverDeviceInfo *)device error:(NSError *)error{
+- (void)sigMeshManager:(ThingSmartSIGMeshManager *)manager didFailToActiveDevice:(ThingSmartSIGMeshDiscoverDeviceInfo *)device error:(NSError *)error{
     [SVProgressHUD showErrorWithStatus:error.localizedDescription ?: NSLocalizedString(@"Failed to configuration", "")];
 }
 

@@ -80,9 +80,7 @@ NSString * const dpod_energy_recovery_level = @"energy_recovery_level";
 NSString * const dpod_anti_thef_sensitivity = @"anti_thef_sensitivity";
 NSString * const dpod_search                = @"search";
 NSString * const dpod_bucket_lock           = @"bucket_lock";
-NSString * const dpod_auto_lock             = @"auto_lock";
 NSString * const dpod_auto_unlock_distance  = @"auto_unlock_distance";
-NSString * const dpod_auto_unlock           = @"auto_unlock";
 NSString * const dpod_signal_strength       = @"signal_strength";
 NSString * const dpod_gps_signal_strength   = @"gps_signal_strength";
 NSString * const dpod_4g_signal_strength    = @"4g_signal_strength";
@@ -110,7 +108,6 @@ NSString * const dpod_central_battery_pct   = @"central_battery_pct";
 
 NSString * const dpod_navigation_data       = @"navigation_data";
 NSString * const dpod_geofence_switch       = @"geofence_switch";
-NSString * const dpod_hid_bind              = @"hid_bind";
 NSString * const dpod_tail_box_lock         = @"tail_box_lock";
 
 NSString * const dpod_bms_chartime   = @"bms_chartime";
@@ -125,8 +122,6 @@ NSString * const dpod_dashboard_info = @"dashboard_info";
 NSString * const dpod_ecu_info       = @"ecu_info";
 NSString * const dpod_remote_pair    = @"remote_pair";
 
-NSString * const dpod_fortify_distance_record = @"fortify_distance_record";
-NSString * const dpod_disarm_distance_record  = @"disarm_distance_record";
 NSString * const dpod_auto_lock_distance    = @"auto_lock_distance";
 NSString * const dpod_nfc_id_sync           = @"nfc_id_sync";
 NSString * const dpod_nfc_id_input          = @"nfc_id_input";
