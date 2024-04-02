@@ -188,6 +188,16 @@
             }];
         }
             break;
+        case 7: {
+            [TSODValueAddedServicesService fetchValueAddedServicesWithDevID:devId success:^(TSODValueAddedServicesModel * _Nonnull valueAddedServicesModel) {
+                self.textView.text = [valueAddedServicesModel yy_modelToJSONString];
+                [TYODProgressHUD showSuccessWithStatus:self.textView.text];
+            } failure:^(NSError *error) {
+                self.textView.text = error.localizedDescription;
+                [TYODProgressHUD showErrorWithStatus:self.textView.text];
+            }];
+        }
+            break;
         default:
             break;
     }
@@ -196,7 +206,7 @@
 
 - (NSMutableArray *)listAry {
     if (!_listAry) {
-        _listAry = [NSMutableArray arrayWithObjects:@"request product icon",@"request hardware info",@"request track record list",@"request track statistic",@"update cycling info for track record",@"request store with radius",@"request store with keyword", nil];
+        _listAry = [NSMutableArray arrayWithObjects:@"request product icon",@"request hardware info",@"request track record list",@"request track statistic",@"update cycling info for track record",@"request store with radius",@"request store with keyword", @"request Value-added services", nil];
     }
     return _listAry;
 }

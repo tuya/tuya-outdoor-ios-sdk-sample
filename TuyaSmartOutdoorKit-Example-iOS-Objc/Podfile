@@ -1,4 +1,5 @@
 source 'https://cdn.cocoapods.org/'
+source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/tuya/TuyaPublicSpecs.git'
 source 'https://github.com/tuya/tuya-pod-specs.git'
 
@@ -14,7 +15,7 @@ target 'TuyaSmartOutdoorKit-Example-iOS-Objc' do
   pod 'ThingSmartLangsPackKit'
   pod 'ThingFoundationKit'
   #outdoor
-  pod 'ThingSmartOutdoorKit', '~> 5.2.0'
+  pod 'ThingSmartOutdoorKit', '~> 5.3.0'
 
 end
 
@@ -27,7 +28,7 @@ post_install do |installer|
       config.build_settings['CLANG_WARN_DOCUMENTATION_COMMENTS'] = 'NO'
       # iOS 模拟器去除 arm64
       config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
-                  # Xcode 14 编译问题
+      # Xcode 14 编译问题
       config.build_settings["DEVELOPMENT_TEAM"] = "DWPHVGUZ22"
       # Xcode 14 编译问题
       config.build_settings['ENABLE_BITCODE'] = 'NO'

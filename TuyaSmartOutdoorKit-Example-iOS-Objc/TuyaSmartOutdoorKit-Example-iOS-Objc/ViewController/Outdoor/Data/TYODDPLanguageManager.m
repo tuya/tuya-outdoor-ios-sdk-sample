@@ -59,7 +59,7 @@ static NSString * const KDpLocalDeviceLangsKey = @"KLocalDeviceLangsKey";
         dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
         NSString *langu = Thing_SystemLanguage();
         for (ThingSmartDeviceModel *deviceModel in mArr) {
-            [[ThingSmartLangsPackDownloader downloader] downloadLangsPackWithProductID:deviceModel.productId i18nTime:deviceModel.i18nTime callbackQueue:dispatch_get_global_queue(0, 0) completeBlock:^(NSDictionary<NSString *,NSDictionary<NSString *,NSString *> *> * _Nullable langsPack, NSError * _Nullable error) {
+            [[ThingSmartLangsPackDownloader downloader] downloadLangsPackWithProductID:deviceModel.parentId productVer:deviceModel.productVer i18nTime:deviceModel.i18nTime callbackQueue:dispatch_get_global_queue(0, 0) completeBlock:^(NSDictionary<NSString *,NSDictionary<NSString *,NSString *> *> * _Nullable langsPack, NSError * _Nullable error) {
                 thing_strongify(self);
                 NSDictionary<NSString *,NSString *> *la = [langsPack thing_dictionaryForKey:@"en"];
                 if ([[langsPack allKeys] containsObject:langu]) {
